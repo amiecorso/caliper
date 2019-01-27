@@ -24,16 +24,16 @@ from setuptools import setup, find_packages
 data_files = []
 
 if os.path.exists("/etc/default"):
-    data_files.append(('/etc/default', ['packaging/systemd/sawtooth-simple-tp-python']))
+    data_files.append(('/etc/default', ['packaging/systemd/sawtooth-do-nothing-tp-python']))
 
 if os.path.exists("/lib/systemd/system"):
     data_files.append(('/lib/systemd/system',
-                       ['packaging/systemd/sawtooth-simple-tp-python.service']))
+                       ['packaging/systemd/sawtooth-do-nothing-tp-python.service']))
 
-setup(name='sawtooth-simple',
+setup(name='sawtooth-do-nothing',
       version=subprocess.check_output(
           ['../../../bin/get_version']).decode('utf-8').strip(),
-      description='Sawtooth Simple Python Example',
+      description='Sawtooth Do Nothing Python Example',
       author='Hyperledger Caliper',
       url='https://github.com/hyperledger/sawtooth-core',
       packages=find_packages(),
@@ -46,6 +46,6 @@ setup(name='sawtooth-simple',
       data_files=data_files,
       entry_points={
           'console_scripts': [
-              'simple-tp-python = sawtooth_simple.processor.main:main'
+              'do-nothing-tp-python = sawtooth_do_nothing.processor.main:main'
           ]
       })
