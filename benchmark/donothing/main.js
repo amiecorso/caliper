@@ -1,8 +1,7 @@
 /**
-* Copyright 2017 HUAWEI. All Rights Reserved.
-*
-* SPDX-License-Identifier: Apache-2.0
-*
+* main.js for donothing benchmark 
+* based on main.js for simple benchmark
+* identical except path for logger has been updated
 */
 
 
@@ -41,7 +40,7 @@ function main() {
 
     const path = require('path');
     const fs = require('fs-extra');
-    let logger = Util.getLogger('benchmark/simple/main.js');
+    let logger = Util.getLogger('benchmark/donothing/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
         absConfigFile = path.join(__dirname, 'config-linear-rate.yaml');

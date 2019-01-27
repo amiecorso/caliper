@@ -12,7 +12,7 @@ const BatchBuilder = require('./BatchBuilder.js');
  * BatchBuilder for simple use case and it use case specific logic to
  * buildBatch and calculateAddress
  */
-class SimpleBatchBuilder extends BatchBuilder {
+class DoNothingBatchBuilder extends BatchBuilder {
 
     /**
      * Constructor
@@ -41,12 +41,12 @@ class SimpleBatchBuilder extends BatchBuilder {
 
         let transactions = [];
         for(let i = 0; i < args.length; i++) {
-            const addr = args[i].account;
-            const address = this.calculateAddress(addr);
+            const addr = 1; //use 1 for everything (dummy)
+            const address = this.calculateAddress(addr); //this gets us something with the valid family prefix
             const addresses = [address];
-
+            */
             const cbor = require('cbor');
-            const payloadBytes = cbor.encode(args[i]);
+            const payloadBytes = cbor.encode(args[i]); // encode whatever's in the arglist
 
             const transactionHeaderBytes = protobuf.TransactionHeader.encode({
                 familyName: this.familyName,
@@ -101,4 +101,4 @@ class SimpleBatchBuilder extends BatchBuilder {
         return address;
     }
 }
-module.exports = SimpleBatchBuilder;
+module.exports = DoNothingBatchBuilder;
