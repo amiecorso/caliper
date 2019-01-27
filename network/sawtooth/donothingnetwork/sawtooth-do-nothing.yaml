@@ -14,7 +14,7 @@ services:
     entrypoint: settings-tp -vv -C tcp://validator:4004
     stop_signal: SIGKILL
 
-  simple-tp-python:
+  do-nothing-tp-python:
     container_name: sawtooth-do-nothing-tp-python-default
     build:
       context: .
