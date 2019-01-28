@@ -8,11 +8,11 @@ test:
   rounds:
   - label: only_round
     txNumber:
-    - 5
+    - 5 
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 100
+        tps: 10
     arguments:
       txnPerBatch: 10
     callback: benchmark/donothing/donothing_callback.js

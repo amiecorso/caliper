@@ -41,10 +41,10 @@ class DoNothingBatchBuilder extends BatchBuilder {
 
         let transactions = [];
         for(let i = 0; i < args.length; i++) {
-            const addr = 1; //use 1 for everything (dummy)
-            const address = this.calculateAddress(addr); //this gets us something with the valid family prefix
+            const addr = args[i].account;
+            const address = this.calculateAddress(addr); 
             const addresses = [address];
-            */
+
             const cbor = require('cbor');
             const payloadBytes = cbor.encode(args[i]); // encode whatever's in the arglist
 

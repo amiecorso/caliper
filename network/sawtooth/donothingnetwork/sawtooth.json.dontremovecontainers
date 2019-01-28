@@ -3,7 +3,7 @@
     "blockchain": "sawtooth",
     "command" : {
       "start": "docker-compose -f network/sawtooth/donothingnetwork/sawtooth-do-nothing.yaml up -d",
-      "end" : "docker-compose -f network/sawtooth/donothingnetwork/sawtooth-do-nothing.yaml down;docker rm $(docker ps -aq)"
+      "end" : "" 
     }
   },
   "sawtooth": {

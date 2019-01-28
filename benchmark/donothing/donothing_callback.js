@@ -9,7 +9,7 @@
 
 module.exports.info  = 'doing nothing';
 
-//let account_array = [];
+let account_array = [];
 let txnPerBatch;
 //let initMoney;
 let bc, contx;
@@ -64,16 +64,11 @@ function generateAccount() {
 function generateWorkload() {
     let workload = [];
     for(let i= 0; i < txnPerBatch; i++) {
-        /*
         let acc_id = generateAccount();
         account_array.push(acc_id);
         let acc = {
-            'verb': 'open',
             'account': acc_id,
-            'money': initMoney
         };
-        */
-        let acc = {'utter':'nonsense'};
         workload.push(acc);
     }
     return workload;
@@ -81,11 +76,11 @@ function generateWorkload() {
 
 module.exports.run = function() {
     let args = generateWorkload();
-    return bc.invokeSmartContract(contx, 'do_nothing', 'v0', args, 100);
+    return bc.invokeSmartContract(contx, 'donothing', '1.0', args, 100);
 };
 
 module.exports.end = function() {
     return Promise.resolve();
 };
 
-//module.exports.account_array = account_array;
+module.exports.account_array = account_array;
