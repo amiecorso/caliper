@@ -22,7 +22,7 @@ MIN_VALUE = 0
 MAX_VALUE = 4294967295
 MAX_NAME_LENGTH = 20
 '''
-FAMILY_NAME = 'do_nothing'
+FAMILY_NAME = 'donothing'
 
 SIMPLE_ADDRESS_PREFIX = hashlib.sha512(
     FAMILY_NAME.encode('utf-8')).hexdigest()[0:6]
