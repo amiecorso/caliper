@@ -12,7 +12,7 @@ from sawtooth_sdk.processor.log import init_console_logging
 from sawtooth_sdk.processor.log import log_configuration
 from sawtooth_sdk.processor.config import get_log_config
 from sawtooth_sdk.processor.config import get_log_dir
-from sawtooth_simple.processor.handler import DoNothingTransactionHandler
+from sawtooth_do_nothing.processor.handler import DoNothingTransactionHandler
 
 
 DISTRIBUTION_NAME = 'sawtooth-do_nothing'
@@ -51,11 +51,11 @@ def main(args=None):
     processor = None
     try:
         processor = TransactionProcessor(url=opts.connect)
-        # log_config = get_log_config(filename="simple_log_config.toml")
+        # log_config = get_log_config(filename="donothing_log_config.toml")
         #
         # # If no toml, try loading yaml
         # if log_config is None:
-        #     log_config = get_log_config(filename="simple_log_config.yaml")
+        #     log_config = get_log_config(filename="donothing_log_config.yaml")
         # 
         # if log_config is not None:
         #     log_configuration(log_config=log_config)
@@ -64,7 +64,7 @@ def main(args=None):
         #     # use the transaction processor zmq identity for filename
         #     log_configuration(
         #         log_dir=log_dir,
-        #         name="simple-" + str(processor.zmq_id)[2:-1])
+        #         name="-" + str(processor.zmq_id)[2:-1])
         #
         # init_console_logging(verbose_level=opts.verbose)
 
