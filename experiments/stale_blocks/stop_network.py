@@ -1,8 +1,9 @@
 # Start small test network, deliver several IntKey transactions.
 import subprocess
 
-COMPOSE_FILE = "sawtooth-default.yaml"
-REST_URL = "http://sawtooth-rest-api-default:8008"
+#COMPOSE_FILE = "sawtooth-default.yaml"
+COMPOSE_FILE = "sawtooth-multi-poet.yaml"
+#REST_URL = "http://sawtooth-rest-api-default:8008"
 
 COMPOSE_COMMAND = "docker-compose -f " + COMPOSE_FILE + " down"
 

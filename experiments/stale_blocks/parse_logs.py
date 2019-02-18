@@ -34,7 +34,7 @@ for line in output_lines:
 
 num_blocks_longest_chain = len(output_lines) - 3 # <-- this 3 accounts for the header in the sawtooth block list command and the genesis block
 
-stale_block_rate = (num_blocks_longest_chain - total_blocks) / total_blocks
+stale_block_rate = (total_blocks - num_blocks_longest_chain) / total_blocks
 
 print("Stale block rate: ", stale_block_rate)
 
