@@ -1,18 +1,27 @@
-# Comb logs for all validators in network
+#Comb logs for all validators in network
 
 import docker
 import time
+import argparse
 
-NUM_VALIDATORS = 5 # turn this into a command-line option?  Have it detected automatically?
-REST_URL = "http://sawtooth-rest-api-default-0:8008"
+parser = argparse.ArgumentParser(description="Parse validator logs for stale block rate")
+parser.add_argument('--n', default=1, type=int)
+parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/results/')
+parser.add_argument('--rest_url', default='http://sawtooth-rest-api-default:8008') # defaults to size 1 network
+parser.add_argument('--val_name', default ='sawtooth-validator-default') # default to size 1 network
+parser.add_argument('--shell_name', default='sawtooth-shell-default')
+args = parser.parse_args()
+
+output_file = args.dest + str(args.n) + "_stale.csv"
 
 docker_client = docker.from_env()
 
 unique_blocks = set() # keep track of all valid blocks that have been seen by any validator
 
-for i in range(NUM_VALIDATORS):
-    val = docker_client.containers.get("sawtooth-validator-default-" + str(i)) 
+for i in range(args.n):
+    val = docker_client.containers.get(args.val_name + "-" + str(i)) 
     log = val.logs().decode('utf-8')
+    print("LOG: ", log)
     splitlog = log.split("\n")
     for line in splitlog: 
         if "passed validation" in line:
@@ -24,19 +33,25 @@ for i in range(NUM_VALIDATORS):
 total_blocks = len(unique_blocks)
 
 # now, find out which blocks have been committed to the official chain:
-shell = docker_client.containers.get("sawtooth-shell-default")
-output = shell.exec_run("sawtooth block list --url " + REST_URL)
+shell = docker_client.containers.get(args.shell_name)
+output = shell.exec_run("sawtooth block list --url " + args.rest_url)
 print(output[1].decode('utf-8'))
 output_lines = output[1].decode('utf-8').split("\n")
-
+'''
 for line in output_lines:
     print(line)
-
+'''
 num_blocks_longest_chain = len(output_lines) - 3 # <-- this 3 accounts for the header in the sawtooth block list command and the genesis block
 
-stale_block_rate = (total_blocks - num_blocks_longest_chain) / total_blocks
+if not total_blocks:
+    print("Error: failed to find any blocks while parsing validator logs")
+    stale_block_rate = "error - found no blocks while parsing logs"
+else:
+    stale_block_rate = (total_blocks - num_blocks_longest_chain) / total_blocks
 
 print("Stale block rate: ", stale_block_rate)
+with open(output_file, 'w') as f:
+    f.write(str(stale_block_rate))
 
 # don't seem to need this but not sure why
 #docker_client.close()

@@ -1,0 +1,24 @@
+{
+  "caliper":{
+    "blockchain": "sawtooth",
+    "command" : {
+      "start": "docker-compose -f ~/caliper/experiments/poet_prototest/compose_files/poet-do-nothing.yaml up -d",
+      "end" : "~/caliper/experiments/poet_prototest/end_tasks.sh"
+    }
+  },
+  "sawtooth": {
+    "batchBuilders": {
+      "donothing": {
+        "1.0": "src/adapters/sawtooth/Application/DoNothingBatchBuilder.js"
+      }
+    },
+    "network": {
+      "restapi": {
+        "urls": ["http://127.0.0.1:8008"]
+      },
+      "validator": {
+        "url": "tcp://127.0.0.1:4004"
+      }
+    }
+  }
+}

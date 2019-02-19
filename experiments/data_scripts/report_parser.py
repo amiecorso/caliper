@@ -3,16 +3,21 @@
 from bs4 import BeautifulSoup
 import argparse
 import os
+import csv
 
 parser = argparse.ArgumentParser(description="Parse HTML reports")
-parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest')
-parser.add_argument('--dest', default='home/amie/caliper/experiments/prototest/results/')
-parser.add_argument('--netsize', default=1)
+parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
+parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/results/')
+parser.add_argument('--n', default=1)
 args = parser.parse_args()
 
-print(args)
 
-output_file = args.dest + "summary_" + args.netsize + ".csv"
+performance_output = args.dest + str(args.n) + "_performance.csv"
+resource_output = args.dest + str(args.n) + "_resource.csv"
+
+archival_reports = args.reportpath + "arch_reports/"
+if not os.path.isdir(archival_reports):
+    os.mkdir(archival_reports)
 
 data = {}
 for filename in os.listdir(args.reportpath):
@@ -30,16 +35,29 @@ for filename in os.listdir(args.reportpath):
                 cols = row.find_all("td")
                 cols = [ele.text.strip() for ele in cols]
                 if headers:
-                    print("got a header row")
                     tabledata.append(headers)
                 if cols:
-                    print("got a cols row")
                     tabledata.append(cols)
             data[i] = tabledata
             i += 1
         
         htmlfile.close()
+        # put the report file in archive folder
+        os.rename(args.reportpath + filename, archival_reports + filename)
+
 
 print(data)
+
+with open(performance_output, 'w') as csvfile:
+    writer = csv.writer(csvfile)
+    table = data[1] # test with performance metric table
+    for row in table:
+        writer.writerow(row)
+
+with open(resource_output, 'w') as csvfile:
+    writer = csv.writer(csvfile)
+    table = data[2]
+    for row in table:
+        writer.writerow(row)
 
 
