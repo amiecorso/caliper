@@ -3,7 +3,7 @@
     "blockchain": "sawtooth",
     "command" : {
       "start": "docker-compose -f ~/caliper/experiments/prototest/compose_files/sawtooth-do-nothing.yaml up -d",
-      "end" : "docker-compose -f ~/caliper/experiments/prototest/compose_files/sawtooth-do-nothing.yaml down; docker volume prune -f"
+      "end" : "~/caliper/experiments/prototest/end_tasks.sh"
     }
   },
   "sawtooth": {
