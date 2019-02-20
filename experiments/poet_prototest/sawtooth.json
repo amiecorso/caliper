@@ -2,8 +2,8 @@
   "caliper":{
     "blockchain": "sawtooth",
     "command" : {
-      "start": "docker-compose -f ~/caliper/experiments/poet_prototest/compose_files/poet-do-nothing.yaml up -d && sleep 10", 
-      "end" : "~/caliper/experiments/poet_prototest/end_tasks.sh"
+      "start": "docker-compose -f ~/caliper/experiments/prototest/compose_files/sawtooth-do-nothing.yaml up -d",
+      "end" : "~/caliper/experiments/prototest/end_tasks.sh"
     }
   },
   "sawtooth": {
