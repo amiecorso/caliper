@@ -2,8 +2,8 @@
 import subprocess
 import time
 
-#COMPOSE_FILE = "sawtooth-default.yaml"
-COMPOSE_FILE = "sawtooth-multi-poet.yaml"
+COMPOSE_FILE = "sawtooth-default.yaml"
+#COMPOSE_FILE = "sawtooth-multi-poet.yaml"
 
 COMPOSE_COMMAND = "docker-compose -f " + COMPOSE_FILE + " up"
 
