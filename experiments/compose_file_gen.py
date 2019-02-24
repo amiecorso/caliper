@@ -1,3 +1,5 @@
+# compose_file_gen.py
+
 import argparse
 import os
 
@@ -6,6 +8,9 @@ parser.add_argument('--n', default=1, type=int, help="The number of validators t
 parser.add_argument('--template', default='/Users/amiecorso/caliper/experiments/templates/sawtooth-poet.yaml', help="The template file from which to create validators")
 parser.add_argument('--dest', default='/Users/amiecorso/caliper/experiments/test/', help="Destination directory for output file")
 args = parser.parse_args()
+
+if not args.dest.endswith("/"):
+    args.dest = args.dest + "/"
 
 if not os.path.exists(args.dest):
     os.mkdir(args.dest)
