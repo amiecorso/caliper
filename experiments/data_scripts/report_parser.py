@@ -11,6 +11,10 @@ parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/
 parser.add_argument('--n', default=1)
 args = parser.parse_args()
 
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
+if not args.dest.endswith("/"):
+    args.dest = args.dest + "/"
 
 performance_output = args.dest + str(args.n) + "_performance.csv"
 resource_output = args.dest + str(args.n) + "_resource.csv"

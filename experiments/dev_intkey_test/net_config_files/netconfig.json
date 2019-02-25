@@ -2,14 +2,14 @@
   "caliper":{
     "blockchain": "sawtooth",
     "command" : {
-      "start": "docker-compose -f ~/caliper/experiments/prototest/compose_files/sawtooth-do-nothing.yaml up -d",
-      "end" : "~/caliper/experiments/prototest/end_tasks.sh"
+      "start": "docker-compose -f ~/caliper/experiments/dev_intkey_test/compose_files/1-dev-intkey.yaml up -d", 
+      "end" : "python3 ~/caliper/experiments/dev_intkey_test/intkey_end_tasks.py"
     }
   },
   "sawtooth": {
     "batchBuilders": {
-      "donothing": {
-        "1.0": "src/adapters/sawtooth/Application/DoNothingBatchBuilder.js"
+      "intkey": {
+        "1.0": "src/adapters/sawtooth/Application/IntKeyBatchBuilder.js"
       }
     },
     "network": {

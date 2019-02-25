@@ -38,7 +38,7 @@ class IntKeyBatchBuilder extends BatchBuilder {
 
         let transactions = [];
         for(let i = 0; i < args.length; i++) {
-            const name = args[i].name;
+            const name = args[i].Name;
             const address = this.calculateAddress(name);
             const addresses = [address];
 
