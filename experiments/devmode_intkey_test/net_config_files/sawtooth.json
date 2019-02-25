@@ -1,0 +1,24 @@
+{
+  "caliper":{
+    "blockchain": "sawtooth",
+    "command" : {
+      "start": "python3 ~/caliper/experiments/start_tasks.py --n 1 --exp_dir ~/caliper/experiments/poet_prototest", 
+      "end" : "python3 ~/caliper/experiments/end_tasks.py --n 1 --exp_dir ~/caliper/experiments/poet_prototest"
+    }
+  },
+  "sawtooth": {
+    "batchBuilders": {
+      "donothing": {
+        "1.0": "src/adapters/sawtooth/Application/DoNothingBatchBuilder.js"
+      }
+    },
+    "network": {
+      "restapi": {
+        "urls": ["http://127.0.0.1:8008"]
+      },
+      "validator": {
+        "url": "tcp://127.0.0.1:8800"
+      }
+    }
+  }
+}
