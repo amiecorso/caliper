@@ -3,7 +3,8 @@
 import subprocess
 import os
 
-NET_SIZES = [1, 2, 4, 8]
+#NET_SIZES = [1, 2, 4, 8]
+NET_SIZES = [1, 4]
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "compose_files/dev-intkey-1.1_template.yaml"
 NETCONFIG_TEMPLATE = "~/caliper/experiments/templates/netconfig_template.json"
