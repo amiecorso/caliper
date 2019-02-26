@@ -8,7 +8,7 @@ services:
     image: hyperledger/sawtooth-all:1.1
     container_name: sawtooth-shell-default
     depends_on:
-      - rest-api
+      - rest-api-0
     entrypoint: "bash -c \"\
         sawtooth keygen && \
         tail -f /dev/null \
@@ -19,8 +19,6 @@ services:
     container_name: sawtooth-validator-default-0
     expose:
       - 4004
-      - 8800
-      - 5050
     ports:
       - "4004:4004"
     # start the validator with an empty genesis batch
@@ -40,8 +38,6 @@ services:
   rest-api-0:
     image: hyperledger/sawtooth-rest-api:1.1
     container_name: sawtooth-rest-api-default-0
-    expose:
-      - 8008
     ports:
       - "8008:8008"
     depends_on:

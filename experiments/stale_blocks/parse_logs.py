@@ -8,11 +8,12 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser(description="Parse validator logs for stale block rate")
-parser.add_argument('--n', default=1, type=int)
-parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/results/')
-parser.add_argument('--rest_url', default='http://sawtooth-rest-api-default:8008') # defaults to size 1 network
-parser.add_argument('--val_name', default ='sawtooth-validator-default') # default to size 1 network
-parser.add_argument('--shell_name', default='sawtooth-shell-default')
+parser.add_argument('--n', default=1, type=int, help="Network size")
+parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/results/', help="Where parsing results should be stored")
+parser.add_argument('--rest_url', default='http://sawtooth-rest-api-default:8008', help="URL of a rest-api container for this network") # defaults to size 1 network
+parser.add_argument('--val_name', default ='sawtooth-validator-default', help="base name for validator containers") # default to size 1 network
+parser.add_argument('--shell_name', default='sawtooth-shell-default', help="name of shell container")
+parser.add_argument('--single', default=False, action='store_const', const=True,  help="Include this flag if val_name should be left un-appended")
 args = parser.parse_args()
 
 output_file = args.dest + str(args.n) + "_stale.csv"
@@ -22,7 +23,10 @@ docker_client = docker.from_env()
 unique_blocks = set() # keep track of all valid blocks that have been seen by any validator
 
 for i in range(args.n):
-    val_container = args.val_name + "-" + str(i)
+    if args.single:
+        val_container = args.val_name
+    else:
+        val_container = args.val_name + "-" + str(i)
     val = docker_client.containers.get(val_container) 
     log = val.logs().decode('utf-8')
     print("LOG: ", log)

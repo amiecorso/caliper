@@ -2,8 +2,8 @@
   "caliper":{
     "blockchain": "sawtooth",
     "command" : {
-      "start": "docker-compose -f ~/caliper/experiments/dev-intkey-1.1/compose_files/dev-intkey-1.1-official.yaml up -d && sleep 5",
-      "end" : "python3 ~/caliper/experiments/dev-intkey-1.1/intkey_end_tasks.py" 
+      "start": "docker-compose -f ~/caliper/experiments/dev_intkey_1.1/compose_files/dev-intkey-1.1-official.yaml up -d && sleep 5",
+      "end" : "python3 ~/caliper/experiments/dev_intkey_1.1/intkey_end_tasks.py" 
     }
   },
   "sawtooth": {
