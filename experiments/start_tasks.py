@@ -13,8 +13,8 @@ args = parser.parse_args()
 if not args.exp_dir.endswith("/"):
     args.exp_dir = args.exp_dir + "/"
 
-compose_file = os.listdir(args.exp_dir + "/compose_files")[0].split("_")[-1]
+compose_file = [f for f in os.listdir(args.exp_dir + "/compose_files") if f.startswith(str(args.n))][0]
 
-start_network = "docker-compose -f {}compose_files/{}_{} up -d && sleep 10".format(args.exp_dir, str(args.n), compose_file)
+start_network = "docker-compose -f {}compose_files/{} up -d && sleep 10".format(args.exp_dir, compose_file)
 subprocess.call(start_network, shell=True)
 

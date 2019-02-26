@@ -15,7 +15,11 @@ if not args.dest.endswith("/"):
 if not os.path.exists(args.dest):
     os.mkdir(args.dest)
 
-output_file = str(args.n) + "_" + args.template.split('/')[-1]
+base_filename = args.template.split("/")[-1].split("_")[0] 
+if not base_filename.endswith(".yaml"):
+    base_filename = base_filename + ".yaml"
+
+output_file = str(args.n) + "_" + base_filename
 
 header_and_genesis = []
 

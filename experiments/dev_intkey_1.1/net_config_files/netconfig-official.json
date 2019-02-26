@@ -1,0 +1,24 @@
+{
+  "caliper":{
+    "blockchain": "sawtooth",
+    "command" : {
+      "start": "docker-compose -f ~/caliper/experiments/dev-intkey-1.1/compose_files/dev-intkey-1.1-official.yaml up -d && sleep 5",
+      "end" : "python3 ~/caliper/experiments/dev-intkey-1.1/intkey_end_tasks.py" 
+    }
+  },
+  "sawtooth": {
+    "batchBuilders": {
+      "intkey": {
+        "1.0": "src/adapters/sawtooth/Application/IntKeyBatchBuilder.js"
+      }
+    },
+    "network": {
+      "restapi": {
+        "urls": ["http://127.0.0.1:8008"]
+      },
+      "validator": {
+        "url": "tcp://127.0.0.1:8800"
+      }
+    }
+  }
+}

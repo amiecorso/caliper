@@ -47,21 +47,22 @@ for filename in os.listdir(args.reportpath):
         
         htmlfile.close()
         # put the report file in archive folder
-        os.rename(args.reportpath + filename, archival_reports + filename)
+        os.rename(args.reportpath + filename, archival_reports + str(args.n) + "-report.html")
 
 
-print(data)
+#print(data)
+try:
+    with open(performance_output, 'w') as csvfile:
+        writer = csv.writer(csvfile)
+        table = data[1] # test with performance metric table
+        for row in table:
+            writer.writerow(row)
 
-with open(performance_output, 'w') as csvfile:
-    writer = csv.writer(csvfile)
-    table = data[1] # test with performance metric table
-    for row in table:
-        writer.writerow(row)
-
-with open(resource_output, 'w') as csvfile:
-    writer = csv.writer(csvfile)
-    table = data[2]
-    for row in table:
-        writer.writerow(row)
-
+    with open(resource_output, 'w') as csvfile:
+        writer = csv.writer(csvfile)
+        table = data[2]
+        for row in table:
+            writer.writerow(row)
+except:
+    print("Error while parsing html report...  Data dictionary: ", data)
 

@@ -1,4 +1,7 @@
 #Comb logs for all validators in network
+# TODO: figure out how/why different logs use different terminology to deal with block validation
+#       make this more robust than a simple IF/ELSE.... based on versions?/consensus?
+# Better yet, use event subscription to make this universal
 
 import docker
 import time
@@ -19,7 +22,8 @@ docker_client = docker.from_env()
 unique_blocks = set() # keep track of all valid blocks that have been seen by any validator
 
 for i in range(args.n):
-    val = docker_client.containers.get(args.val_name + "-" + str(i)) 
+    val_container = args.val_name + "-" + str(i)
+    val = docker_client.containers.get(val_container) 
     log = val.logs().decode('utf-8')
     print("LOG: ", log)
     splitlog = log.split("\n")
@@ -29,13 +33,17 @@ for i in range(args.n):
             # find the block ID
             blockID = splitline[5]
             unique_blocks.add(blockID)
+        elif "Finished block validation of" in line:
+            splitline = line.split() # split on spaces
+            blockID = splitline[8]
+            unique_blocks.add(blockID)
 
 total_blocks = len(unique_blocks)
 
 # now, find out which blocks have been committed to the official chain:
 shell = docker_client.containers.get(args.shell_name)
 output = shell.exec_run("sawtooth block list --url " + args.rest_url)
-print(output[1].decode('utf-8'))
+print("Block list main chain: ", output[1].decode('utf-8'))
 output_lines = output[1].decode('utf-8').split("\n")
 '''
 for line in output_lines:
@@ -49,6 +57,7 @@ if not total_blocks:
 else:
     stale_block_rate = (total_blocks - num_blocks_longest_chain) / total_blocks
 
+print("Unique valid blocks: ", unique_blocks)
 print("Stale block rate: ", stale_block_rate)
 with open(output_file, 'w') as f:
     f.write(str(stale_block_rate))

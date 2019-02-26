@@ -1,0 +1,215 @@
+# 4_dev-intkey-1.1.yaml
+
+version: "2.1"
+
+services:
+
+  shell:
+    image: hyperledger/sawtooth-all:1.1
+    container_name: sawtooth-shell-default
+    depends_on:
+      - rest-api
+    entrypoint: "bash -c \"\
+        sawtooth keygen && \
+        tail -f /dev/null \
+        \""
+
+  validator-0:
+    image: hyperledger/sawtooth-validator:1.1
+    container_name: sawtooth-validator-default-0
+    expose:
+      - 4004
+      - 8800
+      - 5050
+    ports:
+      - "4004:4004"
+    # start the validator with an empty genesis batch
+    entrypoint: "bash -c \"\
+        sawadm keygen && \
+        sawtooth keygen my_key && \
+        sawset genesis -k /root/.sawtooth/keys/my_key.priv && \
+        sawadm genesis config-genesis.batch && \
+        sawtooth-validator -vv \
+          --endpoint tcp://validator-0:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --bind consensus:tcp://eth0:5050 \
+          --peering dynamic \
+        \""
+
+  rest-api-0:
+    image: hyperledger/sawtooth-rest-api:1.1
+    container_name: sawtooth-rest-api-default-0
+    expose:
+      - 8008
+    ports:
+      - "8008:8008"
+    depends_on:
+      - validator-0
+    entrypoint: sawtooth-rest-api -C tcp://validator-0:4004 --bind rest-api-0:8008
+
+  devmode-engine-0:
+    image: hyperledger/sawtooth-devmode-engine-rust:1.1
+    container_name: sawtooth-devmode-engine-rust-default-0
+    depends_on:
+      - validator-0
+    entrypoint: devmode-engine-rust -C tcp://validator-0:5050
+
+  settings-tp-0:
+    image: hyperledger/sawtooth-settings-tp:1.1
+    container_name: sawtooth-settings-tp-default-0
+    depends_on:
+      - validator-0
+    entrypoint: settings-tp -vv -C tcp://validator-0:4004
+
+  intkey-tp-python-0:
+    image: hyperledger/sawtooth-intkey-tp-python:1.1
+    container_name: sawtooth-intkey-tp-python-default-0
+    depends_on:
+      - validator-0
+    entrypoint: intkey-tp-python -vv -C tcp://validator-0:4004
+
+  validator-1:
+    image: hyperledger/sawtooth-validator:1.1
+    container_name: sawtooth-validator-default-1
+    expose:
+      - 4004
+      - 8800
+      - 5050
+    # start the validator with an empty genesis batch
+    entrypoint: "bash -c \"\
+        sawadm keygen && \
+        sawtooth-validator -vv \
+          --endpoint tcp://validator-1:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --bind consensus:tcp://eth0:5050 \
+          --peering dynamic \
+          --seeds tcp://validator-0:8800 \
+        \""
+
+  rest-api-1:
+    image: hyperledger/sawtooth-rest-api:1.1
+    container_name: sawtooth-rest-api-default-1
+    expose:
+      - 8008
+    depends_on:
+      - validator-1
+    entrypoint: sawtooth-rest-api -C tcp://validator-1:4004 --bind rest-api-1:8008
+
+  devmode-engine-1:
+    image: hyperledger/sawtooth-devmode-engine-rust:1.1
+    container_name: sawtooth-devmode-engine-rust-default-1
+    depends_on:
+      - validator-1
+    entrypoint: devmode-engine-rust -C tcp://validator-1:5050
+
+  settings-tp-1:
+    image: hyperledger/sawtooth-settings-tp:1.1
+    container_name: sawtooth-settings-tp-default-1
+    depends_on:
+      - validator-1
+    entrypoint: settings-tp -vv -C tcp://validator-1:4004
+
+  intkey-tp-python-1:
+    image: hyperledger/sawtooth-intkey-tp-python:1.1
+    container_name: sawtooth-intkey-tp-python-default-1
+    depends_on:
+      - validator-1
+    entrypoint: intkey-tp-python -vv -C tcp://validator-1:4004
+  validator-2:
+    image: hyperledger/sawtooth-validator:1.1
+    container_name: sawtooth-validator-default-2
+    expose:
+      - 4004
+      - 8800
+      - 5050
+    # start the validator with an empty genesis batch
+    entrypoint: "bash -c \"\
+        sawadm keygen && \
+        sawtooth-validator -vv \
+          --endpoint tcp://validator-2:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --bind consensus:tcp://eth0:5050 \
+          --peering dynamic \
+          --seeds tcp://validator-0:8800 \
+        \""
+
+  rest-api-2:
+    image: hyperledger/sawtooth-rest-api:1.1
+    container_name: sawtooth-rest-api-default-2
+    expose:
+      - 8008
+    depends_on:
+      - validator-2
+    entrypoint: sawtooth-rest-api -C tcp://validator-2:4004 --bind rest-api-2:8008
+
+  devmode-engine-2:
+    image: hyperledger/sawtooth-devmode-engine-rust:1.1
+    container_name: sawtooth-devmode-engine-rust-default-2
+    depends_on:
+      - validator-2
+    entrypoint: devmode-engine-rust -C tcp://validator-2:5050
+
+  settings-tp-2:
+    image: hyperledger/sawtooth-settings-tp:1.1
+    container_name: sawtooth-settings-tp-default-2
+    depends_on:
+      - validator-2
+    entrypoint: settings-tp -vv -C tcp://validator-2:4004
+
+  intkey-tp-python-2:
+    image: hyperledger/sawtooth-intkey-tp-python:1.1
+    container_name: sawtooth-intkey-tp-python-default-2
+    depends_on:
+      - validator-2
+    entrypoint: intkey-tp-python -vv -C tcp://validator-2:4004
+  validator-3:
+    image: hyperledger/sawtooth-validator:1.1
+    container_name: sawtooth-validator-default-3
+    expose:
+      - 4004
+      - 8800
+      - 5050
+    # start the validator with an empty genesis batch
+    entrypoint: "bash -c \"\
+        sawadm keygen && \
+        sawtooth-validator -vv \
+          --endpoint tcp://validator-3:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --bind consensus:tcp://eth0:5050 \
+          --peering dynamic \
+          --seeds tcp://validator-0:8800 \
+        \""
+
+  rest-api-3:
+    image: hyperledger/sawtooth-rest-api:1.1
+    container_name: sawtooth-rest-api-default-3
+    expose:
+      - 8008
+    depends_on:
+      - validator-3
+    entrypoint: sawtooth-rest-api -C tcp://validator-3:4004 --bind rest-api-3:8008
+
+  devmode-engine-3:
+    image: hyperledger/sawtooth-devmode-engine-rust:1.1
+    container_name: sawtooth-devmode-engine-rust-default-3
+    depends_on:
+      - validator-3
+    entrypoint: devmode-engine-rust -C tcp://validator-3:5050
+
+  settings-tp-3:
+    image: hyperledger/sawtooth-settings-tp:1.1
+    container_name: sawtooth-settings-tp-default-3
+    depends_on:
+      - validator-3
+    entrypoint: settings-tp -vv -C tcp://validator-3:4004
+
+  intkey-tp-python-3:
+    image: hyperledger/sawtooth-intkey-tp-python:1.1
+    container_name: sawtooth-intkey-tp-python-default-3
+    depends_on:
+      - validator-3
+    entrypoint: intkey-tp-python -vv -C tcp://validator-3:4004

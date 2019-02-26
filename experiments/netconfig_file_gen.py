@@ -18,7 +18,8 @@ if not args.dest.endswith("/"):
 if not os.path.exists(args.dest):
     os.mkdir(args.dest)
 
-output_file = str(args.n) + "_" + args.template.split('/')[-1]
+base_filename = args.template.split('/')[-1].replace("_template", "") # get rid of 'template' tag
+output_file = str(args.n) + "_" + base_filename
 
 
 with open(args.template, 'r') as template:
