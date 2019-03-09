@@ -20,6 +20,7 @@ const Report  = require('./report.js');
 const Client  = require('./client/client.js');
 const Util = require('./util.js');
 const logger = Util.getLogger('bench-flow.js');
+const config = require('./config-util.js');
 let blockchain, monitor, report, client;
 let success = 0, failure = 0;
 let resultsbyround = [];    // results table for each test round
@@ -64,7 +65,7 @@ function createReport() {
         report.addMetadata('Test Rounds', ' ');
     }
 
-    let sut = require(absNetworkFile);
+    let sut = Util.parseYaml(absNetworkFile);
     if(sut.hasOwnProperty('info')) {
         for(let key in sut.info) {
             report.addSUTInfo(key, sut.info[key]);
@@ -207,7 +208,7 @@ function processResult(results, label){
  * @async
  */
 async function defaultTest(args, clientArgs, final) {
-    logger.info(`###### Testing '${args.label}' ######`);
+    logger.info(`####### Testing '${args.label}' #######`);
     let testLabel   = args.label;
     let testRounds  = args.txDuration ? args.txDuration : args.txNumber;
     let tests = []; // array of all test rounds
@@ -221,7 +222,7 @@ async function defaultTest(args, clientArgs, final) {
             trim: args.trim ? args.trim : 0,
             args: args.arguments,
             cb  : args.callback,
-            config: configPath,
+            config: configPath
         };
         // condition for time based or number based test driving
         if (args.txNumber) {
@@ -319,7 +320,7 @@ function execAsync(command) {
  * @param {String} networkFile path of the blockchain configuration file
  */
 module.exports.run = async function(configFile, networkFile) {
-    logger.info('####### Caliper Test ######');
+    logger.info('####### Caliper Test #######');
     absConfigFile  = Util.resolvePath(configFile);
     absNetworkFile = Util.resolvePath(networkFile);
     blockchain = new Blockchain(absNetworkFile);
@@ -330,15 +331,21 @@ module.exports.run = async function(configFile, networkFile) {
 
     //let configObject = require(absConfigFile);
     let configObject = Util.parseYaml(absConfigFile);
-    let networkObject = require(absNetworkFile);
+    let networkObject = Util.parseYaml(absNetworkFile);
+
+    let skipStart = config.getConfigSetting('core:skipStartScript', false);
+    let skipEnd = config.getConfigSetting('core:skipEndScript', false);
+    skipStart = skipStart === true || skipStart === 'true';
+    skipEnd = skipEnd === true || skipEnd === 'true';
 
     try {
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {
             if (!networkObject.caliper.command.start.trim()) {
                 throw new Error('Start command is specified but it is empty');
             }
-
-            await execAsync(networkObject.caliper.command.start);
+            if(!skipStart){
+                await execAsync(networkObject.caliper.command.start);
+            }
         }
 
         await blockchain.init();
@@ -383,15 +390,16 @@ module.exports.run = async function(configFile, networkFile) {
             if (!networkObject.caliper.command.end.trim()) {
                 logger.error('End command is specified but it is empty');
             } else {
-
-                await execAsync(networkObject.caliper.command.end);
+                if(!skipEnd){
+                    await execAsync(networkObject.caliper.command.end);
+                }
             }
         }
 
         // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
         let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
         logger.info(`
-        
+
 ${'#'.repeat(testSummary.length)}
 ${testSummary}
 ${'#'.repeat(testSummary.length)}
