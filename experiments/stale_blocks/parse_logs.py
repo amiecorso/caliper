@@ -47,7 +47,8 @@ total_blocks = len(unique_blocks)
 # now, find out which blocks have been committed to the official chain:
 shell = docker_client.containers.get(args.shell_name)
 output = shell.exec_run("sawtooth block list --url " + args.rest_url)
-print("Block list main chain: ", output[1].decode('utf-8'))
+block_list_main_chain = output[1].decode('utf-8')
+print("Block list main chain: ", block_list_main_chain)
 output_lines = output[1].decode('utf-8').split("\n")
 '''
 for line in output_lines:
@@ -65,6 +66,8 @@ print("Unique valid blocks: ", unique_blocks)
 print("Stale block rate: ", stale_block_rate)
 with open(output_file, 'w') as f:
     f.write(str(stale_block_rate))
+    f.write("\n")
+    f.write(block_list_main_chain)
 
 # don't seem to need this but not sure why
 #docker_client.close()

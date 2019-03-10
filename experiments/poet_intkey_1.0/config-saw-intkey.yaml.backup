@@ -7,24 +7,14 @@ test:
     number: 1
   rounds:
   - label: round_one_and_only
-    txMode:
-      type: real-time
     txNumber:
-    - 100 
-    - 200
-    - 33333333300
+    - 5
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 100 
-    - type: fixed-rate
-      opts:
-        tps: 100
-    - type: fixed-rate
-      opts:
-        tps: 100
+        tps: 1
     arguments:
-      txnPerBatch: 100
+      txnPerBatch: 10
     callback: benchmark/intkey/intkey_set.js
 monitor:
   type: docker

@@ -45,7 +45,7 @@ for num in netsizes:
     with open(pfile, 'r') as f:
         perf_lines = f.readlines()
     with open(sbfile, 'r') as f:
-        sb_data = f.read()
+        sb_data = f.readlines()[0] # get just the block rate, ignore block list diagnostics
     line = ",".join([num, sb_data.strip(), perf_lines[-1]])
     perf_out.write(line)
 
