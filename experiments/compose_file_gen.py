@@ -38,5 +38,7 @@ with open(args.dest + output_file, 'w') as output:
     output.writelines(header_and_genesis)
     for i in range(1, args.n):
         next_validator = format_body.replace("{}", str(i))
+        rest_api_port = str(8008 + i) # increment the port to map for host
+        next_validator = next_validator.replace("{hostport}", rest_api_port)
         output.write(next_validator)
 

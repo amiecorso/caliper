@@ -146,6 +146,8 @@ services:
     container_name: sawtooth-rest-api-{}
     expose:
       - 8008
+    ports:
+      - "{hostport}:8008"
     depends_on:
       - validator-{}
     entrypoint: sawtooth-rest-api -vv -C tcp://validator-{}:4004 --bind rest-api-{}:8008

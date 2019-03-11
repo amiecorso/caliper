@@ -4,7 +4,7 @@ import subprocess
 import os
 import shutil
 
-NET_SIZES = [1]
+NET_SIZES = [4]
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "poet-intkey-1.0_template.yaml"
 NETCONFIG_TEMPLATE = "~/caliper/experiments/templates/netconfig_template.json"
@@ -18,8 +18,8 @@ BENCHCONFIG = EXP_DIR + "config-saw-intkey.yaml"
 # clear directories:
 if os.path.exists(EXP_DIR + "compose_files"):
     shutil.rmtree(EXP_DIR + "compose_files")
-if os.path.exists(EXP_DIR + "netconfig_files"):
-    shutil.rmtree(EXP_DIR + "netconfig_files")
+if os.path.exists(EXP_DIR + "net_config_files"):
+    shutil.rmtree(EXP_DIR + "net_config_files")
 if os.path.exists(EXP_DIR + "arch_reports"):
     shutil.rmtree(EXP_DIR + "arch_reports")
 if os.path.exists(EXP_DIR + "results"):
@@ -38,7 +38,7 @@ print("run_exp.py: generating netconfig files...")
 for n in NET_SIZES:
     command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE)
     subprocess.call(command, shell=True)
-
+'''
 # deliver workload to each network
 for n in NET_SIZES:
     base_filename = NETCONFIG_TEMPLATE.split('/')[-1].replace("_template", "") # get rid of 'template' tag
@@ -50,3 +50,4 @@ for n in NET_SIZES:
 # final data processing
 command = "python ~/caliper/experiments/data_scripts/process_exp.py --exp_dir {}".format(EXP_DIR)
 subprocess.call(command, shell=True)
+'''

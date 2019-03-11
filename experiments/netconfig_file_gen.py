@@ -25,10 +25,19 @@ output_file = str(args.n) + "_" + base_filename
 with open(args.template, 'r') as template:
     format_body = template.read() # read the rest of the file as format body
 
+# assign rest-api url array
+restapi_array = "["
+for i in range(args.n):
+    next_port = str(8008 + i)
+    next_url = "http://127.0.0.1:" + next_port
+    restapi_array += "\"" + next_url + "\", "
+restapi_array = restapi_array.rstrip(", ") + "]"
+
 format_body = format_body.replace("{n}", str(args.n))
 format_body = format_body.replace("{exp_dir}", args.exp_dir)
 format_body = format_body.replace("{TPfamily}", args.TPfamily)
 format_body = format_body.replace("{batchbuilder_file}", args.bb_file)
+format_body = format_body.replace("{restapi_urls}", restapi_array)
 
 with open(args.dest + output_file, 'w') as output:
     output.write(format_body)
