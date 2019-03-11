@@ -3,6 +3,7 @@
 import subprocess
 import os
 import argparse
+import time
 
 print("Executing end_tasks.py")
 parser = argparse.ArgumentParser(description="Execute post-workload tasks for Caliper experiment")
@@ -27,6 +28,9 @@ with open(args.exp_dir + "compose_files/" + compose_file, 'r') as f:
             rest_name = line.split(":")[-1].strip()
             rest_url = "http://" + rest_name + ":8008"
             break
+
+#This seems to help the sawtooth block list command display the correct blocks/txns
+time.sleep(20)
 
 print("end_tasks.py: Calling save_logs.py")
 save_logs = "python3 ~/caliper/experiments/stale_blocks/save_logs.py --n {} --exp_dir {} && sleep 4".format(str(args.n), args.exp_dir)
