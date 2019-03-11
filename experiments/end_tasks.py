@@ -28,7 +28,11 @@ with open(args.exp_dir + "compose_files/" + compose_file, 'r') as f:
             rest_url = "http://" + rest_name + ":8008"
             break
 
-print("end_tasks.py: Calling parse_logs...")
+print("end_tasks.py: Calling save_logs.py")
+save_logs = "python3 ~/caliper/experiments/stale_blocks/save_logs.py --n {} --exp_dir {} && sleep 4".format(str(args.n), args.exp_dir)
+subprocess.call(save_logs, shell=True)
+
+print("end_tasks.py: Calling parse_logs.py...")
 print("     val container name: ", val_name)
 print("     rest url: ", rest_url)
 parse_logs = "python3 ~/caliper/experiments/stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} && sleep 10".format(str(args.n), args.exp_dir, val_name, rest_url)

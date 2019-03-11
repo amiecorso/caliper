@@ -29,7 +29,8 @@ for i in range(args.n):
         val_container = args.val_name + "-" + str(i)
     val = docker_client.containers.get(val_container) 
     log = val.logs().decode('utf-8')
-    print("LOG: ", log)
+    print("LOG for validator {}".format(val_container))
+    print(log)
     splitlog = log.split("\n")
     for line in splitlog: 
         if "passed validation" in line:
