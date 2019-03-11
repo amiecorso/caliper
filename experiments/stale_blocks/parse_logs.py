@@ -6,6 +6,7 @@
 import docker
 import time
 import argparse
+import os
 
 parser = argparse.ArgumentParser(description="Parse validator logs for stale block rate")
 parser.add_argument('--n', default=1, type=int, help="Network size")
@@ -15,6 +16,11 @@ parser.add_argument('--val_name', default ='sawtooth-validator-default', help="b
 parser.add_argument('--shell_name', default='sawtooth-shell-default', help="name of shell container")
 parser.add_argument('--single', default=False, action='store_const', const=True,  help="Include this flag if val_name should be left un-appended")
 args = parser.parse_args()
+
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
+if not args.dest.endswith("/"):
+    args.dest += "/"
 
 output_file = args.dest + str(args.n) + "_stale.csv"
 

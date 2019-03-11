@@ -15,9 +15,13 @@ args = parser.parse_args()
 if not args.exp_dir.endswith("/"):
     args.exp_dir += "/"
 
-LOGS_DIR = args.exp_dir + "LOGS"
+LOGS_DIR = args.exp_dir + "LOGS/"
 if not os.path.exists(LOGS_DIR):
     os.mkdir(LOGS_DIR)
+
+OUTPUT_DIR = LOGS_DIR + str(args.n) + "/"
+if not os.path.exists(OUTPUT_DIR):
+    os.mkdir(OUTPUT_DIR)
 
 compose_file = None
 for f in os.listdir(args.exp_dir + "compose_files"):
@@ -37,6 +41,6 @@ for line in lines:
         container_name = line.split(":")[-1].strip() # grab the container name from the .yaml file
         container = docker_client.containers.get(container_name)
         log = container.logs().decode('utf-8')
-        with open(LOGS_DIR + "/" + container_name, 'w') as out:
+        with open(OUTPUT_DIR + "/" + container_name, 'w') as out:
             out.write(log)
 
