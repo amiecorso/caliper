@@ -8,11 +8,13 @@ test:
   rounds:
   - label: round_one_and_only
     txNumber:
-    - 120
+    - 1000
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 60
+        tps: 50
+    trim:
+    - 100
     arguments:
       txnPerBatch: 10
     callback: benchmark/intkey/intkey_set.js
