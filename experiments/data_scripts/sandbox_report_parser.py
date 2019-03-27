@@ -6,28 +6,17 @@ import os
 import csv
 import time
 
-parser = argparse.ArgumentParser(description="Parse HTML reports")
-parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
-parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/results/')
-parser.add_argument('--n', default=1)
-args = parser.parse_args()
+reportpath = "./"
+n = 1
+dest = "./"
 
-if not os.path.exists(args.dest):
-    os.mkdir(args.dest)
-if not args.dest.endswith("/"):
-    args.dest = args.dest + "/"
-
-performance_output = args.dest + str(args.n) + "_performance.csv"
-resource_output = args.dest + str(args.n) + "_resource.csv"
-
-archival_reports = args.reportpath + "arch_reports/"
-if not os.path.isdir(archival_reports):
-    os.mkdir(archival_reports)
+performance_output = "performance.csv"
+resource_output = "resource.csv"
 
 data = {}
-for filename in os.listdir(args.reportpath):
+for filename in os.listdir(reportpath):
     if filename.startswith("report"):
-        htmlfile = open(args.reportpath + filename)
+        htmlfile = open(reportpath + filename)
         soup = BeautifulSoup(htmlfile, "lxml")
         tables = soup.find_all("table")
         i = 0
@@ -47,24 +36,24 @@ for filename in os.listdir(args.reportpath):
             i += 1
         
         htmlfile.close()
-        # put the report file in archive folder
-        os.rename(args.reportpath + filename, archival_reports + str(args.n) + "-report_" + str(int(time.time())) + ".html")
 
 
-#print(data)
+print(data)
+print(data[0])
+#print(data[1])
+
 try:
     with open(performance_output, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        table = data[0] # first table should be summary table
+        table = data[0] # test with performance metric table
         for row in table:
             writer.writerow(row)
-'''
+
     with open(resource_output, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        table = data[i - 1] # is this even right?? resources might not be last table... how to handle resources/round?
+        table = data[2]
         for row in table:
             writer.writerow(row)
-'''
 except:
     print("Error while parsing html report...  Data dictionary: ", data)
 

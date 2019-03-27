@@ -1,0 +1,13 @@
+Test,Name,Succ,Fail,Send Rate,Max Latency,Min Latency,Avg Latency,Throughput
+1,warmup,120,0,7.5 tps,0.03 s,0.01 s,0.01 s,7.5 tps
+2,10 TPS,220,0,12.2 tps,0.02 s,0.01 s,0.01 s,12.2 tps
+3,15 TPS,460,0,15.7 tps,0.02 s,0.01 s,0.01 s,15.7 tps
+4,20 TPS,820,0,21.0 tps,0.03 s,0.01 s,0.02 s,21.0 tps
+5,25 TPS,1260,0,25.4 tps,0.07 s,0.01 s,0.02 s,25.4 tps
+6,30 TPS,100,1720,30.7 tps,0.04 s,0.01 s,0.02 s,37.4 tps
+7,35 TPS,1720,740,35.3 tps,0.32 s,0.01 s,0.04 s,-0.0 tps
+8,40 TPS,2100,1120,40.5 tps,0.29 s,0.02 s,0.04 s,-0.0 tps
+9,45 TPS,2520,1540,45.2 tps,0.39 s,0.01 s,0.04 s,30.5 tps
+10,50 TPS,1680,3340,50.4 tps,0.20 s,0.01 s,0.04 s,-0.0 tps
+11,60 TPS,0,7220,60.3 tps,0.00 s,100000.00 s,NaN s,0.0 tps
+12,65 TPS,0,8460,65.2 tps,0.00 s,100000.00 s,NaN s,0.0 tps

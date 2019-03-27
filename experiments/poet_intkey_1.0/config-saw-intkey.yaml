@@ -6,18 +6,106 @@ test:
     type: local
     number: 1
   rounds:
-  - label: round_one_and_only
-    txNumber:
-    - 1000
+
+  - label: warmup
+    txDuration:
+    - 20
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 50
-    trim:
-    - 100
+        tps: 5 
     arguments:
-      txnPerBatch: 10
+      txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
+
+  - label: 10 TPS
+    txDuration:
+    - 20
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 10 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 15 TPS
+    txDuration:
+    - 30
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 15 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 20 TPS
+    txDuration:
+    - 40
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 20 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 25 TPS
+    txDuration:
+    - 50
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 25 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 30 TPS
+    txDuration:
+    - 60
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 30 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 35 TPS
+    txDuration:
+    - 70
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 35 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 40 TPS
+    txDuration:
+    - 80
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 40 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 45 TPS
+    txDuration:
+    - 90
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 45
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
 monitor:
   type: docker
   docker:
