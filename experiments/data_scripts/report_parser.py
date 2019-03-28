@@ -8,17 +8,24 @@ import time
 
 parser = argparse.ArgumentParser(description="Parse HTML reports")
 parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
-parser.add_argument('--dest', default='/home/amie/caliper/experiments/prototest/results/')
+parser.add_argument('--results', default='/home/amie/caliper/experiments/prototest/results/')
 parser.add_argument('--n', default=1)
 args = parser.parse_args()
 
-if not os.path.exists(args.dest):
-    os.mkdir(args.dest)
-if not args.dest.endswith("/"):
-    args.dest = args.dest + "/"
+if not os.path.exists(args.results):
+    os.mkdir(args.results)
+if not args.results.endswith("/"):
+    args.results = args.results + "/"
 
-performance_output = args.dest + str(args.n) + "_performance.csv"
-resource_output = args.dest + str(args.n) + "_resource.csv"
+# the actual directory for holding multiple experimental results
+dest_dir = args.results + str(args.n) + "/"
+if not os.path.exists(dest_dir):
+    os.mkdir(dest_dir)
+
+
+current_time = str(int(time.time())) # append unique time to each file to prevent overwriting 
+performance_output = dest_dir + str(args.n) + "_performance_" + current_time + ".csv"
+resource_output = dest_dir + str(args.n) + "_resource_" + current_time + ".csv"
 
 archival_reports = args.reportpath + "arch_reports/"
 if not os.path.isdir(archival_reports):
@@ -58,13 +65,13 @@ try:
         table = data[0] # first table should be summary table
         for row in table:
             writer.writerow(row)
-'''
+    '''
     with open(resource_output, 'w') as csvfile:
         writer = csv.writer(csvfile)
         table = data[i - 1] # is this even right?? resources might not be last table... how to handle resources/round?
         for row in table:
             writer.writerow(row)
-'''
+    '''
 except:
     print("Error while parsing html report...  Data dictionary: ", data)
 

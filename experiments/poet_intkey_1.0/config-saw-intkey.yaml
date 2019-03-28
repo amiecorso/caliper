@@ -9,99 +9,117 @@ test:
 
   - label: warmup
     txDuration:
-    - 20
+    - 80
     rateControl:
     - type: fixed-rate
       opts:
         tps: 5 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 10 TPS
     txDuration:
-    - 20
+    - 90
     rateControl:
     - type: fixed-rate
       opts:
         tps: 10 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 15 TPS
     txDuration:
-    - 30
+    - 70
     rateControl:
     - type: fixed-rate
       opts:
         tps: 15 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 20 TPS
     txDuration:
-    - 40
+    - 80
     rateControl:
     - type: fixed-rate
       opts:
         tps: 20 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 25 TPS
     txDuration:
-    - 50
+    - 90
     rateControl:
     - type: fixed-rate
       opts:
         tps: 25 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 30 TPS
     txDuration:
-    - 60
+    - 100
     rateControl:
     - type: fixed-rate
       opts:
         tps: 30 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 35 TPS
     txDuration:
-    - 70
+    - 110
     rateControl:
     - type: fixed-rate
       opts:
         tps: 35 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 40 TPS
     txDuration:
-    - 80
+    - 120
     rateControl:
     - type: fixed-rate
       opts:
         tps: 40 
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 45 TPS
     txDuration:
-    - 90
+    - 130 
     rateControl:
     - type: fixed-rate
       opts:
         tps: 45
+    trim:
+    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js

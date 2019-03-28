@@ -60,5 +60,5 @@ subprocess.call(take_down, shell=True)
 subprocess.call("docker volume prune -f", shell=True)
 
 print("end_tasks.py: Calling report_parser.py")
-parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --dest {}results/ --n {}".format(args.exp_dir, args.exp_dir, str(args.n))
+parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --results {}results/ --n {}".format(args.exp_dir, args.exp_dir, str(args.n))
 subprocess.call(parse_reports, shell=True)

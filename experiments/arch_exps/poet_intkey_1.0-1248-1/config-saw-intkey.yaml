@@ -1,0 +1,114 @@
+---
+test:
+  name: intkey 
+  description: IntKey workload for Caliper-> Sawtooth 
+  clients:
+    type: local
+    number: 1
+  rounds:
+
+  - label: warmup
+    txDuration:
+    - 20
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 5 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 10 TPS
+    txDuration:
+    - 20
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 10 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 15 TPS
+    txDuration:
+    - 30
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 15 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 20 TPS
+    txDuration:
+    - 40
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 20 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 25 TPS
+    txDuration:
+    - 50
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 25 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 30 TPS
+    txDuration:
+    - 60
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 30 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 35 TPS
+    txDuration:
+    - 70
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 35 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 40 TPS
+    txDuration:
+    - 80
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 40 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 45 TPS
+    txDuration:
+    - 90
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 45
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+monitor:
+  type: docker
+  docker:
+    name:
+    - all
+  interval: 1
