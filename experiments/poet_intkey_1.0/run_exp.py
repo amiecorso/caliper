@@ -18,6 +18,7 @@ BBFILE = "IntKeyBatchBuilder.js"
 BENCHCONFIG = EXP_DIR + [f for f in os.listdir(EXP_DIR) if f.endswith(".yaml")][0] # auto-detect benchmark config file in exp_dir
 BENCHCONFIG = EXP_DIR + "config-saw-intkey.yaml"
 
+print("run_exp.py: cleaning directories...")
 # clear directories:
 if os.path.exists(EXP_DIR + "compose_files"):
     shutil.rmtree(EXP_DIR + "compose_files")
