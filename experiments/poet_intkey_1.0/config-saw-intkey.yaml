@@ -9,20 +9,18 @@ test:
 
   - label: warmup
     txDuration:
-    - 80
+    - 300 
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 5 
-    trim:
-    - 20
+        tps: 10 
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
   - label: 10 TPS
     txDuration:
-    - 90
+    - 180
     rateControl:
     - type: fixed-rate
       opts:
@@ -35,7 +33,7 @@ test:
 
   - label: 15 TPS
     txDuration:
-    - 70
+    - 180
     rateControl:
     - type: fixed-rate
       opts:
@@ -48,7 +46,7 @@ test:
 
   - label: 20 TPS
     txDuration:
-    - 80
+    - 180
     rateControl:
     - type: fixed-rate
       opts:
@@ -61,7 +59,7 @@ test:
 
   - label: 25 TPS
     txDuration:
-    - 90
+    - 200
     rateControl:
     - type: fixed-rate
       opts:
@@ -74,7 +72,7 @@ test:
 
   - label: 30 TPS
     txDuration:
-    - 100
+    - 200
     rateControl:
     - type: fixed-rate
       opts:
@@ -87,7 +85,7 @@ test:
 
   - label: 35 TPS
     txDuration:
-    - 110
+    - 220
     rateControl:
     - type: fixed-rate
       opts:
@@ -100,7 +98,7 @@ test:
 
   - label: 40 TPS
     txDuration:
-    - 120
+    - 240
     rateControl:
     - type: fixed-rate
       opts:
@@ -113,7 +111,7 @@ test:
 
   - label: 45 TPS
     txDuration:
-    - 130 
+    - 260 
     rateControl:
     - type: fixed-rate
       opts:
