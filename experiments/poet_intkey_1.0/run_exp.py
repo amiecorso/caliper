@@ -4,8 +4,8 @@ import subprocess
 import os
 import shutil
 
-NET_SIZES = [1, 2, 4, 8, 12, 16]
-REPEATS = 3
+NET_SIZES = [1, 2, 4, 8]
+REPEATS = 2
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "poet-intkey-1.0_template.yaml"
 NETCONFIG_TEMPLATE = "~/caliper/experiments/templates/netconfig_template.json"
