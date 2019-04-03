@@ -5,7 +5,7 @@ import os
 import shutil
 
 NET_SIZES = [1, 2, 4, 8]
-REPEATS = 2
+REPEATS = 5
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "poet-intkey-1.0_template.yaml"
 NETCONFIG_TEMPLATE = "~/caliper/experiments/templates/netconfig_template.json"
@@ -37,15 +37,21 @@ for n in NET_SIZES:
     command = "python ~/caliper/experiments/compose_file_gen.py --n {} --template {} --dest {}".format(n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files")
     subprocess.call(command, shell=True)
 
+'''
 # generate netconfig files
 print("run_exp.py: generating netconfig files...")
 for n in NET_SIZES:
     command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE)
     subprocess.call(command, shell=True)
+'''
 
 # deliver workload to each network
 for n in NET_SIZES:
     for repeat in range(REPEATS):
+        # generate netconfig file
+        command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat)
+        subprocess.call(command, shell=True)
+        # this could use some cleaning up?
         base_filename = NETCONFIG_TEMPLATE.split('/')[-1].replace("_template", "") # get rid of 'template' tag
         netconfig = EXP_DIR + "net_config_files/" + str(n) + "_" + base_filename
         command = "node ~/caliper/benchmark/{}/main.js -c {} -n {}".format(TPFAMILY, BENCHCONFIG, netconfig)

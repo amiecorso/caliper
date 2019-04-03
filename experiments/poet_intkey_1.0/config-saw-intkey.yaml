@@ -20,13 +20,11 @@ test:
 
   - label: 40 TPS
     txDuration:
-    - 600
+    - 1200 
     rateControl:
     - type: fixed-rate
       opts:
         tps: 40
-    trim:
-    - 20
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
