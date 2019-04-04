@@ -9,7 +9,7 @@ test:
 
   - label: warmup
     txDuration:
-    - 1000
+    - 500
     rateControl:
     - type: fixed-rate
       opts:
@@ -18,14 +18,13 @@ test:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
-  - label: 40 TPSfixed-feedback
+  - label: 40 TPS
     txDuration:
-    - 2000
+    - 1200 
     rateControl:
-    - type: fixed-feedback-rate
+    - type: fixed-rate
       opts:
         tps: 40
-        unfinished_per_client: 100
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
