@@ -4,7 +4,7 @@ import subprocess
 import os
 import shutil
 
-NET_SIZES = [1, 3]
+NET_SIZES = [1, 4]
 REPEATS = 1
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "poet-intkey-1.0_template.yaml"

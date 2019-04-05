@@ -35,25 +35,41 @@ if not os.path.isdir(archival_reports):
 
 data = {}
 for filename in os.listdir(args.reportpath):
-    if filename.startswith("report"):
+    if filename.startswith("report") and filename.endswith("html"):
         htmlfile = open(args.reportpath + filename)
         soup = BeautifulSoup(htmlfile, "lxml")
         tables = soup.find_all("table")
         i = 0
+        roundindex = 0
         for table in tables:
+            resourcetable = False
             tabledata = []
+
             rows = table.find_all("tr")
             for row in rows:
                 headers = row.find_all("th")
                 headers = [ele.text.strip() for ele in headers]
                 cols = row.find_all("td")
                 cols = [ele.text.strip() for ele in cols]
+                if "Memory(max)" in headers:
+                    resourcetable = True
+                    headers.insert(0, "round" + str(roundindex))
                 if headers:
                     tabledata.append(headers)
                 if cols:
+                    if resourcetable:
+                        cols.insert(0, "round" + str(roundindex))
                     tabledata.append(cols)
-            data[i] = tabledata
-            i += 1
+            if resourcetable:
+                if roundindex > 0:
+                    for rowindex in range(1, len(tabledata)):
+                        data["resources"].append(tabledata[rowindex])
+                else:
+                    data["resources"] = tabledata
+                roundindex += 1
+            else:
+                data[i] = tabledata
+                i += 1
         
         htmlfile.close()
         # put the report file in archive folder
@@ -67,13 +83,11 @@ try:
         table = data[0] # first table should be summary table
         for row in table:
             writer.writerow(row)
-    '''
     with open(resource_output, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        table = data[i - 1] # is this even right?? resources might not be last table... how to handle resources/round?
+        table = data["resources"] # is this even right?? resources might not be last table... how to handle resources/round?
         for row in table:
             writer.writerow(row)
-    '''
 except:
     print("Error while parsing html report...  Data dictionary: ", data)
 
