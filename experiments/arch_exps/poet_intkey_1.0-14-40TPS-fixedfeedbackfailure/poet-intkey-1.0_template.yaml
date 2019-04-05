@@ -1,4 +1,4 @@
-# 2_poet-intkey-1.0.yaml
+# Template:  PoET IntKey 1.0 multinode
 # ------------------------------------------------------------------------------
 
 version: '2.1'
@@ -104,10 +104,11 @@ services:
       - validator-0
     entrypoint: intkey-tp-python -vv -C tcp://validator-0:4004
 
+# end genesis
 # ----------------------------------------------------------------------------------------
-  validator-1:
+  validator-{}:
     image: hyperledger/sawtooth-validator:1.0
-    container_name: sawtooth-validator-1
+    container_name: sawtooth-validator-{}
     expose:
       - 4004
       - 8800
@@ -115,7 +116,7 @@ services:
           sawtooth keygen && \
           sawadm keygen --force &&\
         sawtooth-validator -v \
-          --endpoint tcp://validator-1:8800 \
+          --endpoint tcp://validator-{}:8800 \
           --bind component:tcp://eth0:4004 \
           --bind network:tcp://eth0:8800 \
           --peering dynamic \
@@ -128,40 +129,40 @@ services:
         /project/sawtooth-core/consensus/poet/simulator:\
         /project/sawtooth-core/consensus/poet/core "
 
-  poet-validator-registry-tp-1:
+  poet-validator-registry-tp-{}:
     image: hyperledger/sawtooth-poet-validator-registry-tp:latest
-    container_name: sawtooth-poet-validator-registry-tp-1
+    container_name: sawtooth-poet-validator-registry-tp-{}
     expose:
       - 4004
     depends_on:
-      - validator-1
-    command: poet-validator-registry-tp -C tcp://validator-1:4004
+      - validator-{}
+    command: poet-validator-registry-tp -C tcp://validator-{}:4004
     environment:
       PYTHONPATH: /project/sawtooth-core/consensus/poet/common
     stop_signal: SIGKILL
 
-  rest-api-1:
+  rest-api-{}:
     image: hyperledger/sawtooth-rest-api:1.0
-    container_name: sawtooth-rest-api-1
+    container_name: sawtooth-rest-api-{}
     expose:
       - 8008
     ports:
-      - "8009:8008"
+      - "{hostport}:8008"
     depends_on:
-      - validator-1
-    entrypoint: sawtooth-rest-api -vv -C tcp://validator-1:4004 --bind rest-api-1:8008
+      - validator-{}
+    entrypoint: sawtooth-rest-api -vv -C tcp://validator-{}:4004 --bind rest-api-{}:8008
 
-  settings-tp-1:
+  settings-tp-{}:
     image: hyperledger/sawtooth-settings-tp:1.0
-    container_name: sawtooth-settings-tp-1
+    container_name: sawtooth-settings-tp-{}
     depends_on:
-      - validator-1
-    entrypoint: settings-tp -vv -C tcp://validator-1:4004
+      - validator-{}
+    entrypoint: settings-tp -vv -C tcp://validator-{}:4004
 
-  intkey-tp-python-1:
+  intkey-tp-python-{}:
     image: hyperledger/sawtooth-intkey-tp-python:1.0
-    container_name: sawtooth-intkey-tp-python-default-1
+    container_name: sawtooth-intkey-tp-python-default-{}
     depends_on:
-      - validator-1
-    entrypoint: intkey-tp-python -vv -C tcp://validator-1:4004
+      - validator-{}
+    entrypoint: intkey-tp-python -vv -C tcp://validator-{}:4004
 

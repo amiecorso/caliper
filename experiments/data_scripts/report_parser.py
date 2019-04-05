@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser(description="Parse HTML reports")
 parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
 parser.add_argument('--results', default='/home/amie/caliper/experiments/prototest/results/')
 parser.add_argument('--n', default=1)
+parser.add_argument('--run_num', default='only')
 args = parser.parse_args()
 
 if not os.path.exists(args.results):
@@ -23,9 +24,10 @@ if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
 
-current_time = str(int(time.time())) # append unique time to each file to prevent overwriting 
-performance_output = dest_dir + str(args.n) + "_performance_" + current_time + ".csv"
-resource_output = dest_dir + str(args.n) + "_resource_" + current_time + ".csv"
+#current_time = str(int(time.time())) # append unique time to each file to prevent overwriting 
+# using run number instead
+performance_output = dest_dir + str(args.n) + "_performance_" + "run" + str(args.run_num) + ".csv"
+resource_output = dest_dir + str(args.n) + "_resource_" + "run" + str(args.run_num) + ".csv"
 
 archival_reports = args.reportpath + "arch_reports/"
 if not os.path.isdir(archival_reports):
