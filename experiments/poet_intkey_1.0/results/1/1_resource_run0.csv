@@ -1,2 +1,43 @@
-Name,Succ,Fail,Send Rate,Max Latency,Min Latency,Avg Latency,Throughput
-testround3,40,0,10.0 tps,0.01 s,0.01 s,0.01 s,10.0 tps
+round0,TYPE,NAME,Memory(max),Memory(avg),CPU(max),CPU(avg),Traffic In,Traffic Out,Disc Read,Disc Write
+round0,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,12.6KB,0B,0B,0B
+round0,Docker,sawtooth-rest-api-0,26.7MB,26.4MB,0.78%,0.09%,4.4MB,4.5MB,0B,0B
+round0,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,12.6KB,0B,0B,0B
+round0,Docker,sawtooth-intkey-tp-python...ult-0,22.2MB,21.4MB,41.26%,3.34%,11.0MB,5.4MB,0B,0B
+round0,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,12.6KB,0B,0B,0B
+round0,Docker,sawtooth-validator-0,223.1MB,158.9MB,95.95%,10.09%,9.7MB,11.0MB,0B,0B
+round1,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,5.0KB,0B,0B,0B
+round1,Docker,sawtooth-rest-api-0,27.8MB,27.5MB,0.64%,0.13%,5.9MB,6.0MB,0B,0B
+round1,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,5.0KB,0B,0B,0B
+round1,Docker,sawtooth-intkey-tp-python...ult-0,23.7MB,22.9MB,44.04%,3.92%,9.8MB,4.8MB,0B,0B
+round1,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,5.1KB,0B,0B,0B
+round1,Docker,sawtooth-validator-0,350.7MB,305.5MB,97.12%,18.23%,10.5MB,9.8MB,0B,0B
+round2,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,7.3KB,0B,0B,0B
+round2,Docker,sawtooth-rest-api-0,28.5MB,28.2MB,0.85%,0.24%,8.9MB,9.1MB,0B,0B
+round2,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,7.3KB,0B,0B,0B
+round2,Docker,sawtooth-intkey-tp-python...ult-0,25.7MB,24.3MB,43.78%,6.04%,15.2MB,7.3MB,0B,0B
+round2,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,7.2KB,0B,0B,0B
+round2,Docker,sawtooth-validator-0,643.1MB,443.8MB,100.03%,57.89%,15.9MB,15.4MB,0B,0B
+round3,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round3,Docker,sawtooth-rest-api-0,29.1MB,28.6MB,0.50%,0.30%,11.9MB,12.1MB,0B,0B
+round3,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round3,Docker,sawtooth-intkey-tp-python...ult-0,27.8MB,26.8MB,40.55%,6.15%,15.7MB,7.4MB,0B,0B
+round3,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round3,Docker,sawtooth-validator-0,861.8MB,779.6MB,100.58%,96.99%,18.8MB,15.9MB,0B,0B
+round4,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,5.6KB,0B,0B,0B
+round4,Docker,sawtooth-rest-api-0,29.8MB,29.2MB,0.74%,0.37%,14.8MB,15.1MB,0B,0B
+round4,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,5.6KB,0B,0B,0B
+round4,Docker,sawtooth-intkey-tp-python...ult-0,29.6MB,28.6MB,41.02%,5.33%,13.6MB,6.3MB,0B,0B
+round4,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,5.7KB,0B,0B,0B
+round4,Docker,sawtooth-validator-0,1.0GB,945.0MB,101.26%,97.59%,20.7MB,13.9MB,0B,0B
+round5,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,6.0KB,0B,0B,0B
+round5,Docker,sawtooth-rest-api-0,30.9MB,30.3MB,0.87%,0.45%,17.8MB,18.1MB,0B,0B
+round5,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,6.0KB,0B,0B,0B
+round5,Docker,sawtooth-intkey-tp-python...ult-0,30.4MB,29.8MB,40.16%,2.63%,6.7MB,3.1MB,0B,0B
+round5,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round5,Docker,sawtooth-validator-0,1.1GB,1.0GB,101.72%,99.04%,20.2MB,7.1MB,0B,0B
+round6,Docker,sawtooth-shell-default,2.6MB,2.6MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round6,Docker,sawtooth-rest-api-0,32.2MB,31.5MB,0.77%,0.52%,20.8MB,21.2MB,0B,0B
+round6,Docker,sawtooth-settings-tp-0,20.4MB,20.4MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round6,Docker,sawtooth-intkey-tp-python...ult-0,31.8MB,30.7MB,41.13%,4.45%,11.3MB,5.4MB,0B,0B
+round6,Docker,sawtooth-poet-validator-r...-tp-0,46.8MB,46.8MB,0.00%,0.00%,5.9KB,0B,0B,0B
+round6,Docker,sawtooth-validator-0,1.3GB,1.2GB,108.47%,98.11%,25.4MB,11.7MB,0B,0B

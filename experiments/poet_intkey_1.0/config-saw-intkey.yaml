@@ -7,42 +7,90 @@ test:
     number: 1
   rounds:
 
-  - label: testround 1
+  - label: warmup
     txDuration:
-    - 5 
+    - 1200
     rateControl:
     - type: fixed-feedback-rate
       opts:
         tps: 5 
-        unfinished_per_client: 10
+        unfinished_per_client: 1
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
-  - label: testround2
+  - label: 10 TPS
     txDuration:
-    - 5 
+    - 800
     rateControl:
     - type: fixed-feedback-rate
       opts:
-        tps: 5 
-        unfinished_per_client: 10
+        tps: 10
+        unfinished_per_client: 1 
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
-  - label: testround3
+  - label: 15 TPS
     txDuration:
-    - 5 
+    - 800
     rateControl:
     - type: fixed-feedback-rate
       opts:
-        tps: 5 
-        unfinished_per_client: 10
+        tps: 15
+        unfinished_per_client: 1 
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
-        
+
+  - label: 20 TPS
+    txDuration:
+    - 800
+    rateControl:
+    - type: fixed-feedback-rate
+      opts:
+        tps: 20
+        unfinished_per_client: 1 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 25 TPS
+    txDuration:
+    - 800
+    rateControl:
+    - type: fixed-feedback-rate
+      opts:
+        tps: 25
+        unfinished_per_client: 1 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 30 TPS
+    txDuration:
+    - 800
+    rateControl:
+    - type: fixed-feedback-rate
+      opts:
+        tps: 30
+        unfinished_per_client: 1 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
+  - label: 35 TPS
+    txDuration:
+    - 800
+    rateControl:
+    - type: fixed-feedback-rate
+      opts:
+        tps: 35 
+        unfinished_per_client: 1 
+    arguments:
+      txnPerBatch: 20
+    callback: benchmark/intkey/intkey_set.js
+
 monitor:
   type: docker
   docker:
