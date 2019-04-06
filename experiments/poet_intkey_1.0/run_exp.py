@@ -6,6 +6,10 @@ import shutil
 
 NET_SIZES = [1, 2, 4]
 REPEATS = 2
+LEAVE_UP = True
+if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
+    NET_SIZES = [1]
+    REPEATS = 1
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "poet-intkey-1.0_template.yaml"
 NETCONFIG_TEMPLATE = "~/caliper/experiments/templates/netconfig_template.json"
@@ -49,7 +53,7 @@ for n in NET_SIZES:
 for n in NET_SIZES:
     for repeat in range(REPEATS):
         # generate netconfig file
-        command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat)
+        command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {} --leave_up {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat, LEAVE_UP)
         subprocess.call(command, shell=True)
         # this could use some cleaning up?
         base_filename = NETCONFIG_TEMPLATE.split('/')[-1].replace("_template", "") # get rid of 'template' tag

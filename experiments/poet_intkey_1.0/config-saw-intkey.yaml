@@ -7,90 +7,19 @@ test:
     number: 1
   rounds:
 
-  - label: warmup
+  - label: testround 1
     txDuration:
-    - 1200
+    - 10 
     rateControl:
     - type: fixed-feedback-rate
       opts:
-        tps: 5 
-        unfinished_per_client: 1
+        tps: 10 
+        unfinished_per_client: 10
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
-  - label: 10 TPS
-    txDuration:
-    - 800
-    rateControl:
-    - type: fixed-feedback-rate
-      opts:
-        tps: 10
-        unfinished_per_client: 1 
-    arguments:
-      txnPerBatch: 20
-    callback: benchmark/intkey/intkey_set.js
-
-  - label: 15 TPS
-    txDuration:
-    - 800
-    rateControl:
-    - type: fixed-feedback-rate
-      opts:
-        tps: 15
-        unfinished_per_client: 1 
-    arguments:
-      txnPerBatch: 20
-    callback: benchmark/intkey/intkey_set.js
-
-  - label: 20 TPS
-    txDuration:
-    - 800
-    rateControl:
-    - type: fixed-feedback-rate
-      opts:
-        tps: 20
-        unfinished_per_client: 1 
-    arguments:
-      txnPerBatch: 20
-    callback: benchmark/intkey/intkey_set.js
-
-  - label: 25 TPS
-    txDuration:
-    - 800
-    rateControl:
-    - type: fixed-feedback-rate
-      opts:
-        tps: 25
-        unfinished_per_client: 1 
-    arguments:
-      txnPerBatch: 20
-    callback: benchmark/intkey/intkey_set.js
-
-  - label: 30 TPS
-    txDuration:
-    - 800
-    rateControl:
-    - type: fixed-feedback-rate
-      opts:
-        tps: 30
-        unfinished_per_client: 1 
-    arguments:
-      txnPerBatch: 20
-    callback: benchmark/intkey/intkey_set.js
-
-  - label: 35 TPS
-    txDuration:
-    - 800
-    rateControl:
-    - type: fixed-feedback-rate
-      opts:
-        tps: 35 
-        unfinished_per_client: 1 
-    arguments:
-      txnPerBatch: 20
-    callback: benchmark/intkey/intkey_set.js
-
+        
 monitor:
   type: docker
   docker:
