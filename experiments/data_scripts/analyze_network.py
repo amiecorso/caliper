@@ -16,7 +16,7 @@ parser.add_argument('--single', default=False, action='store_const', const=True,
 args = parser.parse_args()
 
 INTERVAL = 5.0 # number of seconds between updates
-REPEATS = 10
+REPEATS = 3
 
 if not args.dest.endswith("/"):
     args.dest += "/"

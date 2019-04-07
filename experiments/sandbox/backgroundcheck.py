@@ -2,8 +2,8 @@
 import time
 
 print("Executing backgroundcheck.py")
-for i in range(5):
+for i in range(15):
     print("testing " + str(i))
-    time.sleep(.5)
+    time.sleep(1)
 
 

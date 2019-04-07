@@ -3,6 +3,7 @@
 import subprocess
 import os
 import argparse
+import sys
 
 print("Executing start_tasks.py")
 parser = argparse.ArgumentParser(description="Execute pre-workload tasks for Caliper experiment")
@@ -25,7 +26,9 @@ analysis_dest = args.exp_dir + "results" + "/"
 if not os.path.exists(analysis_dest):
     os.mkdir(analysis_dest)
 
-analysis = "python3 ~/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {}".format(args.n, analysis_dest, args.run_num)
+analysis = "python3 /home/amie/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {} &".format(args.n, analysis_dest, args.run_num)
 print("Starting external analysis...")
-subprocess.call(analysis, shell=True)
-
+print("executing command: ", analysis)
+subprocess.Popen(analysis, shell=True)
+# not working...
+#sys.exit()
