@@ -1,0 +1,80 @@
+# Automate some network examinations on running Sawtooth instance (Docker)
+
+import docker
+import time
+import argparse
+import os
+
+parser = argparse.ArgumentParser(description="Parse validator logs for stale block rate")
+parser.add_argument('--n', default=1, type=int, help="Network size")
+parser.add_argument('--dest', default='/home/amie/caliper/experiments/data_scripts/', help="Where parsing results should be stored")
+parser.add_argument('--run_num', default="only", help="Index identical experimental runs")
+parser.add_argument('--rest_url', default='http://sawtooth-rest-api-0:8008', help="URL of a rest-api container for this network") # defaults to size 1 network
+parser.add_argument('--val_name', default ='sawtooth-validator', help="base name for validator containers") # default to size 1 network
+parser.add_argument('--shell_name', default='sawtooth-shell-default', help="name of shell container")
+parser.add_argument('--single', default=False, action='store_const', const=True,  help="Include this flag if val_name should be left un-appended")
+args = parser.parse_args()
+
+INTERVAL = 5.0 # number of seconds between updates
+REPEATS = 10
+
+if not args.dest.endswith("/"):
+    args.dest += "/"
+args.dest = args.dest + str(args.n) + "/"
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
+
+output_file = args.dest + str(args.n) + "_analysis_run" + args.run_num + ".txt"
+
+docker_client = docker.from_env()
+shell = docker_client.containers.get(args.shell_name)
+
+def count_blocks():
+    blocklist = shell.exec_run("sawtooth block list --url " + args.rest_url)
+    blocklist = blocklist[1].decode('utf-8')
+    #print("Block list main chain: \n", blocklist)
+    blocklistsplit = blocklist.split('\n')
+    numblocks = len(blocklistsplit) - 3 # 2 for header and 1 initial settings block
+    #print("Total num blocks (not settings): ", numblocks)
+    return numblocks
+
+def count_txns():
+    txnlist = shell.exec_run("sawtooth transaction list --url " + args.rest_url)
+    txnlist = txnlist[1].decode('utf-8')
+    txnlistsplit = txnlist.split('\n') 
+    numtxns = len(txnlistsplit) - 8 # 2 for header and 6 initial settings txns
+    #print("Total num txns: ", numtxns)
+    return numtxns
+'''
+# EXAMINE BLOCKS:
+for entry in blocklistsplit[2:-1]: #(skip the headers, and some blank thing at the end?) might want to reverse this...
+    split = entry.split()
+    blockid = split[1]
+    #command = "sawtooth block show --url " + args.rest_url + " " +  blockid
+    #blockshow = shell.exec_run(command)
+    #blockshow = blockshow[1].decode('utf-8')
+'''
+
+with open(output_file, 'w') as f:
+    pass
+
+# perform updates every X seconds
+# Write header
+out = open(output_file, "w")
+out.write("Elapsed\t Num Blocks\t Num Txns\n")
+print("Elapsed\t Num Blocks\t Num Txns")
+
+starttime=time.time()
+while True:
+    if REPEATS:
+        elapsed = round((time.time() - starttime), 2)
+        num_blocks = count_blocks()
+        num_txns = count_txns()
+        data = "{}\t {}\t {}\n".format(elapsed, num_blocks, num_txns)
+        out.write(data)
+        print(data, end='')
+        time.sleep(INTERVAL - ((time.time() - starttime) % INTERVAL))
+    else:
+        break
+    REPEATS -= 1
+
