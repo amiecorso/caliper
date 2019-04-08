@@ -3,6 +3,7 @@
 import subprocess
 import os
 import shutil
+import time
 
 NET_SIZES = [1, 2, 4]
 REPEATS = 2
@@ -56,11 +57,22 @@ for n in NET_SIZES:
         command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {} --leave_up {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat, LEAVE_UP)
         subprocess.call(command, shell=True)
         # this could use some cleaning up?
+
+        # external monitor:
+        analysis_dest = EXP_DIR + "results" + "/"
+        if not os.path.exists(analysis_dest):
+            os.mkdir(analysis_dest)
+        analysis = "python3 /home/amie/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {} &".format(n, analysis_dest, repeat)
+        print("Starting external analysis...")
+        print("executing command: ", analysis)
+        subprocess.Popen(analysis, shell=True)
+        
         base_filename = NETCONFIG_TEMPLATE.split('/')[-1].replace("_template", "") # get rid of 'template' tag
         netconfig = EXP_DIR + "net_config_files/" + str(n) + "_" + base_filename
         command = "node ~/caliper/benchmark/{}/main.js -c {} -n {}".format(TPFAMILY, BENCHCONFIG, netconfig)
         print("run_exp.py: Calling \"" + command + "\"")
         subprocess.call(command, shell=True)
+        
 
 # not ready for final data processing yet
 '''

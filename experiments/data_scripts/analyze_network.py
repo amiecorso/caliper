@@ -16,7 +16,7 @@ parser.add_argument('--single', default=False, action='store_const', const=True,
 args = parser.parse_args()
 
 INTERVAL = 5.0 # number of seconds between updates
-REPEATS = 3
+REPEATS = 20
 
 if not args.dest.endswith("/"):
     args.dest += "/"
@@ -26,8 +26,17 @@ if not os.path.exists(args.dest):
 
 output_file = args.dest + str(args.n) + "_analysis_run" + args.run_num + ".txt"
 
-docker_client = docker.from_env()
-shell = docker_client.containers.get(args.shell_name)
+# Give network time to spin up...
+time.sleep(25)
+network_up = False
+while not network_up:
+    try:
+        docker_client = docker.from_env()
+        shell = docker_client.containers.get(args.shell_name)
+        network_up = True
+    except:
+        "analyze_network.py: Waiting for Docker network..."
+        time.sleep(1)
 
 def count_blocks():
     blocklist = shell.exec_run("sawtooth block list --url " + args.rest_url)
@@ -55,9 +64,6 @@ for entry in blocklistsplit[2:-1]: #(skip the headers, and some blank thing at t
     #blockshow = blockshow[1].decode('utf-8')
 '''
 
-with open(output_file, 'w') as f:
-    pass
-
 # perform updates every X seconds
 # Write header
 out = open(output_file, "w")
@@ -77,4 +83,6 @@ while True:
     else:
         break
     REPEATS -= 1
+
+out.close()
 

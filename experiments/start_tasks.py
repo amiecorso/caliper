@@ -21,7 +21,7 @@ start_network = "docker-compose -f {}compose_files/{} up -d && sleep 15".format(
 print("Starting network... ")
 print("Executing command: ", start_network)
 subprocess.call(start_network, shell=True)
-
+'''
 analysis_dest = args.exp_dir + "results" + "/"
 if not os.path.exists(analysis_dest):
     os.mkdir(analysis_dest)
@@ -32,3 +32,4 @@ print("executing command: ", analysis)
 subprocess.Popen(analysis, shell=True)
 # not working...
 #sys.exit()
+'''
