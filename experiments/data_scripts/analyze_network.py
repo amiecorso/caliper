@@ -18,6 +18,7 @@ args = parser.parse_args()
 
 INTERVAL = 5.0 # number of seconds between updates
 REPEATS = 20
+PRINT = True
 
 if not args.dest.endswith("/"):
     args.dest += "/"
@@ -27,11 +28,15 @@ if not os.path.exists(args.dest):
 
 output_file = args.dest + str(args.n) + "_analysis_run" + args.run_num + ".txt"
 
+def list_blocks():
+    blocks = shell.exec_run("sawtooth block list --url " + args.rest_url)
+    blocks = blocks[1].decode('utf-8')
+    return blocks
 
 def count_blocks():
-    blocklist = shell.exec_run("sawtooth block list --url " + args.rest_url)
-    blocklist = blocklist[1].decode('utf-8')
-    #print("Block list main chain: \n", blocklist)
+    blocklist = list_blocks()
+    if PRINT:
+        print("Block list: \n", blocklist)
     blocklistsplit = blocklist.split('\n')
     numblocks = len(blocklistsplit) - 3 # 2 for header and 1 initial settings block
     #print("Total num blocks (not settings): ", numblocks)
@@ -59,9 +64,10 @@ while not network_up:
 
 # perform updates every X seconds
 out = open(output_file, "w")
-out.write("Elapsed\t Num Blocks\t Num Txns\n")
+header = "Datetime\t Elapsed\t Num Blocks\t Num Txns\n")
+out.write(header)
 if PRINT:
-    print("Elapsed\t Num Blocks\t Num Txns")
+    print(header)
 
 starttime=time.time()
 while True:
@@ -79,10 +85,9 @@ while True:
         break
     REPEATS -= 1
 
-blocks = shell.exec_run("sawtooth block list --url " + args.rest_url)
-blocks = blocks[1].decode('utf-8')
+blocks = list_blocks()
 out.write("\n\n" + blocks)
 if PRINT:
-    print("Block list main chain: \n", blocklist)
+    print("Block list main chain: \n", blocks)
 
 out.close()

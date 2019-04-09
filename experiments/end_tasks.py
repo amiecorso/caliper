@@ -31,12 +31,12 @@ with open(args.exp_dir + "compose_files/" + compose_file, 'r') as f:
             rest_url = "http://" + rest_name + ":8008"
             break
 
-#This seems to help the sawtooth block list command display the correct blocks/txns
-time.sleep(20)
-
 print("end_tasks.py: Calling save_logs.py")
 save_logs = "python3 ~/caliper/experiments/stale_blocks/save_logs.py --n {} --exp_dir {} --run_num {} && sleep 4".format(str(args.n), args.exp_dir, args.run_num)
 subprocess.call(save_logs, shell=True)
+#Make sure we save logs before tearing down containers
+time.sleep(5)
+
 
 # NEED TO RETHINK STALE BLOCK CALCULATIONS
 # currently, this would calculate stale blocks for the WHOLE experimental run (including all sub-rounds...)
