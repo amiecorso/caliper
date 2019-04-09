@@ -17,7 +17,7 @@ parser.add_argument('--single', default=False, action='store_const', const=True,
 args = parser.parse_args()
 
 INTERVAL = 5.0 # number of seconds between updates
-REPEATS = 20
+REPEATS = 8
 PRINT = True
 
 if not args.dest.endswith("/"):
@@ -64,7 +64,7 @@ while not network_up:
 
 # perform updates every X seconds
 out = open(output_file, "w")
-header = "Datetime\t Elapsed\t Num Blocks\t Num Txns\n")
+header = "Datetime\t Elapsed\t Num Blocks\t Num Txns\n"
 out.write(header)
 if PRINT:
     print(header)
