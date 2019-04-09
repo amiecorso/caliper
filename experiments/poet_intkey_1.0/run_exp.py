@@ -6,7 +6,7 @@ import shutil
 import time
 
 NET_SIZES = [1]
-REPEATS = 1
+REPEATS = 6 
 TIME = 10000000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time

@@ -7,14 +7,14 @@ test:
     number: 1
   rounds:
 
-  - label: testround 1
+  - label: only
     txDuration:
-    - 40
+    - 800
     rateControl:
     - type: fixed-feedback-rate
       opts:
-        tps: 10 
-        unfinished_per_client: 10
+        tps: 30 
+        unfinished_per_client: 5
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js

@@ -100,6 +100,8 @@ out.write(header)
 if PRINT:
     print(header)
 
+last_good_blocks = "last_good_blocks = none"
+last_num_txns = 0
 
 starttime=time.time()
 while True:
@@ -123,7 +125,10 @@ while True:
     num_blocks = len(splitblocks) - 2 # one for header and one for settings block
     num_txns = count_txns()
     if num_txns is None:
+        num_txns = last_num_txns
         break # shell container already dowon, but we still want to write our outputs
+    else:
+        last_num_txns = num_txns
     data = "{}\t {}\t {}\t {}\n".format(now, elapsed, num_blocks, num_txns)
     out.write(data)
     if PRINT:
