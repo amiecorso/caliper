@@ -74,6 +74,19 @@ for n in NET_SIZES:
         subprocess.call(command, shell=True)
         
 
+# Move Caliper Logs to this directory
+log_dir = EXP_DIR + "/LOGS"
+if not os.path.exists(log_dir):
+    os.mkdir(log_dir)
+caliper_logs = log_dir + "/caliperlogs"
+if not os.path.exists(caliper_logs):
+    os.mkdir(caliper_logs)
+
+original_logs = "/home/amie/caliper/log/"
+for fname in os.listdir(original_logs):
+    shutil.move(original_logs + fname, caliper_logs)
+
+
 # not ready for final data processing yet
 '''
 # final data processing

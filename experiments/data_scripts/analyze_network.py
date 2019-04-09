@@ -2,6 +2,7 @@
 
 import docker
 import time
+import datetime
 import argparse
 import os
 
@@ -26,17 +27,6 @@ if not os.path.exists(args.dest):
 
 output_file = args.dest + str(args.n) + "_analysis_run" + args.run_num + ".txt"
 
-# Give network time to spin up...
-time.sleep(25)
-network_up = False
-while not network_up:
-    try:
-        docker_client = docker.from_env()
-        shell = docker_client.containers.get(args.shell_name)
-        network_up = True
-    except:
-        "analyze_network.py: Waiting for Docker network..."
-        time.sleep(1)
 
 def count_blocks():
     blocklist = shell.exec_run("sawtooth block list --url " + args.rest_url)
@@ -54,35 +44,45 @@ def count_txns():
     numtxns = len(txnlistsplit) - 8 # 2 for header and 6 initial settings txns
     #print("Total num txns: ", numtxns)
     return numtxns
-'''
-# EXAMINE BLOCKS:
-for entry in blocklistsplit[2:-1]: #(skip the headers, and some blank thing at the end?) might want to reverse this...
-    split = entry.split()
-    blockid = split[1]
-    #command = "sawtooth block show --url " + args.rest_url + " " +  blockid
-    #blockshow = shell.exec_run(command)
-    #blockshow = blockshow[1].decode('utf-8')
-'''
+
+# Give network time to spin up...
+time.sleep(25)
+network_up = False
+while not network_up:
+    try:
+        docker_client = docker.from_env()
+        shell = docker_client.containers.get(args.shell_name)
+        network_up = True
+    except:
+        "analyze_network.py: Waiting for Docker network..."
+        time.sleep(1)
 
 # perform updates every X seconds
-# Write header
 out = open(output_file, "w")
 out.write("Elapsed\t Num Blocks\t Num Txns\n")
-print("Elapsed\t Num Blocks\t Num Txns")
+if PRINT:
+    print("Elapsed\t Num Blocks\t Num Txns")
 
 starttime=time.time()
 while True:
     if REPEATS:
         elapsed = round((time.time() - starttime), 2)
+        now = datetime.datetime.now()
         num_blocks = count_blocks()
         num_txns = count_txns()
-        data = "{}\t {}\t {}\n".format(elapsed, num_blocks, num_txns)
+        data = "{}\t {}\t {}\t {}\n".format(now, elapsed, num_blocks, num_txns)
         out.write(data)
-        print(data, end='')
+        if PRINT:
+            print(data, end='')
         time.sleep(INTERVAL - ((time.time() - starttime) % INTERVAL))
     else:
         break
     REPEATS -= 1
 
-out.close()
+blocks = shell.exec_run("sawtooth block list --url " + args.rest_url)
+blocks = blocks[1].decode('utf-8')
+out.write("\n\n" + blocks)
+if PRINT:
+    print("Block list main chain: \n", blocklist)
 
+out.close()
