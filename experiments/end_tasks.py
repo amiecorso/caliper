@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser(description="Execute post-workload tasks for Ca
 parser.add_argument("--n", default=1, type=int, help="Number of validators in network")
 parser.add_argument("--exp_dir", default="~/caliper/experiments/poet_prototest", help="The directory for this experiment")
 parser.add_argument("--run_num", help="Which run is this? For multiple rounds of identical experiments")
-parser.add_argument("--leave_up", type=bool, default=False, help="Leave Docker network up after workload has been delivered?")
+parser.add_argument("--leave_up", default="False", help="Leave Docker network up after workload has been delivered?")
 args = parser.parse_args()
 
 if not args.exp_dir.endswith("/"):
@@ -54,7 +54,7 @@ parse_logs = "python3 ~/caliper/experiments/stale_blocks/parse_logs.py --n {} --
 subprocess.call(parse_logs, shell=True)
 '''
 
-if args.leave_up:
+if args.leave_up == "True":
     print("end_tasks.py: Leaving Docker network running......")
 else:
     print("end_tasks.py: Taking down network")

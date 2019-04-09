@@ -11,7 +11,7 @@ parser.add_argument('--exp_dir', default='/Users/amiecorso/caliper/experiments/p
 parser.add_argument('--TPfamily', default='donothing', help="The name of the transaction processor family for this workload")
 parser.add_argument('--bb_file', default='DoNothingBatchBuilder.js', help="The name of the .js BatchBuilder file for this transaction family, located in src/adapters/sawtooth/Application/")
 parser.add_argument('--run_num', help="The repeat we're on, for performing identical runs of same workload")
-parser.add_argument('--leave_up', type=bool, default=False, help="Leave the Docker network running after workload delivery?")
+parser.add_argument('--leave_up',default="False", help="Leave the Docker network running after workload delivery?")
 args = parser.parse_args()
 
 if not args.dest.endswith("/"):

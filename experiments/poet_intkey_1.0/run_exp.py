@@ -5,9 +5,10 @@ import os
 import shutil
 import time
 
-NET_SIZES = [1, 2, 4]
-REPEATS = 2
-LEAVE_UP = True
+NET_SIZES = [1]
+REPEATS = 1
+TIME = 10000000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
+LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
     NET_SIZES = [1]
     REPEATS = 1
@@ -62,7 +63,7 @@ for n in NET_SIZES:
         analysis_dest = EXP_DIR + "results" + "/"
         if not os.path.exists(analysis_dest):
             os.mkdir(analysis_dest)
-        analysis = "python3 /home/amie/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {} &".format(n, analysis_dest, repeat)
+        analysis = "python3 /home/amie/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {} --time {} &".format(n, analysis_dest, repeat, TIME)
         print("Starting external analysis...")
         print("executing command: ", analysis)
         subprocess.Popen(analysis, shell=True)

@@ -1,0 +1,201 @@
+2019-04-09T09:57:10-07:00 - DEBUG Successfully constructed a winston logger with configurations
+	{"debug":"log/caliper.log","info":"console"}
+
+2019-04-09T09:57:10-07:00 - INFO [bench-flow.js]: ####### Caliper Test ####### 
+
+2019-04-09T09:57:10-07:00 - INFO [bench-flow.js]: Executing command: python3 ~/caliper/experiments/start_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/poet_intkey_1.0/ --run_num 0 
+
+2019-04-09T09:57:32-07:00 - INFO [bench-flow.js]: Started monitor successfully 
+
+2019-04-09T09:57:32-07:00 - INFO [bench-flow.js]: ####### Testing 'testround 1' ####### 
+
+2019-04-09T09:57:32-07:00 - INFO [bench-flow.js]: ------ Test round 1 ------ 
+
+2019-04-09T09:57:32-07:00 - DEBUG Successfully constructed a winston logger with configurations
+	{"debug":"log/caliper.log","info":"console"}
+
+2019-04-09T09:57:32-07:00 - DEBUG [local-client.js]: doTest() with:
+	{"type":"test","label":"testround 1","rateControl":{"type":"fixed-feedback-rate","opts":{"tps":10,"unfinished_per_client":10}},"trim":0,"args":{"txnPerBatch":20},"cb":"benchmark/intkey/intkey_set.js","config":"experiments/poet_intkey_1.0/net_config_files/1_netconfig.json","txDuration":40,"roundIdx":1,"totalClients":1,"clients":1,"clientargs":{},"clientIdx":0,"numb":null}
+
+2019-04-09T09:57:33-07:00 - DEBUG [local-client.js]: txUpdateTime: 1000 
+
+2019-04-09T09:57:33-07:00 - DEBUG [local-client.js]: Info: client 4563 start test runDuration():setting keys 
+
+2019-04-09T09:57:33-07:00 - DEBUG [rateControl.js]: *****
+	{"type":"fixed-feedback-rate","opts":{"tps":10,"unfinished_per_client":10}}
+
+2019-04-09T09:57:33-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 0 Succ: 0 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:34-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 20 Succ: 20 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:35-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 20 Succ: 20 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:36-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 40 Succ: 40 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:37-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 40 Succ: 40 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:38-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 60 Succ: 60 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:39-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 80 Succ: 60 Fail:0 Unfinished:20 
+
+2019-04-09T09:57:40-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 80 Succ: 80 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:41-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 100 Succ: 80 Fail:0 Unfinished:20 
+
+2019-04-09T09:57:42-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 100 Succ: 100 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:43-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 120 Succ: 100 Fail:0 Unfinished:20 
+
+2019-04-09T09:57:44-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 120 Succ: 120 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:45-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 140 Succ: 120 Fail:0 Unfinished:20 
+
+2019-04-09T09:57:46-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 140 Succ: 140 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:46-07:00 - WARN [sawtooth.js]: Warn: Received message of unknown type: 700 
+
+2019-04-09T09:57:47-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 160 Succ: 140 Fail:0 Unfinished:20 
+
+2019-04-09T09:57:48-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 160 Succ: 160 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:49-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 180 Succ: 180 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:50-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 180 Succ: 180 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:51-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:52-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 200 Succ: 200 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:53-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 220 Succ: 220 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:54-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 220 Succ: 220 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:55-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 240 Succ: 240 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:56-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 240 Succ: 240 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:56-07:00 - WARN [sawtooth.js]: Warn: Received message of unknown type: 700 
+
+2019-04-09T09:57:57-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 260 Succ: 260 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:58-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 260 Succ: 260 Fail:0 Unfinished:0 
+
+2019-04-09T09:57:59-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 280 Succ: 280 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:00-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 280 Succ: 280 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:01-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 300 Succ: 300 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:02-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 300 Succ: 300 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:03-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 320 Succ: 320 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:04-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 320 Succ: 320 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:05-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 340 Succ: 320 Fail:0 Unfinished:20 
+
+2019-04-09T09:58:06-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 340 Succ: 340 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:06-07:00 - WARN [sawtooth.js]: Warn: Received message of unknown type: 700 
+
+2019-04-09T09:58:07-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 360 Succ: 360 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:08-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 360 Succ: 360 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:09-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 380 Succ: 380 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:10-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 380 Succ: 380 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:11-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 400 Succ: 400 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:12-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 400 Succ: 400 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:13-07:00 - DEBUG [bench-flow.js]: r.create.max: 1554829091.032 r.create.min: 1554829053.081 r.final.max: 1554829091.045 r.final.min: 1554829053.093 
+
+2019-04-09T09:58:13-07:00 - DEBUG [bench-flow.js]: sendTransactionProposal: 0ms length: 400 
+
+2019-04-09T09:58:13-07:00 - DEBUG [bench-flow.js]: sendTransaction: 0ms 
+
+2019-04-09T09:58:13-07:00 - DEBUG [bench-flow.js]: invokeLantency: 0ms 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: ###test result:### 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: 
++-------------+------+------+-----------+-------------+-------------+-------------+------------+
+| Name        | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|-------------|------|------|-----------|-------------|-------------|-------------|------------|
+| testround 1 | 400  | 0    | 10.5 tps  | 0.02 s      | 0.01 s      | 0.01 s      | 10.5 tps   |
++-------------+------+------+-----------+-------------+-------------+-------------+------------+
+ 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: ### resource stats ### 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: 
++--------+-----------------------------------+-------------+-------------+----------+----------+------------+-------------+-----------+------------+
+| TYPE   | NAME                              | Memory(max) | Memory(avg) | CPU(max) | CPU(avg) | Traffic In | Traffic Out | Disc Read | Disc Write |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-shell-default            | 11.0MB      | 4.3MB       | 49.12%   | 9.97%    | 1.5MB      | 21.9KB      | 0B        | 0B         |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-intkey-tp-python...ult-0 | 20.7MB      | 20.4MB      | 37.12%   | 2.32%    | 732.5KB    | 361.2KB     | 0B        | 0B         |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-poet-validator-r...-tp-0 | 46.7MB      | 46.7MB      | 0.00%    | 0.00%    | 799B       | 0B          | 0B        | 0B         |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-rest-api-0               | 28.5MB      | 26.9MB      | 6.45%    | 0.43%    | 1.2MB      | 1.8MB       | 0B        | 0B         |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-settings-tp-0            | 20.7MB      | 20.7MB      | 0.00%    | 0.00%    | 799B       | 0B          | 0B        | 0B         |
+|--------|-----------------------------------|-------------|-------------|----------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-validator-0              | 85.5MB      | 69.2MB      | 75.13%   | 5.16%    | 649.8KB    | 1.6MB       | 0B        | 0B         |
++--------+-----------------------------------+-------------+-------------+----------+----------+------------+-------------+-----------+------------+
+ 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: ------ Passed 'testround 1' testing ------ 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: ---------- Finished Test ----------
+ 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: ###all test results:### 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: 
++------+-------------+------+------+-----------+-------------+-------------+-------------+------------+
+| Test | Name        | Succ | Fail | Send Rate | Max Latency | Min Latency | Avg Latency | Throughput |
+|------|-------------|------|------|-----------|-------------|-------------|-------------|------------|
+| 1    | testround 1 | 400  | 0    | 10.5 tps  | 0.02 s      | 0.01 s      | 0.01 s      | 10.5 tps   |
++------+-------------+------+------+-----------+-------------+-------------+-------------+------------+
+ 
+
+2019-04-09T09:58:13-07:00 - INFO [monitor.js]: 
+ ### resource stats (maximum) ### 
+
+2019-04-09T09:58:13-07:00 - INFO [monitor.js]: 
++--------+-----------------------------------+-------------+----------+------------+-------------+-----------+------------+
+| TYPE   | NAME                              | Memory(max) | CPU(max) | Traffic In | Traffic Out | Disc Read | Disc Write |
+|--------|-----------------------------------|-------------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-shell-default            | 11.0MB      | 49.12%   | 1.5MB      | 21.9KB      | 0B        | 0B         |
+|--------|-----------------------------------|-------------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-intkey-tp-python...ult-0 | 20.7MB      | 37.12%   | 732.5KB    | 361.2KB     | 0B        | 0B         |
+|--------|-----------------------------------|-------------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-poet-validator-r...-tp-0 | 46.7MB      | 0.00%    | 799B       | 0B          | 0B        | 0B         |
+|--------|-----------------------------------|-------------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-rest-api-0               | 28.5MB      | 6.45%    | 1.2MB      | 1.8MB       | 0B        | 0B         |
+|--------|-----------------------------------|-------------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-settings-tp-0            | 20.7MB      | 0.00%    | 799B       | 0B          | 0B        | 0B         |
+|--------|-----------------------------------|-------------|----------|------------|-------------|-----------|------------|
+| Docker | sawtooth-validator-0              | 85.5MB      | 75.13%   | 649.8KB    | 1.6MB       | 0B        | 0B         |
++--------+-----------------------------------+-------------+----------+------------+-------------+-----------+------------+
+ 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: Generated report at /home/amie/caliper/experiments/poet_intkey_1.0/report-20190409T165813.html 
+
+2019-04-09T09:58:13-07:00 - INFO [demo.js]: [Transaction Info] - Submitted: 400 Succ: 400 Fail:0 Unfinished:0 
+
+2019-04-09T09:58:13-07:00 - INFO [bench-flow.js]: Executing command: python3 ~/caliper/experiments/end_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/poet_intkey_1.0/ --run_num 0 --leave_up False 
+
+2019-04-09T09:58:13-07:00 - INFO [client-util.js]: Client exited  
+
+2019-04-09T09:58:45-07:00 - INFO [bench-flow.js]: 
+
+#######################################
+# Test summary: 1 succeeded, 0 failed #
+#######################################
+ 
+

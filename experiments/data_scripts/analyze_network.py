@@ -3,8 +3,10 @@
 import docker
 import time
 import datetime
+import math
 import argparse
 import os
+import sys
 
 parser = argparse.ArgumentParser(description="Parse validator logs for stale block rate")
 parser.add_argument('--n', default=1, type=int, help="Network size")
@@ -14,11 +16,15 @@ parser.add_argument('--rest_url', default='http://sawtooth-rest-api-0:8008', hel
 parser.add_argument('--val_name', default ='sawtooth-validator', help="base name for validator containers") # default to size 1 network
 parser.add_argument('--shell_name', default='sawtooth-shell-default', help="name of shell container")
 parser.add_argument('--single', default=False, action='store_const', const=True,  help="Include this flag if val_name should be left un-appended")
+parser.add_argument('--time', default=30, help="How long to run this script")
 args = parser.parse_args()
 
 INTERVAL = 5.0 # number of seconds between updates
-REPEATS = 8
+WAIT = 20
+MAXTIME = int(args.time) + WAIT
+START = time.time()
 PRINT = True
+
 
 if not args.dest.endswith("/"):
     args.dest += "/"
@@ -29,9 +35,14 @@ if not os.path.exists(args.dest):
 output_file = args.dest + str(args.n) + "_analysis_run" + args.run_num + ".txt"
 
 def list_blocks():
-    blocks = shell.exec_run("sawtooth block list --url " + args.rest_url)
+    try:
+        blocks = shell.exec_run("sawtooth block list --url " + args.rest_url)
+    except:
+        print("Shell container not available... Exiting gracefully.")
+        return None
     blocks = blocks[1].decode('utf-8')
     return blocks
+
 
 def count_blocks():
     blocklist = list_blocks()
@@ -43,7 +54,11 @@ def count_blocks():
     return numblocks
 
 def count_txns():
-    txnlist = shell.exec_run("sawtooth transaction list --url " + args.rest_url)
+    try:
+        txnlist = shell.exec_run("sawtooth transaction list --url " + args.rest_url)
+    except:
+        print("Shell container not available... Exiting gracefully.")
+        return None
     txnlist = txnlist[1].decode('utf-8')
     txnlistsplit = txnlist.split('\n') 
     numtxns = len(txnlistsplit) - 8 # 2 for header and 6 initial settings txns
@@ -51,7 +66,8 @@ def count_txns():
     return numtxns
 
 # Give network time to spin up...
-time.sleep(25)
+# and also make sure we've waited at least 15 seconds?
+now = time.time()
 network_up = False
 while not network_up:
     try:
@@ -59,8 +75,23 @@ while not network_up:
         shell = docker_client.containers.get(args.shell_name)
         network_up = True
     except:
+        current_time = time.time()
+        if (current_time - START) > MAXTIME:
+            print("analyze_network.py: Timed out waiting for network to come up... waited {} seconds. Exiting.".format(MAXTIME))
+            sys.exit()
         "analyze_network.py: Waiting for Docker network..."
         time.sleep(1)
+
+newtime = time.time()
+waited = newtime - now
+if waited < WAIT:
+    time.sleep(WAIT - waited)
+
+# block-tracking infrastructure:
+SEEN = set()
+TIMESTAMPED = []
+header = "\nDATETIME\t " + "ELAPSED\t " + list_blocks().split('\n')[0] + "\n"
+TIMESTAMPED.append(header)
 
 # perform updates every X seconds
 out = open(output_file, "w")
@@ -69,25 +100,51 @@ out.write(header)
 if PRINT:
     print(header)
 
+
 starttime=time.time()
 while True:
-    if REPEATS:
-        elapsed = round((time.time() - starttime), 2)
-        now = datetime.datetime.now()
-        num_blocks = count_blocks()
-        num_txns = count_txns()
-        data = "{}\t {}\t {}\t {}\n".format(now, elapsed, num_blocks, num_txns)
-        out.write(data)
-        if PRINT:
-            print(data, end='')
-        time.sleep(INTERVAL - ((time.time() - starttime) % INTERVAL))
-    else:
+    try:
+        shell = docker_client.containers.get(args.shell_name)
+    except: # break loop as soon as network comes down?? don't want to wait a little longer? make some record in the log and then keep going?
         break
-    REPEATS -= 1
+    # OR after MAXTIME has elapsed
+    current = time.time()
+    if (current - START) > MAXTIME:
+        break
+    elapsed = round((time.time() - starttime), 2)
+    now = datetime.datetime.now()
+    blocks = list_blocks()
+    if not blocks:
+        blocks = last_good_blocks
+        break # means the shell container is already down, but we still want to write our outputs
+    else:
+        last_good_blocks = blocks
+    splitblocks = blocks.split('\n')
+    num_blocks = len(splitblocks) - 2 # one for header and one for settings block
+    num_txns = count_txns()
+    if num_txns is None:
+        break # shell container already dowon, but we still want to write our outputs
+    data = "{}\t {}\t {}\t {}\n".format(now, elapsed, num_blocks, num_txns)
+    out.write(data)
+    if PRINT:
+        print(data, end='')
+    # process for uniqueness
+    splitblocks = splitblocks[1:-1]
+    splitblocks.reverse()
+    for entry in splitblocks:
+        blockID = entry.split()[1]
+        entry = " ".join(entry.split()[:-1])
+        if blockID not in SEEN:
+            SEEN.add(blockID)
+            TIMESTAMPED.append(str(now) + " " + str(elapsed) + " " + entry + "\n")
 
-blocks = list_blocks()
-out.write("\n\n" + blocks)
+    time.sleep(INTERVAL - ((time.time() - starttime) % INTERVAL))
+
+out.writelines(TIMESTAMPED)
+out.write("\n\n" + last_good_blocks)
 if PRINT:
-    print("Block list main chain: \n", blocks)
+    for line in TIMESTAMPED:
+        print(line, end="")
+    print("Block list main chain: \n", last_good_blocks)
 
 out.close()
