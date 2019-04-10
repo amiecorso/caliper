@@ -5,12 +5,14 @@ import argparse
 import os
 import csv
 import time
+import shutil
 
 parser = argparse.ArgumentParser(description="Parse HTML reports")
 parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
 parser.add_argument('--results', default='/home/amie/caliper/experiments/prototest/results/')
 parser.add_argument('--n', default=1)
 parser.add_argument('--run_num', default='only')
+parser.add_argument('--tps')
 args = parser.parse_args()
 
 if not os.path.exists(args.results):
@@ -20,6 +22,10 @@ if not args.results.endswith("/"):
 
 # the actual directory for holding multiple experimental results
 dest_dir = args.results + str(args.n) + "/"
+if not os.path.exists(dest_dir):
+    os.mkdir(dest_dir)
+
+dest_dir = dest_dir + str(args.tps) + "tps/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
@@ -35,25 +41,41 @@ if not os.path.isdir(archival_reports):
 
 data = {}
 for filename in os.listdir(args.reportpath):
-    if filename.startswith("report"):
+    if filename.startswith("report") and filename.endswith("html"):
         htmlfile = open(args.reportpath + filename)
         soup = BeautifulSoup(htmlfile, "lxml")
         tables = soup.find_all("table")
         i = 0
+        roundindex = 0
         for table in tables:
+            resourcetable = False
             tabledata = []
+
             rows = table.find_all("tr")
             for row in rows:
                 headers = row.find_all("th")
                 headers = [ele.text.strip() for ele in headers]
                 cols = row.find_all("td")
                 cols = [ele.text.strip() for ele in cols]
+                if "Memory(max)" in headers:
+                    resourcetable = True
+                    headers.insert(0, "round" + str(roundindex))
                 if headers:
                     tabledata.append(headers)
                 if cols:
+                    if resourcetable:
+                        cols.insert(0, "round" + str(roundindex))
                     tabledata.append(cols)
-            data[i] = tabledata
-            i += 1
+            if resourcetable:
+                if roundindex > 0:
+                    for rowindex in range(1, len(tabledata)):
+                        data["resources"].append(tabledata[rowindex])
+                else:
+                    data["resources"] = tabledata
+                roundindex += 1
+            else:
+                data[i] = tabledata
+                i += 1
         
         htmlfile.close()
         # put the report file in archive folder
@@ -67,13 +89,14 @@ try:
         table = data[0] # first table should be summary table
         for row in table:
             writer.writerow(row)
-    '''
     with open(resource_output, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        table = data[i - 1] # is this even right?? resources might not be last table... how to handle resources/round?
+        table = data["resources"] # is this even right?? resources might not be last table... how to handle resources/round?
         for row in table:
             writer.writerow(row)
-    '''
 except:
     print("Error while parsing html report...  Data dictionary: ", data)
 
+# Finally, copy the benchconfig file into the experimental results
+configpath = args.results + "../config-saw-intkey.yaml"
+shutil.copyfile(configpath, dest_dir + "config-saw-intkey.yaml")

@@ -15,14 +15,22 @@ parser.add_argument('--rest_url', default='http://sawtooth-rest-api-default:8008
 parser.add_argument('--val_name', default ='sawtooth-validator-default', help="base name for validator containers") # default to size 1 network
 parser.add_argument('--shell_name', default='sawtooth-shell-default', help="name of shell container")
 parser.add_argument('--single', default=False, action='store_const', const=True,  help="Include this flag if val_name should be left un-appended")
+parser.add_argument('--tps')
+parser.add_argument('--run_num', default="only")
 args = parser.parse_args()
 
 if not os.path.exists(args.dest):
     os.mkdir(args.dest)
 if not args.dest.endswith("/"):
     args.dest += "/"
+args.dest = args.dest + str(args.n) + "/"
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
+args.dest = args.dest + str(args.tps) + "tps/"
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
 
-output_file = args.dest + str(args.n) + "_stale.csv"
+output_file = args.dest + str(args.n) + "_stale_run" + str(args.run_num) + ".csv"
 
 docker_client = docker.from_env()
 

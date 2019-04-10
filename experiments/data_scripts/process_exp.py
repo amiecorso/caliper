@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description="Process folder of experimental res
 parser.add_argument('--exp_dir', help="The path to experiment")
 args = parser.parse_args()
 
-results_dir = args.exp_dir.rstrip("/") + "/results"
+results_dir = args.exp_dir.rstrip("/") + "/results/"
 run_exp_path = args.exp_dir.rstrip("/") + "/run_exp.py"
 PERFORMANCE_SUMMARY = results_dir + "/performance_summary.csv"
 RESOURCE_SUMMARY = results_dir + "/resource_summary.csv"
@@ -17,13 +17,20 @@ RESOURCE_SUMMARY = results_dir + "/resource_summary.csv"
 with open(run_exp_path, 'r') as run_exp:
     contents = run_exp.readlines()
 
+# determine number of runs
 for line in contents:
-    if "NET_SIZES" in line:
-        netsizes = line.split("=")[-1].strip().strip("[").strip("]").split(",")
+    if "REPEATS" in line:
+        REPEATS = int(line.split("=")[-1].strip())
         break
 
-for i in range(len(netsizes)):
-    netsizes[i] = netsizes[i].strip()
+# Traverse directory tree, read relevant files and incorporate extra information
+for size in os.listdir(results_dir):
+    sizedir = results_dir + size
+    for tps in os.listdir(sizedir):
+        rate = tps.rstrip('tps')
+        tpsdir = sizedir + "/"  + tps
+        for datafile in os.listdir(tpsdir):
+            for run in range(REPEATS):
 
 performance_files = [f for f in os.listdir(results_dir) if "performance" in f]
 resource_files = [f for f in os.listdir(results_dir) if "resource" in f]

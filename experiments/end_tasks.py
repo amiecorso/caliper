@@ -10,6 +10,8 @@ parser = argparse.ArgumentParser(description="Execute post-workload tasks for Ca
 parser.add_argument("--n", default=1, type=int, help="Number of validators in network")
 parser.add_argument("--exp_dir", default="~/caliper/experiments/poet_prototest", help="The directory for this experiment")
 parser.add_argument("--run_num", help="Which run is this? For multiple rounds of identical experiments")
+parser.add_argument("--leave_up", default="False", help="Leave Docker network up after workload has been delivered?")
+parser.add_argument("--tps")
 args = parser.parse_args()
 
 if not args.exp_dir.endswith("/"):
@@ -30,12 +32,12 @@ with open(args.exp_dir + "compose_files/" + compose_file, 'r') as f:
             rest_url = "http://" + rest_name + ":8008"
             break
 
-#This seems to help the sawtooth block list command display the correct blocks/txns
-time.sleep(20)
-
 print("end_tasks.py: Calling save_logs.py")
 save_logs = "python3 ~/caliper/experiments/stale_blocks/save_logs.py --n {} --exp_dir {} --run_num {} && sleep 4".format(str(args.n), args.exp_dir, args.run_num)
 subprocess.call(save_logs, shell=True)
+#Make sure we save logs before tearing down containers
+time.sleep(5)
+
 
 # NEED TO RETHINK STALE BLOCK CALCULATIONS
 # currently, this would calculate stale blocks for the WHOLE experimental run (including all sub-rounds...)
@@ -45,21 +47,22 @@ subprocess.call(save_logs, shell=True)
 #   - run separate experiments to determine SBR once throughput window has been established for network size?
 # would the stale block rate be meaningful if tested at a rate that was strictly higher than maximum determinable throughput... I think it would?
 
-'''
 print("end_tasks.py: Calling parse_logs.py...")
 print("     val container name: ", val_name)
 print("     rest url: ", rest_url)
-parse_logs = "python3 ~/caliper/experiments/stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} && sleep 10".format(str(args.n), args.exp_dir, val_name, rest_url)
+parse_logs = "python3 ~/caliper/experiments/stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} --tps {} --run_num {}  && sleep 10".format(str(args.n), args.exp_dir, val_name, rest_url, args.tps, args.run_num)
 subprocess.call(parse_logs, shell=True)
-'''
 
-
-print("end_tasks.py: Taking down network")
-take_down = "docker-compose -f {}compose_files/{} down".format(args.exp_dir, compose_file)
-subprocess.call(take_down, shell=True)
+if args.leave_up == "True":
+    print("end_tasks.py: Leaving Docker network running......")
+else:
+    print("end_tasks.py: Taking down network")
+    take_down = "docker-compose -f {}compose_files/{} down".format(args.exp_dir, compose_file)
+    subprocess.call(take_down, shell=True)
 
 subprocess.call("docker volume prune -f", shell=True)
 
 print("end_tasks.py: Calling report_parser.py")
-parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {}".format(args.exp_dir, args.exp_dir, str(args.n), str(args.run_num))
+parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {}".format(args.exp_dir, args.exp_dir, str(args.n), str(args.run_num), str(args.tps))
 subprocess.call(parse_reports, shell=True)
+
