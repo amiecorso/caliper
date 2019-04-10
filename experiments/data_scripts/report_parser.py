@@ -5,6 +5,7 @@ import argparse
 import os
 import csv
 import time
+import shutil
 
 parser = argparse.ArgumentParser(description="Parse HTML reports")
 parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
@@ -24,7 +25,7 @@ dest_dir = args.results + str(args.n) + "/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
-dest_dir = dest_dir + "/" + str(args.tps) + "tps/"
+dest_dir = dest_dir + str(args.tps) + "tps/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
@@ -98,4 +99,4 @@ except:
 
 # Finally, copy the benchconfig file into the experimental results
 configpath = args.results + "../config-saw-intkey.yaml"
-shutil.copyfile(configpath, dest_dir)
+shutil.copyfile(configpath, dest_dir + "config-saw-intkey.yaml")

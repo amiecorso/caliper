@@ -5,11 +5,11 @@ import os
 import shutil
 import time
 
-NET_SIZES = [1]
-REPEATS = 1
+NET_SIZES = [1, 2]
+REPEATS = 2
 #           (TPS, duration, unfinished)
-#WORKLOADS = [(5, 1000, 5), (10, 1000, 5), (15, 1000, 5), (20, 1000, 5), (25, 1000, 5), (30, 1000, 5), (35, 1000, 5), (40, 1000, 5)]
-WORKLOADS = [(5, 10, 5), (10, 10, 5)]
+WORKLOADS = [(5, 1000, 5), (10, 1000, 5), (15, 1000, 5), (20, 1000, 5), (25, 1000, 5), (30, 1000, 5), (35, 1000, 5), (40, 1000, 5)]
+#WORKLOADS = [(5, 10, 5), (10, 10, 5)]
 TIME = 10000000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
@@ -60,7 +60,7 @@ for n in NET_SIZES:
     for load in WORKLOADS:
         # generate benchconfig file
         tps, duration, unfinished = load
-        command = "python ~/caliper/experiments/benchconfig_file_gen.py --exp_dir {} --template {} --tps {} --duration {} --unfinished {} --txnsperbatch {} --label {}".format(EXP_DIR, BENCHCONFIG_TEMPLATE, tps, duration, unfinished, 20, str(tps) + " TPS")
+        command = "python ~/caliper/experiments/benchconfig_file_gen.py --exp_dir {} --template {} --tps {} --duration {} --unfinished {} --txnsperbatch {} --label {}".format(EXP_DIR, BENCHCONFIG_TEMPLATE, tps, duration, unfinished, 20, str(tps) + "TPS")
         subprocess.call(command, shell=True)
 
         for repeat in range(REPEATS):
@@ -73,7 +73,7 @@ for n in NET_SIZES:
             analysis_dest = EXP_DIR + "results" + "/"
             if not os.path.exists(analysis_dest):
                 os.mkdir(analysis_dest)
-            analysis = "python3 /home/amie/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {} --time {} &".format(n, analysis_dest, repeat, TIME)
+            analysis = "python3 /home/amie/caliper/experiments/data_scripts/analyze_network.py --n {} --dest {} --run_num {} --time {} --tps {} &".format(n, analysis_dest, repeat, TIME, tps)
             print("Starting external analysis...")
             print("executing command: ", analysis)
             subprocess.Popen(analysis, shell=True)

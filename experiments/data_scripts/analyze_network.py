@@ -17,6 +17,7 @@ parser.add_argument('--val_name', default ='sawtooth-validator', help="base name
 parser.add_argument('--shell_name', default='sawtooth-shell-default', help="name of shell container")
 parser.add_argument('--single', default=False, action='store_const', const=True,  help="Include this flag if val_name should be left un-appended")
 parser.add_argument('--time', default=30, help="How long to run this script")
+parser.add_argument('--tps')
 args = parser.parse_args()
 
 INTERVAL = 5.0 # number of seconds between updates
@@ -29,6 +30,9 @@ PRINT = True
 if not args.dest.endswith("/"):
     args.dest += "/"
 args.dest = args.dest + str(args.n) + "/"
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
+args.dest = args.dest + str(args.tps) + "tps/"
 if not os.path.exists(args.dest):
     os.mkdir(args.dest)
 

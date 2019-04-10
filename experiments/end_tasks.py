@@ -47,13 +47,11 @@ time.sleep(5)
 #   - run separate experiments to determine SBR once throughput window has been established for network size?
 # would the stale block rate be meaningful if tested at a rate that was strictly higher than maximum determinable throughput... I think it would?
 
-'''
 print("end_tasks.py: Calling parse_logs.py...")
 print("     val container name: ", val_name)
 print("     rest url: ", rest_url)
-parse_logs = "python3 ~/caliper/experiments/stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} && sleep 10".format(str(args.n), args.exp_dir, val_name, rest_url)
+parse_logs = "python3 ~/caliper/experiments/stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} --tps {} --run_num {}  && sleep 10".format(str(args.n), args.exp_dir, val_name, rest_url, args.tps, args.run_num)
 subprocess.call(parse_logs, shell=True)
-'''
 
 if args.leave_up == "True":
     print("end_tasks.py: Leaving Docker network running......")
@@ -67,3 +65,4 @@ subprocess.call("docker volume prune -f", shell=True)
 print("end_tasks.py: Calling report_parser.py")
 parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {}".format(args.exp_dir, args.exp_dir, str(args.n), str(args.run_num), str(args.tps))
 subprocess.call(parse_reports, shell=True)
+
