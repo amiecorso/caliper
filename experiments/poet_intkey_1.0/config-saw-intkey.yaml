@@ -9,11 +9,11 @@ test:
 
   - label: only
     txDuration:
-    - 800
+    - 30
     rateControl:
     - type: fixed-feedback-rate
       opts:
-        tps: 30 
+        tps: 10 
         unfinished_per_client: 5
     arguments:
       txnPerBatch: 20

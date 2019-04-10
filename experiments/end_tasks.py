@@ -11,6 +11,7 @@ parser.add_argument("--n", default=1, type=int, help="Number of validators in ne
 parser.add_argument("--exp_dir", default="~/caliper/experiments/poet_prototest", help="The directory for this experiment")
 parser.add_argument("--run_num", help="Which run is this? For multiple rounds of identical experiments")
 parser.add_argument("--leave_up", default="False", help="Leave Docker network up after workload has been delivered?")
+parser.add_argument("--tps")
 args = parser.parse_args()
 
 if not args.exp_dir.endswith("/"):
@@ -64,5 +65,5 @@ else:
 subprocess.call("docker volume prune -f", shell=True)
 
 print("end_tasks.py: Calling report_parser.py")
-parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {}".format(args.exp_dir, args.exp_dir, str(args.n), str(args.run_num))
+parse_reports = "python3 ~/caliper/experiments/data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {}".format(args.exp_dir, args.exp_dir, str(args.n), str(args.run_num), str(args.tps))
 subprocess.call(parse_reports, shell=True)

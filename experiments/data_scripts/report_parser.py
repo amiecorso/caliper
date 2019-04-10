@@ -11,6 +11,7 @@ parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prot
 parser.add_argument('--results', default='/home/amie/caliper/experiments/prototest/results/')
 parser.add_argument('--n', default=1)
 parser.add_argument('--run_num', default='only')
+parser.add_argument('--tps')
 args = parser.parse_args()
 
 if not os.path.exists(args.results):
@@ -20,6 +21,10 @@ if not args.results.endswith("/"):
 
 # the actual directory for holding multiple experimental results
 dest_dir = args.results + str(args.n) + "/"
+if not os.path.exists(dest_dir):
+    os.mkdir(dest_dir)
+
+dest_dir = dest_dir + "/" + str(args.tps) + "tps/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
@@ -91,3 +96,6 @@ try:
 except:
     print("Error while parsing html report...  Data dictionary: ", data)
 
+# Finally, copy the benchconfig file into the experimental results
+configpath = args.results + "../config-saw-intkey.yaml"
+shutil.copyfile(configpath, dest_dir)
