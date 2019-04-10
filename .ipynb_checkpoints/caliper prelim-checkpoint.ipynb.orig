@@ -1,0 +1,114 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 6,
+=======
+   "execution_count": 5,
+>>>>>>> c0b8c61789c992d1dfd32e0209880111e76ff929
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "NETSIZES:  [1, 2, 4]\n",
+      "data keys:  dict_keys([1, 2, 4])\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import os\n",
+    "\n",
+    "# On the Linux machine:\n",
+    "RESULTSDIR = \"/home/amie/caliper/experiments/poet_intkey_1.0/results/\"\n",
+    "# On MacOS\n",
+    "#RESULTSDIR = \"/Users/amiecorso/caliper/experiments/poet_intkey_1.0/results/\"\n",
+    "#RESULTSDIR = \"/Users/amiecorso/caliper/experiments/arch_exps/poet_intkey_1.0-1248-1/results/\"\n",
+    "#RESULTSDIR = \"/Users/amiecorso/caliper/experiments/arch_exps/poet_intkey_1.0-12481216-1/results/\"\n",
+    "#RESULTSDIR = \"/Users/amiecorso/caliper/experiments/arch_exps/poet_intkey_1.0-12481216-2/results/\"\n",
+    "#RESULTSDIR = \"/Users/amiecorso/caliper/experiments/arch_exps/poet_intkey_1.0-12481216-3-lowerinitial/results/\"\n",
+    "#RESULTSDIR = \"/Users/amiecorso/caliper/experiments/arch_exps/poet_intkey_1.0-1248-40TPS/results/\"\n",
+    "RESULTSDIR = \"/Users/amiecorso/caliper/experiments/arch_exps/poet_intkey_1.0-124-fixed-feedback40tps-1/results/\"\n",
+    "\n",
+    "# automatically detect network sizes from contents of results dir\n",
+    "NETSIZES = []\n",
+    "for dirname in os.listdir(RESULTSDIR):\n",
+    "    NETSIZES.append(int(dirname))\n",
+    "NETSIZES.sort()\n",
+    "print(\"NETSIZES: \", NETSIZES)\n",
+    "\n",
+    "data = {}\n",
+    "for netsize in NETSIZES:\n",
+    "    DATADIR = RESULTSDIR + str(netsize)\n",
+    "    data[netsize] = [] # make a list of dataframes for given netsize\n",
+    "    for csvfile in os.listdir(DATADIR):\n",
+    "        if \"performance\" in csvfile:\n",
+    "            df = pd.read_csv(DATADIR + \"/\" + csvfile)\n",
+    "            # cut off \"tps\" & make numeric\n",
+    "            #df['Name'] = pd.to_numeric(df['Name'].apply(lambda x: x.split(' ')[0]))\n",
+    "            df['Send Rate'] = pd.to_numeric(df['Send Rate'].apply(lambda x: x.split(' ')[0]))\n",
+    "            df['Throughput'] = pd.to_numeric(df['Throughput'].apply(lambda x: x.split(' ')[0]))\n",
+    "            #print(df.head(5))\n",
+    "            # keeping track of CSVFILE name to correlate results and logs\n",
+    "            data[netsize].append((csvfile, df))\n",
+    "            #break # let's just start by doing this for one file\n",
+    "\n",
+    "print(\"data keys: \", data.keys())\n",
+    "# plot the data\n",
+    "for netsize in data:\n",
+    "    frames = data[netsize]\n",
+    "    ax = frames[0][1].plot(x=\"Send Rate\", y=\"Throughput\", label=frames[0][0], title=str(netsize) + \"-node network\")\n",
+    "    for i in range(1, len(frames)):\n",
+    "        frames[i][1].plot(x=\"Send Rate\", y=\"Throughput\", ax=ax, label=frames[i][0])\n",
+    "    ax.set(xlabel=\"Send Rate (TPS)\", ylabel=\"Throughput (TPS)\")\n",
+    "    #fig = ax.get_figure()\n",
+    "    #fig.savefig(\"/Users/amiecorso/Desktop/exp1-\" + str(netsize) + \".pdf\")\n",
+    "\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
