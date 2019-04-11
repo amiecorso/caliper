@@ -6,7 +6,7 @@ test:
     type: local
     number: 1
   rounds:
-
+{beginrounds}
   - label: {label}
     txDuration:
     - {duration}
@@ -19,7 +19,7 @@ test:
       txnPerBatch: {txnsperbatch}
     callback: benchmark/intkey/intkey_set.js
 
-        
+{endrounds}
 monitor:
   type: docker
   docker:
