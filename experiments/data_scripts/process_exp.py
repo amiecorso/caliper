@@ -148,7 +148,7 @@ for size in NET_SIZES:
             min_interval = min(intervals)
             max_interval = max(intervals)
 
-            percent_diff = round(abs((caliperthroughput - throughput) / throughput), 2)
+            percent_diff = round((caliperthroughput - throughput) / throughput, 2)
             #combine data with Caliper report data
             outputline = ",".join([outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
             perf_out.write(outputline + "\n")

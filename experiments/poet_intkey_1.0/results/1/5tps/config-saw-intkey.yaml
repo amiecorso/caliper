@@ -11,10 +11,9 @@ test:
     txDuration:
     - 60
     rateControl:
-    - type: fixed-feedback-rate
+    - type: fixed-rate
       opts:
         tps: 5 
-        unfinished_per_client: 5
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
