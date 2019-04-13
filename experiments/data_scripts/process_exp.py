@@ -49,8 +49,15 @@ for size in NET_SIZES:
         try:
             if not pheader:
                 with open(performance_files[0], 'r') as f:
-                    perf_out.write("Network Size,Run Index," + f.readline().rstrip('\n') + ",Stale Block Rate," + "Num Blocks," + "Num Txns," + "Round Duration," + "My Throughput," +  "Avg Interval," + "Min Interval," + "Max Interval," + "PercentDiff on TPS\n")
-                    print("made it past write")
+                    header = f.readline().rstrip('\n')
+                    splitheader = header.split(",")
+                    splitheader[4] = splitheader[4] + " (tps)"
+                    splitheader[5] = splitheader[5] + " (s)"
+                    splitheader[6] = splitheader[6] + " (s)"
+                    splitheader[7] = splitheader[7] + " (s)"
+                    splitheader[8] = splitheader[8] + " (tps)"
+                    header = ",".join(splitheader)
+                    perf_out.write("Network Size,Run Index," + header + ",Stale Block Rate," + "Num Blocks," + "Num Txns," + "Round Duration," + "My Throughput," +  "Avg Interval," + "Min Interval," + "Max Interval," + "PercentDiff on TPS\n")
             pheader = True
         except Exception as e:
             print(e)
@@ -78,10 +85,15 @@ for size in NET_SIZES:
             sbfile = [f for f in staleb_files if f.endswith(str(run) + ".csv")][0]
             afile = [f for f in analysis_files if f.endswith(str(run) + ".txt")][0]
             with open(pfile, 'r') as f:
-                perf_lines = f.readlines()
+                perf_line = f.readlines()
+            perf_line = perf_line[-1].rstrip('\n')
+            split_perf_line = perf_line.split(',')
+            split_perf_line = [entry.split()[0] for entry in split_perf_line]
+            caliperthroughput = float(split_perf_line[-1]) # gonna need this later for %diff calc
+            perf_line = ",".join(split_perf_line)
             with open(sbfile, 'r') as f:
                 sb_data = f.readlines()[0] # get just the block rate, ignore block list diagnostics
-            outputline = ",".join([size, str(run), perf_lines[-1].rstrip('\n'), str(round(float(sb_data.strip()), 3))]) #<-- only handles a ONE-line perf (one round)
+            outputline = ",".join([size, str(run), perf_line, str(round(float(sb_data.strip()), 3))]) #<-- only handles a ONE-line perf (one round)
             # process ANALYSIS file
             data = []
             with open(afile, 'r') as f:
@@ -93,8 +105,7 @@ for size in NET_SIZES:
 
             data = [entry.strip().split("\t ") for entry in data]
             data = [[entry[0], round(float(entry[1]), 1), int(entry[2]), int(entry[3])] for entry in data]
-            data = data[1:-4] # cut off the GENESIS BLOCK and the end of the round that the monitor goes over
-            print(data)
+            data = data[1:-3] # cut off the GENESIS BLOCK and the end of the round that the monitor goes over
 
             numblocks = data[-1][2]
             numtxns = data[-1][3]
@@ -129,8 +140,6 @@ for size in NET_SIZES:
                     prev_publish_time = publish_time
                     prev_total_txns = total_txns
 
-
-            print(blockdata)
             # calculate avg block interval
             intervals = []
             for block in blockdata:
@@ -139,9 +148,9 @@ for size in NET_SIZES:
             min_interval = min(intervals)
             max_interval = max(intervals)
 
-            
+            percent_diff = round(abs((caliperthroughput - throughput) / throughput), 2)
             #combine data with Caliper report data
-            outputline = ",".join([outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval)])
+            outputline = ",".join([outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
             perf_out.write(outputline + "\n")
             # process resource files for this round
 '''

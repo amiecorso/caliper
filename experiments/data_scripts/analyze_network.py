@@ -25,6 +25,8 @@ WAIT = 20
 MAXTIME = int(args.time) + WAIT
 START = time.time()
 PRINT = True
+#PRINT = False
+PRINTBLOCKLIST = False
 
 
 if not args.dest.endswith("/"):
@@ -50,7 +52,7 @@ def list_blocks():
 
 def count_blocks():
     blocklist = list_blocks()
-    if PRINT:
+    if PRINTBLOCKLIST:
         print("Block list: \n", blocklist)
     blocklistsplit = blocklist.split('\n')
     numblocks = len(blocklistsplit) - 3 # 2 for header and 1 initial settings block
@@ -65,7 +67,7 @@ def count_txns():
         return None
     txnlist = txnlist[1].decode('utf-8')
     txnlistsplit = txnlist.split('\n') 
-    numtxns = len(txnlistsplit) - 8 # 2 for header and 6 initial settings txns
+    numtxns = len(txnlistsplit) - 2 # 2 for header lines
     #print("Total num txns: ", numtxns)
     return numtxns
 
@@ -91,6 +93,8 @@ waited = newtime - now
 if waited < WAIT:
     time.sleep(WAIT - waited)
 
+# get network settings
+settings = shell.exec_run("sawtooth settings list --url " + args.rest_url)[1].decode('utf-8')
 # block-tracking infrastructure:
 SEEN = set()
 TIMESTAMPED = []
@@ -126,7 +130,7 @@ while True:
     else:
         last_good_blocks = blocks
     splitblocks = blocks.split('\n')
-    num_blocks = len(splitblocks) - 2 # one for header and one for settings block
+    num_blocks = len(splitblocks) - 2# one for header and one for the weird space at the end
     num_txns = count_txns()
     if num_txns is None:
         num_txns = last_num_txns
@@ -151,6 +155,7 @@ while True:
 
 out.writelines(TIMESTAMPED)
 out.write("\n\n" + last_good_blocks)
+out.write("\n\nOn-chain Settings:\n" + settings)
 if PRINT:
     for line in TIMESTAMPED:
         print(line, end="")

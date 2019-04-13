@@ -9,7 +9,7 @@ test:
 
   - label: 5TPS
     txDuration:
-    - 1000
+    - 60
     rateControl:
     - type: fixed-feedback-rate
       opts:
@@ -19,7 +19,7 @@ test:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js
 
-        
+
 monitor:
   type: docker
   docker:

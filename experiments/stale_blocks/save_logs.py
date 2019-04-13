@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser(description="Save Docker container logs for scr
 parser.add_argument('--n', default=1, type=int, help="Network size")
 parser.add_argument('--exp_dir', help="Which experiment are we parsing?")
 parser.add_argument('--run_num', help="Which run of the experiment is this?")
+parser.add_argument('--tps')
 args = parser.parse_args()
 
 # make the output directory if it doesn't exist yet
@@ -24,7 +25,11 @@ OUTPUT_DIR = LOGS_DIR + str(args.n) + "/"
 if not os.path.exists(OUTPUT_DIR):
     os.mkdir(OUTPUT_DIR)
 
-RUN_DIR = OUTPUT_DIR + "run" + args.run_num + "/"
+TPS_DIR = OUTPUT_DIR + args.tps + "tps/"
+if not os.path.exists(TPS_DIR):
+    os.mkdir(TPS_DIR)
+
+RUN_DIR = TPS_DIR + "run" + args.run_num + "/"
 if not os.path.exists(RUN_DIR):
     os.mkdir(RUN_DIR)
 

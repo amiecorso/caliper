@@ -1,0 +1,9 @@
+import os
+
+current = os.getcwd() + "/"
+for fname in os.listdir(current):
+    newfname = current + fname + ".txt"
+    os.rename(current + fname, newfname)
+
+
+

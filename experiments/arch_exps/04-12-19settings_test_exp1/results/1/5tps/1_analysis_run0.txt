@@ -1,0 +1,30 @@
+Datetime	 Elapsed	 Num Blocks	 Num Txns
+2019-04-12 19:27:55.929906	 0.0	 1	 12
+2019-04-12 19:28:00.938743	 5.01	 2	 32
+2019-04-12 19:28:05.934449	 10.01	 2	 32
+2019-04-12 19:28:10.934410	 15.01	 2	 32
+
+DATETIME	 ELAPSED	 NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+2019-04-12 19:27:55.929906 0.0 0 5449581e20985ba289fbfb034ddf4c6a1052a29a2178d053fd3d67c3fbb37b7d456ef29c5f37da7b5032e55e37c9ab494b990225a7cbbe57e3bef6ffcfd0101e 4 12
+2019-04-12 19:28:00.938743 5.01 1 5c3011e87606f5115ed6fc17643ac0f873de73ec473f364c5aef8aa84767595301f857584df344bec158d47894987d83e1fe1f58bc114e8efa1c78832493ef64 1 20
+
+
+NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+1    5c3011e87606f5115ed6fc17643ac0f873de73ec473f364c5aef8aa84767595301f857584df344bec158d47894987d83e1fe1f58bc114e8efa1c78832493ef64  1     20    02d3870ce13386313c9d92592a4b22671719d835bf81199d8bede0945629d6aefa
+0    5449581e20985ba289fbfb034ddf4c6a1052a29a2178d053fd3d67c3fbb37b7d456ef29c5f37da7b5032e55e37c9ab494b990225a7cbbe57e3bef6ffcfd0101e  4     12    02d3870ce13386313c9d92592a4b22671719d835bf81199d8bede0945629d6aefa
+
+
+On-chain Settings:
+sawtooth.consensus.algorithm: poet
+sawtooth.poet.block_claim_delay: 1
+sawtooth.poet.initial_wait_time: 20
+sawtooth.poet.key_block_claim_limit: 100000
+sawtooth.poet.report_public_key_pem: -----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+4CvFTiuyid+IN4dP1+mhTnfxX+I/...
+sawtooth.poet.target_wait_time: 20
+sawtooth.poet.valid_enclave_basenames: b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+sawtooth.poet.valid_enclave_measurements: c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+sawtooth.poet.ztest_minimum_win_count: 999999999
+sawtooth.publisher.max_batches_per_block: 100
+sawtooth.settings.vote.authorized_keys: 02d3870ce13386313c9d92592a4b22671719d835bf81199d8bede0945629d6aefa

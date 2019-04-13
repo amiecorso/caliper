@@ -1,0 +1,18 @@
+Datetime	 Elapsed	 Num Blocks	 Num Txns
+
+DATETIME	 ELAPSED	 NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+
+
+last_good_blocks = none
+
+On-chain Settings:
+sawtooth.consensus.algorithm: poet
+sawtooth.poet.initial_wait_time: 20
+sawtooth.poet.report_public_key_pem: -----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+4CvFTiuyid+IN4dP1+mhTnfxX+I/...
+sawtooth.poet.target_wait_time: 20
+sawtooth.poet.valid_enclave_basenames: b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+sawtooth.poet.valid_enclave_measurements: c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+sawtooth.publisher.max_batches_per_block: 100
+sawtooth.settings.vote.authorized_keys: 02bc4c4705599a397ff899b2a783da28e7ccabeb9e36550c74c945883453a2c079
