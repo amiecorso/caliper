@@ -7,19 +7,18 @@ import time
 
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
-SAVE_AS = time.strftime("%m-%d-%y") + "oldFFRgradient"
-#NET_SIZES = [1, 2]
-#REPEATS = 2
-NET_SIZES = [1]
-REPEATS = 1
+SAVE_AS = time.strftime("%m-%d-%y") + "-sizes124-linear-gradient-rep3"
+NET_SIZES = [1, 2, 4]
+REPEATS = 3
 #           (TPS, duration, unfinished)
-#WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200)]
-WORKLOADS = [(5, 60, 5)]
-TIME = 75 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
+WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200)]
+#WORKLOADS = [(5, 60, 5)]
+TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
     NET_SIZES = [1]
     REPEATS = 1
+TARGET_WAIT = 20
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "../templates/poet-intkey-1.0_template_SMALLNETWORK.yaml"
 #COMPOSE_TEMPLATE = EXP_DIR + "../templates/poet-intkey-1.0_template.yaml"
@@ -28,11 +27,7 @@ NETCONFIG_TEMPLATE = "~/caliper/experiments/templates/netconfig_template.json"
 BENCHCONFIG_TEMPLATE = "~/caliper/experiments/templates/config-saw-intkey-TEMPLATE-LINEAR.yaml"
 TPFAMILY = "intkey"
 BBFILE = "IntKeyBatchBuilder.js"
-
-# Should this be a command-line option? with default argument?
-
-# NOTE: this auto-detects... and then immediately overwrites with the absolute valute "config-saw-intkey.yaml"
-BENCHCONFIG = EXP_DIR + [f for f in os.listdir(EXP_DIR) if f.endswith(".yaml")][0] # auto-detect benchmark config file in exp_dir
+#BENCHCONFIG = EXP_DIR + [f for f in os.listdir(EXP_DIR) if f.endswith(".yaml")][0] # auto-detect benchmark config file in exp_dir
 BENCHCONFIG = EXP_DIR + "config-saw-intkey.yaml"
 
 print("run_exp.py: cleaning directories...")
@@ -48,23 +43,14 @@ if os.path.exists(EXP_DIR + "results"):
 if os.path.exists(EXP_DIR + "LOGS"):
     shutil.rmtree(EXP_DIR + "LOGS")
 
-# generate compose files
-print("run_exp.py: generating compose files...")
-for n in NET_SIZES:
-
-    command = "python ~/caliper/experiments/compose_file_gen.py --n {} --template {} --dest {}".format(n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files")
-    subprocess.call(command, shell=True)
-
-'''
-# generate netconfig files
-print("run_exp.py: generating netconfig files...")
-for n in NET_SIZES:
-    command = "python ~/caliper/experiments/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE)
-    subprocess.call(command, shell=True)
-'''
 
 # deliver workload to each network
 for n in NET_SIZES:
+    # generate compose files
+    initial_wait_time = TARGET_WAIT * n # initial_wait = target_wait * pop_size
+    command = "python ~/caliper/experiments/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}".format(n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files", TARGET_WAIT, initial_wait_time)
+    subprocess.call(command, shell=True)
+
     for load in WORKLOADS:
         # generate benchconfig file
         tps, duration, unfinished = load
@@ -123,7 +109,3 @@ print("run_exp.py: Pushing to GitHub...")
 os.chdir("/home/amie/caliper/")
 command = "git add . && git commit -m \"saving exp {}\" && git push".format(SAVE_AS)
 subprocess.call(command, shell=True)
-
-
-
-

@@ -7,6 +7,8 @@ parser = argparse.ArgumentParser(description="Generate files for creating Sawtoo
 parser.add_argument('--n', default=1, type=int, help="The number of validators to create")
 parser.add_argument('--template', default='/Users/amiecorso/caliper/experiments/templates/sawtooth-poet.yaml', help="The template file from which to create validators")
 parser.add_argument('--dest', default='/Users/amiecorso/caliper/experiments/test/', help="Destination directory for output file")
+parser.add_argument('--target_wait_time', default=20)
+parser.add_argument('--initial_wait_time', default=20)
 args = parser.parse_args()
 
 if not args.dest.endswith("/"):
@@ -32,6 +34,9 @@ with open(args.template, 'r') as template:
 
     format_body = template.read() # read the rest of the file as format body
 
+header_and_genesis = "".join(header_and_genesis)
+header_and_genesis = header_and_genesis.replace("{target_wait_time}", args.target_wait_time)
+header_and_genesis = header_and_genesis.replace("{initial_wait_time}", args.initial_wait_time)
 
 with open(args.dest + output_file, 'w') as output:
     output.write("# " + output_file + "\n")
