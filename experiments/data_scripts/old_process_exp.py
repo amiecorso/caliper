@@ -66,22 +66,11 @@ for size in NET_SIZES:
         try:
             if not rheader:
                 with open(resource_files[0], 'r') as f:
-                    header = ",".join(f.readline().split(",")[2:])
-                    splitheader = header.split(",")
-                    splitheader[1] = splitheader[1] + " (MB)"
-                    splitheader[2] = splitheader[2] + " (MB)"
-                    splitheader[3] = splitheader[3] + " (%)"
-                    splitheader[4] = splitheader[4] + " (%)"
-                    splitheader[5] = splitheader[5] + " (MB)"
-                    splitheader[6] = splitheader[6] + " (MB)"
-                    splitheader[7] = splitheader[7] + " (B)"
-                    splitheader[8] = splitheader[8] + " (B)"
-                    header = ",".join(splitheader)
-                    resource_out.write("Network Size,Delivery Rate (TPS),Run Index," + header)
+                    resource_out.write("Network Size," + f.readline())
             rheader = True
         except Exception as e:
             print(e)
-            print("Error: missing Resource results?")
+            print("Error: missing Performance results?")
             sys.exit()
 
         '''
@@ -163,20 +152,16 @@ for size in NET_SIZES:
             #combine data with Caliper report data
             outputline = ",".join([outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
             perf_out.write(outputline + "\n")
-
             # process resource files for this round
-            rfile = [f for f in resource_files if f.endswith(str(run) + ".csv")][0]
-            with open(rfile, 'r') as f:
-                f.readline() # move past header
-                res_lines = f.readlines()
-            for line in res_lines:
-                splitline = line.split(",")[2:]
-                name = splitline[0]
-                splitline = splitline[1:]
-                for i in range(len(splitline)):
-                    splitline[i] = "".join([c for c in splitline[i] if (c.isdigit() or c == ".")])
-                line = ",".join([size, str(tps), str(run)]) + "," + name + "," + ",".join(splitline) + "\n"
-                resource_out.write(line)
-
+'''
+# process resource consumption files
+for num in netsizes:
+    resfile = [f for f in resource_files if f.startswith(num)][0]
+    with open(resfile, 'r') as f:
+        f.readline() # move past header
+        res_lines = f.readlines() # read the rest
+    for line in res_lines:
+        resource_out.write(num + "," + line)
+'''
 perf_out.close()
 resource_out.close()
