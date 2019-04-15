@@ -75,7 +75,7 @@ for size in NET_SIZES:
                     splitheader[5] = splitheader[5] + " (MB)"
                     splitheader[6] = splitheader[6] + " (MB)"
                     splitheader[7] = splitheader[7] + " (B)"
-                    splitheader[8] = splitheader[8] + " (B)"
+                    splitheader[8] = splitheader[8].strip('\n') + " (B)\n"
                     header = ",".join(splitheader)
                     resource_out.write("Network Size,Delivery Rate (TPS),Run Index," + header)
             rheader = True
