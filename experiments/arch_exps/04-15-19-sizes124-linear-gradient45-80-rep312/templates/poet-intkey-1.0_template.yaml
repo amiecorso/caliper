@@ -1,0 +1,168 @@
+# Template:  PoET IntKey 1.0 multinode
+# ------------------------------------------------------------------------------
+
+version: '2.1'
+
+services:
+
+  shell:
+    image: hyperledger/sawtooth-all:1.0
+    container_name: sawtooth-shell-default
+    depends_on:
+      - rest-api-0
+    entrypoint: "bash -c \"\
+        sawtooth keygen && \
+        tail -f /dev/null \
+        \""
+
+  validator-0:
+    image: hyperledger/sawtooth-validator:1.0
+    container_name: sawtooth-validator-0
+    expose:
+      - 4004
+      - 8800
+    ports:
+      - '4004:4004'
+      - '8800:8800'
+    command: |
+      bash -c "
+        if [ -z $$(ls -A /var/lib/sawtooth) ]; then
+          sawtooth keygen && \
+          sawadm keygen --force \
+
+          sawset genesis \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config-genesis.batch && \
+          sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config.batch \
+            sawtooth.consensus.algorithm=poet \
+            sawtooth.poet.report_public_key_pem=\"$$(cat /etc/sawtooth/simulator_rk_pub.pem)\" \
+            sawtooth.poet.valid_enclave_measurements=$$(poet enclave measurement) \
+            sawtooth.poet.valid_enclave_basenames=$$(poet enclave basename) \
+
+          poet registration create \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o poet.batch && \
+          sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+               sawtooth.poet.target_wait_time={target_wait_time} \
+               sawtooth.poet.initial_wait_time={initial_wait_time} \
+               sawtooth.publisher.max_batches_per_block=100 \
+            -o poet-settings.batch && \
+
+          sawadm genesis config-genesis.batch config.batch poet.batch poet-settings.batch
+        fi;
+
+        sawtooth-validator -v \
+          --endpoint tcp://validator-0:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --peering dynamic \
+          --network trust \
+          --minimum-peer-connectivity  1
+      "
+    environment:
+      PYTHONPATH: "/project/sawtooth-core/consensus/poet/common:\
+        /project/sawtooth-core/consensus/poet/simulator:\
+        /project/sawtooth-core/consensus/poet/core "
+
+  poet-validator-registry-tp-0:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:latest
+    container_name: sawtooth-poet-validator-registry-tp-0
+    expose:
+      - 4004
+    depends_on:
+      - validator-0
+    command: poet-validator-registry-tp -C tcp://validator-0:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  rest-api-0:
+    image: hyperledger/sawtooth-rest-api:1.0
+    container_name: sawtooth-rest-api-0
+    expose:
+      - 8008
+    ports:
+      - '8008:8008'
+    depends_on:
+      - validator-0
+    entrypoint: sawtooth-rest-api -vv -C tcp://validator-0:4004 --bind rest-api-0:8008
+
+  settings-tp-0:
+    image: hyperledger/sawtooth-settings-tp:1.0
+    container_name: sawtooth-settings-tp-0
+    depends_on:
+      - validator-0
+    entrypoint: settings-tp -vv -C tcp://validator-0:4004
+
+  intkey-tp-python-0:
+    image: hyperledger/sawtooth-intkey-tp-python:1.0
+    container_name: sawtooth-intkey-tp-python-default-0
+    depends_on:
+      - validator-0
+    entrypoint: intkey-tp-python -vv -C tcp://validator-0:4004
+
+# end genesis
+# ----------------------------------------------------------------------------------------
+  validator-{}:
+    image: hyperledger/sawtooth-validator:1.0
+    container_name: sawtooth-validator-{}
+    expose:
+      - 4004
+      - 8800
+    command: "bash -c \"\
+          sawtooth keygen && \
+          sawadm keygen --force &&\
+        sawtooth-validator -v \
+          --endpoint tcp://validator-{}:8800 \
+          --bind component:tcp://eth0:4004 \
+          --bind network:tcp://eth0:8800 \
+          --peering dynamic \
+          --seeds tcp://validator-0:8800 \
+          --network trust \
+          --minimum-peer-connectivity 1
+      \""
+    environment:
+      PYTHONPATH: "/project/sawtooth-core/consensus/poet/common:\
+        /project/sawtooth-core/consensus/poet/simulator:\
+        /project/sawtooth-core/consensus/poet/core "
+
+  poet-validator-registry-tp-{}:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:latest
+    container_name: sawtooth-poet-validator-registry-tp-{}
+    expose:
+      - 4004
+    depends_on:
+      - validator-{}
+    command: poet-validator-registry-tp -C tcp://validator-{}:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  rest-api-{}:
+    image: hyperledger/sawtooth-rest-api:1.0
+    container_name: sawtooth-rest-api-{}
+    expose:
+      - 8008
+    ports:
+      - "{hostport}:8008"
+    depends_on:
+      - validator-{}
+    entrypoint: sawtooth-rest-api -vv -C tcp://validator-{}:4004 --bind rest-api-{}:8008
+
+  settings-tp-{}:
+    image: hyperledger/sawtooth-settings-tp:1.0
+    container_name: sawtooth-settings-tp-{}
+    depends_on:
+      - validator-{}
+    entrypoint: settings-tp -vv -C tcp://validator-{}:4004
+
+  intkey-tp-python-{}:
+    image: hyperledger/sawtooth-intkey-tp-python:1.0
+    container_name: sawtooth-intkey-tp-python-default-{}
+    depends_on:
+      - validator-{}
+    entrypoint: intkey-tp-python -vv -C tcp://validator-{}:4004
+
