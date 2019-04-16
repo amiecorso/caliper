@@ -6,19 +6,19 @@ test:
     type: local
     number: 1
   rounds:
-
-  - label: 5TPS
+{beginrounds}
+  - label: {label}
     txDuration:
-    - 10
+    - {duration}
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 5 
+        tps: {tps} 
     arguments:
-      txnPerBatch: 20
+      txnPerBatch: {txnsperbatch}
     callback: benchmark/intkey/intkey_set.js
 
-
+{endrounds}
 monitor:
   type: docker
   docker:
