@@ -33,7 +33,7 @@ with open(args.exp_dir + "compose_files/" + compose_file, 'r') as f:
             break
 
 print("end_tasks.py: Calling save_logs.py")
-save_logs = "python3 ./stale_blocks/save_logs.py --n {} --exp_dir {} --run_num {} --tps {} && sleep 4".format(str(args.n), args.exp_dir, args.run_num, args.tps)
+save_logs = "python3 {}stale_blocks/save_logs.py --n {} --exp_dir {} --run_num {} --tps {} && sleep 4".format(args.exp_dir, str(args.n), args.exp_dir, args.run_num, args.tps)
 subprocess.call(save_logs, shell=True)
 #Make sure we save logs before tearing down containers
 time.sleep(5)
@@ -50,7 +50,7 @@ time.sleep(5)
 print("end_tasks.py: Calling parse_logs.py...")
 print("     val container name: ", val_name)
 print("     rest url: ", rest_url)
-parse_logs = "python3 ./stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} --tps {} --run_num {}  && sleep 10".format(str(args.n), args.exp_dir, val_name, rest_url, args.tps, args.run_num)
+parse_logs = "python3 {}stale_blocks/parse_logs.py --n {} --dest {}results/ --val_name {} --rest_url {} --tps {} --run_num {}  && sleep 10".format(args.exp_dir, str(args.n), args.exp_dir, val_name, rest_url, args.tps, args.run_num)
 subprocess.call(parse_logs, shell=True)
 
 if args.leave_up == "True":
@@ -63,6 +63,6 @@ else:
 subprocess.call("docker volume prune -f", shell=True)
 
 print("end_tasks.py: Calling report_parser.py")
-parse_reports = "python3 ./data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {}".format(args.exp_dir, args.exp_dir, str(args.n), str(args.run_num), str(args.tps))
+parse_reports = "python3 {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {}".format(args.exp_dir, args.exp_dir, args.exp_dir, str(args.n), str(args.run_num), str(args.tps))
 subprocess.call(parse_reports, shell=True)
 

@@ -8,8 +8,10 @@ import time
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
 SAVE_AS = time.strftime("%m-%d-%y") + "-sizes124-linear-gradient45-80-rep3"
-NET_SIZES = [1, 2, 4]
-REPEATS = 3
+#NET_SIZES = [1, 2, 4]
+#REPEATS = 3
+NET_SIZES = [1]
+REPEATS = 1
 #           (TPS, duration, unfinished)
 #WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200)]
 #WORKLOADS = [(45, 1000, 200), (50, 1000, 200), (55, 1000, 200), (60, 1000, 200), (70, 1000, 200), (80, 1000, 200)]
