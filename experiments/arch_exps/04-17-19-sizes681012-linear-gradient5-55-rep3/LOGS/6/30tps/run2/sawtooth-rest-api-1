@@ -1,0 +1,756 @@
+[32m[2019-04-16 08:12:28.333 INFO     messaging][0m [37mConnecting to tcp://validator-1:4004[0m
+[32m[2019-04-16 08:12:28.334 INFO     rest_api][0m [37mCreating handlers for validator at tcp://validator-1:4004[0m
+[32m[2019-04-16 08:12:28.337 INFO     rest_api][0m [37mStarting REST API on rest-api-1:8008[0m
+[36m[2019-04-16 08:12:45.215 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-16 08:12:45.217 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:12:45.220 INFO     helpers][0m [37mGET /blocks?limit=1 HTTP/1.1: 200 status, 21333 size, in 0.005362 s[0m
+[36m[2019-04-16 08:12:47.916 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:12:47.940 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:12:47.941 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.024761 s[0m
+[36m[2019-04-16 08:12:52.579 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:12:52.671 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:12:52.673 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.094666 s[0m
+[36m[2019-04-16 08:12:56.585 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:12:56.673 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:12:56.675 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.090397 s[0m
+[36m[2019-04-16 08:13:00.574 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:00.675 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:13:00.677 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.103379 s[0m
+[36m[2019-04-16 08:13:04.630 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:04.752 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:13:04.756 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.129200 s[0m
+[36m[2019-04-16 08:13:07.978 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:08.041 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:13:08.045 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.068403 s[0m
+[36m[2019-04-16 08:13:12.563 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:12.616 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:13:12.619 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.057937 s[0m
+[36m[2019-04-16 08:13:16.561 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:16.609 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:13:16.611 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.050657 s[0m
+[36m[2019-04-16 08:13:20.555 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:20.602 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:13:20.606 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.051659 s[0m
+[36m[2019-04-16 08:13:24.605 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:24.639 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:24.641 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.036333 s[0m
+[36m[2019-04-16 08:13:27.989 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:28.016 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:28.022 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.030772 s[0m
+[36m[2019-04-16 08:13:32.528 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:32.545 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:32.547 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019266 s[0m
+[36m[2019-04-16 08:13:36.522 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:36.556 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:36.561 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.039643 s[0m
+[36m[2019-04-16 08:13:40.520 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:40.547 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:40.550 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.030086 s[0m
+[36m[2019-04-16 08:13:44.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:44.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:44.521 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.017657 s[0m
+[36m[2019-04-16 08:13:47.887 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:47.917 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:47.918 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.033713 s[0m
+[36m[2019-04-16 08:13:52.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:52.526 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:52.528 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020306 s[0m
+[36m[2019-04-16 08:13:56.500 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:13:56.510 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:13:56.512 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.012466 s[0m
+[36m[2019-04-16 08:14:00.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:00.549 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:00.554 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.040190 s[0m
+[36m[2019-04-16 08:14:04.524 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:04.562 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:04.564 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.040730 s[0m
+[36m[2019-04-16 08:14:07.916 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:07.968 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:07.972 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.056665 s[0m
+[36m[2019-04-16 08:14:12.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:12.514 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:12.515 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018756 s[0m
+[36m[2019-04-16 08:14:16.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:16.552 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:16.555 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.042975 s[0m
+[36m[2019-04-16 08:14:20.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:20.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:20.531 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024152 s[0m
+[36m[2019-04-16 08:14:24.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:24.520 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:24.521 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020223 s[0m
+[36m[2019-04-16 08:14:27.860 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:27.871 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:27.872 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.013141 s[0m
+[36m[2019-04-16 08:14:32.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:32.516 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:32.518 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016856 s[0m
+[36m[2019-04-16 08:14:36.518 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:36.536 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:36.538 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021427 s[0m
+[36m[2019-04-16 08:14:40.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:40.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:40.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.022527 s[0m
+[36m[2019-04-16 08:14:44.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:44.534 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:44.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024735 s[0m
+[36m[2019-04-16 08:14:47.880 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:47.940 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:47.945 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.061865 s[0m
+[36m[2019-04-16 08:14:52.518 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:52.551 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:52.554 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.036015 s[0m
+[36m[2019-04-16 08:14:56.538 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:14:56.569 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:14:56.571 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.033323 s[0m
+[36m[2019-04-16 08:15:00.500 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:00.513 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:00.514 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014027 s[0m
+[36m[2019-04-16 08:15:04.534 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:04.578 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:04.580 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.066826 s[0m
+[36m[2019-04-16 08:15:07.850 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:07.870 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:07.873 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.022153 s[0m
+[36m[2019-04-16 08:15:12.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:12.525 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:12.527 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028757 s[0m
+[36m[2019-04-16 08:15:16.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:16.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:16.532 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020658 s[0m
+[36m[2019-04-16 08:15:20.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:20.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:20.521 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019931 s[0m
+[36m[2019-04-16 08:15:24.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:24.522 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:24.523 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020673 s[0m
+[36m[2019-04-16 08:15:27.851 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:27.876 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:27.878 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028028 s[0m
+[36m[2019-04-16 08:15:32.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:32.506 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:32.508 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.010432 s[0m
+[36m[2019-04-16 08:15:36.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:36.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:36.535 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023765 s[0m
+[36m[2019-04-16 08:15:40.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:40.508 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:40.511 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.012359 s[0m
+[36m[2019-04-16 08:15:44.536 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:44.549 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:44.551 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021743 s[0m
+[36m[2019-04-16 08:15:47.845 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:47.858 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:47.859 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014361 s[0m
+[36m[2019-04-16 08:15:52.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:52.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:52.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.027929 s[0m
+[36m[2019-04-16 08:15:56.511 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:15:56.527 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:15:56.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025324 s[0m
+[36m[2019-04-16 08:16:00.509 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:00.532 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:00.533 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024539 s[0m
+[36m[2019-04-16 08:16:04.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:04.531 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:04.534 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024622 s[0m
+[36m[2019-04-16 08:16:07.846 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:07.882 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:07.883 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.037845 s[0m
+[36m[2019-04-16 08:16:12.509 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:12.521 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:12.524 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.015815 s[0m
+[36m[2019-04-16 08:16:16.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:16.522 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:16.523 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020349 s[0m
+[36m[2019-04-16 08:16:20.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:20.517 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:20.521 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020099 s[0m
+[36m[2019-04-16 08:16:24.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:24.506 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:24.507 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.010084 s[0m
+[36m[2019-04-16 08:16:27.860 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:27.883 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:27.886 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028184 s[0m
+[36m[2019-04-16 08:16:32.504 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:32.527 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:32.528 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024373 s[0m
+[36m[2019-04-16 08:16:36.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:36.525 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:36.531 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024599 s[0m
+[36m[2019-04-16 08:16:40.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:40.542 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:40.545 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.033344 s[0m
+[36m[2019-04-16 08:16:44.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:44.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:44.535 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.032979 s[0m
+[36m[2019-04-16 08:16:47.855 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:47.872 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:47.874 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018987 s[0m
+[36m[2019-04-16 08:16:52.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:52.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:52.534 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.031259 s[0m
+[36m[2019-04-16 08:16:56.524 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:16:56.557 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:16:56.562 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.038399 s[0m
+[36m[2019-04-16 08:17:00.518 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:00.534 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:00.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018641 s[0m
+[36m[2019-04-16 08:17:04.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:04.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:04.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018263 s[0m
+[36m[2019-04-16 08:17:07.855 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:07.866 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:07.868 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.012761 s[0m
+[36m[2019-04-16 08:17:12.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:12.520 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:12.522 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014416 s[0m
+[36m[2019-04-16 08:17:16.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:16.534 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:16.540 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.032448 s[0m
+[36m[2019-04-16 08:17:20.516 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:20.547 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:20.551 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.035921 s[0m
+[36m[2019-04-16 08:17:24.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:24.537 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:24.538 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.031710 s[0m
+[36m[2019-04-16 08:17:27.848 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:27.871 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:27.873 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025906 s[0m
+[36m[2019-04-16 08:17:32.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:32.509 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:32.510 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.011824 s[0m
+[36m[2019-04-16 08:17:36.505 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:36.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:36.521 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016582 s[0m
+[36m[2019-04-16 08:17:40.504 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:40.523 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:40.529 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.022152 s[0m
+[36m[2019-04-16 08:17:44.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:44.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:44.519 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.008990 s[0m
+[36m[2019-04-16 08:17:47.852 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:47.869 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:47.871 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018655 s[0m
+[36m[2019-04-16 08:17:52.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:52.535 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:52.540 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.034090 s[0m
+[36m[2019-04-16 08:17:56.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:17:56.520 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:17:56.524 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021500 s[0m
+[36m[2019-04-16 08:18:00.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:00.515 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:00.517 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016258 s[0m
+[36m[2019-04-16 08:18:04.517 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:04.538 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:04.540 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023554 s[0m
+[36m[2019-04-16 08:18:07.846 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:07.858 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:07.860 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014271 s[0m
+[36m[2019-04-16 08:18:12.493 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:12.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:12.519 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.026663 s[0m
+[36m[2019-04-16 08:18:16.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:16.612 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:16.614 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.107875 s[0m
+[36m[2019-04-16 08:18:20.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:20.516 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:20.518 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.017091 s[0m
+[36m[2019-04-16 08:18:24.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:24.535 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:18:24.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.039506 s[0m
+[36m[2019-04-16 08:18:27.845 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:27.887 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:18:27.889 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.044061 s[0m
+[36m[2019-04-16 08:18:32.495 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:32.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:18:32.535 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.040012 s[0m
+[36m[2019-04-16 08:18:36.494 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:36.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:36.532 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.037712 s[0m
+[36m[2019-04-16 08:18:40.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:40.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:40.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021511 s[0m
+[36m[2019-04-16 08:18:44.496 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:44.509 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:44.511 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014165 s[0m
+[36m[2019-04-16 08:18:47.848 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:47.863 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:47.864 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016890 s[0m
+[36m[2019-04-16 08:18:52.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:52.547 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:52.549 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.041518 s[0m
+[36m[2019-04-16 08:18:56.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:18:56.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:18:56.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016827 s[0m
+[36m[2019-04-16 08:19:00.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:00.515 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:00.516 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020059 s[0m
+[36m[2019-04-16 08:19:04.495 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:04.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:04.529 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.034650 s[0m
+[36m[2019-04-16 08:19:07.848 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:07.861 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:07.865 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.017961 s[0m
+[36m[2019-04-16 08:19:12.495 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:12.509 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:12.511 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.015957 s[0m
+[36m[2019-04-16 08:19:16.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:16.571 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:16.573 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.071909 s[0m
+[36m[2019-04-16 08:19:20.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:20.538 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:20.544 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.038825 s[0m
+[36m[2019-04-16 08:19:24.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:24.524 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:24.525 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028607 s[0m
+[36m[2019-04-16 08:19:27.876 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:27.930 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:27.932 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.055968 s[0m
+[36m[2019-04-16 08:19:32.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:32.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:32.529 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018274 s[0m
+[36m[2019-04-16 08:19:36.500 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:36.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:36.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021384 s[0m
+[36m[2019-04-16 08:19:40.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:40.536 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:40.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.040108 s[0m
+[36m[2019-04-16 08:19:44.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:44.511 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:44.512 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.011954 s[0m
+[36m[2019-04-16 08:19:47.861 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:47.900 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:47.901 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.040118 s[0m
+[36m[2019-04-16 08:19:52.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:52.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:52.535 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018522 s[0m
+[36m[2019-04-16 08:19:56.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:19:56.543 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:19:56.545 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.031559 s[0m
+[36m[2019-04-16 08:20:00.511 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:00.529 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:00.531 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020342 s[0m
+[36m[2019-04-16 08:20:04.524 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:04.550 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:04.552 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.027860 s[0m
+[36m[2019-04-16 08:20:07.859 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:07.884 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:07.886 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.027202 s[0m
+[36m[2019-04-16 08:20:12.500 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:12.523 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:12.526 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.026267 s[0m
+[36m[2019-04-16 08:20:16.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:16.536 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:16.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.035935 s[0m
+[36m[2019-04-16 08:20:20.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:20.548 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:20.549 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.042706 s[0m
+[36m[2019-04-16 08:20:24.536 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:24.568 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:24.570 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.035233 s[0m
+[36m[2019-04-16 08:20:27.852 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:27.882 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:27.884 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.031789 s[0m
+[36m[2019-04-16 08:20:32.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:32.513 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:32.514 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016439 s[0m
+[36m[2019-04-16 08:20:36.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:36.550 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:36.554 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.041336 s[0m
+[36m[2019-04-16 08:20:40.518 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:40.559 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:40.563 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.044682 s[0m
+[36m[2019-04-16 08:20:44.524 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:44.547 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:44.549 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025498 s[0m
+[36m[2019-04-16 08:20:47.871 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:47.885 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:47.887 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.015946 s[0m
+[36m[2019-04-16 08:20:52.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:52.542 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:52.543 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.034042 s[0m
+[36m[2019-04-16 08:20:56.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:20:56.533 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:20:56.534 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023152 s[0m
+[36m[2019-04-16 08:21:00.509 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:00.526 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:00.528 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019567 s[0m
+[36m[2019-04-16 08:21:04.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:04.516 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:04.517 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016225 s[0m
+[36m[2019-04-16 08:21:07.868 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:07.889 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:07.903 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.034789 s[0m
+[36m[2019-04-16 08:21:12.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:12.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:12.532 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025300 s[0m
+[36m[2019-04-16 08:21:16.505 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:16.532 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:16.535 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.029798 s[0m
+[36m[2019-04-16 08:21:20.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:20.535 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:20.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.039017 s[0m
+[36m[2019-04-16 08:21:24.524 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:24.563 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:24.565 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.041117 s[0m
+[36m[2019-04-16 08:21:27.851 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:27.868 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:27.869 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018190 s[0m
+[36m[2019-04-16 08:21:32.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:32.508 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:32.511 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.013610 s[0m
+[36m[2019-04-16 08:21:36.518 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:36.630 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:21:36.634 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.117750 s[0m
+[36m[2019-04-16 08:21:40.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:40.555 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:21:40.557 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.056396 s[0m
+[36m[2019-04-16 08:21:44.506 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:44.634 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:21:44.639 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.133231 s[0m
+[36m[2019-04-16 08:21:47.845 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:47.862 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:47.863 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018873 s[0m
+[36m[2019-04-16 08:21:52.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:52.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:52.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014113 s[0m
+[36m[2019-04-16 08:21:56.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:21:56.536 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:21:56.538 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023962 s[0m
+[36m[2019-04-16 08:22:00.506 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:00.546 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:00.548 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.043673 s[0m
+[36m[2019-04-16 08:22:04.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:04.516 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:04.517 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020581 s[0m
+[36m[2019-04-16 08:22:07.874 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:07.896 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:07.902 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028286 s[0m
+[36m[2019-04-16 08:22:12.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:12.535 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:12.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.026693 s[0m
+[36m[2019-04-16 08:22:16.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:16.507 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:16.508 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.011464 s[0m
+[36m[2019-04-16 08:22:20.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:20.507 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:20.508 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.010589 s[0m
+[36m[2019-04-16 08:22:24.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:24.536 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:24.541 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.034448 s[0m
+[36m[2019-04-16 08:22:27.875 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:27.897 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:27.899 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025935 s[0m
+[36m[2019-04-16 08:22:32.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:32.534 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:32.538 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.035538 s[0m
+[36m[2019-04-16 08:22:36.495 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:36.515 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:36.517 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021576 s[0m
+[36m[2019-04-16 08:22:40.505 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:40.526 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:40.528 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023554 s[0m
+[36m[2019-04-16 08:22:44.496 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:44.520 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:44.522 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.026366 s[0m
+[36m[2019-04-16 08:22:47.847 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:47.865 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:47.868 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021885 s[0m
+[36m[2019-04-16 08:22:52.504 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:52.527 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:52.528 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.024700 s[0m
+[36m[2019-04-16 08:22:56.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:22:56.551 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:22:56.555 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.041842 s[0m
+[36m[2019-04-16 08:23:00.515 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:00.540 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:00.542 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.027570 s[0m
+[36m[2019-04-16 08:23:04.516 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:04.560 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:04.563 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.048837 s[0m
+[36m[2019-04-16 08:23:07.902 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:07.925 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:07.927 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025776 s[0m
+[36m[2019-04-16 08:23:12.511 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:12.527 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:12.529 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019317 s[0m
+[36m[2019-04-16 08:23:16.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:16.567 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:16.569 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.057868 s[0m
+[36m[2019-04-16 08:23:20.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:20.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:20.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020809 s[0m
+[36m[2019-04-16 08:23:24.524 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:24.628 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:24.633 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.108572 s[0m
+[36m[2019-04-16 08:23:27.853 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:27.863 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:27.864 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.011911 s[0m
+[36m[2019-04-16 08:23:32.520 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:32.539 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:32.541 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021744 s[0m
+[36m[2019-04-16 08:23:36.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:36.536 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:36.540 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.030438 s[0m
+[36m[2019-04-16 08:23:40.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:40.529 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:40.530 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019787 s[0m
+[36m[2019-04-16 08:23:44.509 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:44.543 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:44.544 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.035343 s[0m
+[36m[2019-04-16 08:23:47.850 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:47.881 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:47.883 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.032778 s[0m
+[36m[2019-04-16 08:23:52.496 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:52.514 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:52.515 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019341 s[0m
+[36m[2019-04-16 08:23:56.504 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:23:56.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:23:56.532 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028698 s[0m
+[36m[2019-04-16 08:24:00.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:00.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:24:00.532 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.034403 s[0m
+[36m[2019-04-16 08:24:04.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:04.566 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:24:04.567 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.070492 s[0m
+[36m[2019-04-16 08:24:07.847 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:07.881 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:24:07.882 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.036188 s[0m
+[36m[2019-04-16 08:24:12.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:12.508 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:24:12.509 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.011361 s[0m
+[36m[2019-04-16 08:24:16.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:16.623 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:24:16.624 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.127581 s[0m
+[36m[2019-04-16 08:24:20.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:20.556 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:20.558 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.057506 s[0m
+[36m[2019-04-16 08:24:24.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:24.544 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:24.547 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.049719 s[0m
+[36m[2019-04-16 08:24:27.846 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:27.891 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:27.893 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.047096 s[0m
+[36m[2019-04-16 08:24:32.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:32.616 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:32.620 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.112910 s[0m
+[36m[2019-04-16 08:24:36.505 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:36.580 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:36.582 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.077167 s[0m
+[36m[2019-04-16 08:24:40.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:40.589 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:40.591 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.094052 s[0m
+[36m[2019-04-16 08:24:44.540 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:44.633 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:44.637 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.095797 s[0m
+[36m[2019-04-16 08:24:47.864 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:47.976 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:47.980 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.116843 s[0m
+[36m[2019-04-16 08:24:52.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:52.640 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:24:52.642 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.132962 s[0m
+[36m[2019-04-16 08:24:56.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:24:56.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:24:56.530 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020926 s[0m
+[36m[2019-04-16 08:25:00.509 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:00.529 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:00.530 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023228 s[0m
+[36m[2019-04-16 08:25:04.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:04.546 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:04.550 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.043803 s[0m
+[36m[2019-04-16 08:25:07.883 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:07.917 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:07.918 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.035558 s[0m
+[36m[2019-04-16 08:25:12.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:12.548 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:12.550 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.036750 s[0m
+[36m[2019-04-16 08:25:16.494 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:16.510 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:16.512 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.017979 s[0m
+[36m[2019-04-16 08:25:20.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:20.507 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:20.508 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.011029 s[0m
+[36m[2019-04-16 08:25:24.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:24.524 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:24.526 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.019313 s[0m
+[36m[2019-04-16 08:25:27.869 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:27.888 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:27.890 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021305 s[0m
+[36m[2019-04-16 08:25:32.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:32.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:32.530 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020803 s[0m
+[36m[2019-04-16 08:25:36.505 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:36.522 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:36.525 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020939 s[0m
+[36m[2019-04-16 08:25:40.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:40.531 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:40.539 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025871 s[0m
+[36m[2019-04-16 08:25:44.506 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:44.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:44.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014777 s[0m
+[36m[2019-04-16 08:25:47.855 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:47.869 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:47.870 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016041 s[0m
+[36m[2019-04-16 08:25:52.515 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:52.541 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:52.545 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.029583 s[0m
+[36m[2019-04-16 08:25:56.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:25:56.524 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:25:56.528 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021241 s[0m
+[36m[2019-04-16 08:26:00.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:00.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:00.530 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023725 s[0m
+[36m[2019-04-16 08:26:04.512 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:04.559 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:04.561 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.049355 s[0m
+[36m[2019-04-16 08:26:07.869 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:07.903 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:07.907 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.038221 s[0m
+[36m[2019-04-16 08:26:12.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:12.544 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:12.546 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.036819 s[0m
+[36m[2019-04-16 08:26:16.499 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:16.514 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:16.517 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018703 s[0m
+[36m[2019-04-16 08:26:20.507 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:20.522 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:20.525 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018571 s[0m
+[36m[2019-04-16 08:26:24.523 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:24.549 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:24.551 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.028461 s[0m
+[36m[2019-04-16 08:26:27.877 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:27.895 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:27.897 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021628 s[0m
+[36m[2019-04-16 08:26:32.530 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:32.578 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:32.580 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.051799 s[0m
+[36m[2019-04-16 08:26:36.511 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:36.542 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:26:36.546 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.032872 s[0m
+[36m[2019-04-16 08:26:40.534 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:40.611 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:26:40.616 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.082445 s[0m
+[36m[2019-04-16 08:26:44.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:44.548 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:26:44.550 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.048567 s[0m
+[36m[2019-04-16 08:26:47.853 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:47.906 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:26:47.908 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.055983 s[0m
+[36m[2019-04-16 08:26:52.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:52.539 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:26:52.541 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.039168 s[0m
+[36m[2019-04-16 08:26:56.504 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:26:56.537 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:26:56.539 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.034816 s[0m
+[36m[2019-04-16 08:27:00.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:00.554 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:27:00.557 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.059620 s[0m
+[36m[2019-04-16 08:27:04.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:04.576 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:27:04.577 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.080709 s[0m
+[36m[2019-04-16 08:27:07.849 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:07.912 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-16 08:27:07.914 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.064554 s[0m
+[36m[2019-04-16 08:27:12.497 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:12.508 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:12.510 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.013295 s[0m
+[36m[2019-04-16 08:27:16.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:16.525 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:16.531 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021679 s[0m
+[36m[2019-04-16 08:27:20.506 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:20.523 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:20.526 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020269 s[0m
+[36m[2019-04-16 08:27:24.498 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:24.511 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:24.512 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.014766 s[0m
+[36m[2019-04-16 08:27:27.850 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:27.859 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:27.861 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.010592 s[0m
+[36m[2019-04-16 08:27:32.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:32.519 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:32.520 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.009823 s[0m
+[36m[2019-04-16 08:27:36.496 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:36.534 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:36.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.039203 s[0m
+[36m[2019-04-16 08:27:40.496 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:40.506 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:40.508 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.012242 s[0m
+[36m[2019-04-16 08:27:44.494 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:44.508 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:44.509 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.015296 s[0m
+[36m[2019-04-16 08:27:47.850 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:47.878 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:47.881 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.031497 s[0m
+[36m[2019-04-16 08:27:52.501 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:52.543 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:52.544 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.043263 s[0m
+[36m[2019-04-16 08:27:56.509 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:27:56.527 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:27:56.529 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020561 s[0m
+[36m[2019-04-16 08:28:00.503 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:00.518 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:00.522 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.016915 s[0m
+[36m[2019-04-16 08:28:04.540 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:04.557 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:04.560 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.023080 s[0m
+[36m[2019-04-16 08:28:07.867 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:07.882 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:07.884 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.018157 s[0m
+[36m[2019-04-16 08:28:12.511 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:12.539 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:12.541 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.030320 s[0m
+[36m[2019-04-16 08:28:16.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:16.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:16.529 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.020290 s[0m
+[36m[2019-04-16 08:28:20.523 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:20.535 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:20.537 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.015036 s[0m
+[36m[2019-04-16 08:28:24.594 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:24.642 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:24.649 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.061543 s[0m
+[36m[2019-04-16 08:28:27.892 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:27.917 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:27.920 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.029231 s[0m
+[36m[2019-04-16 08:28:32.516 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:32.539 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:32.541 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.025532 s[0m
+[36m[2019-04-16 08:28:36.517 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:36.553 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:36.555 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.038453 s[0m
+[36m[2019-04-16 08:28:40.513 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:40.539 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:40.541 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.027900 s[0m
+[36m[2019-04-16 08:28:44.502 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:44.521 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:44.522 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021036 s[0m
+[36m[2019-04-16 08:28:47.915 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:47.933 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:47.935 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.021986 s[0m
+[36m[2019-04-16 08:28:52.508 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:52.528 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:52.530 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.022594 s[0m
+[36m[2019-04-16 08:28:56.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:28:56.530 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:28:56.532 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.022779 s[0m
+[36m[2019-04-16 08:29:00.525 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:00.579 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:00.584 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.060000 s[0m
+[36m[2019-04-16 08:29:04.511 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:04.532 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:04.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.026023 s[0m
+[36m[2019-04-16 08:29:07.853 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:07.882 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:07.883 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.030893 s[0m
+[36m[2019-04-16 08:29:12.514 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:12.534 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:12.536 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.022022 s[0m
+[36m[2019-04-16 08:29:16.510 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:16.522 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:16.525 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.015559 s[0m
+[36m[2019-04-16 08:29:20.523 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:20.563 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:20.564 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.041876 s[0m
+[36m[2019-04-16 08:29:24.555 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-16 08:29:24.596 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status QUEUE_FULL[0m
+[32m[2019-04-16 08:29:24.599 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 429 status, 394 size, in 0.044244 s[0m

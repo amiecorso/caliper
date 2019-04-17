@@ -1,0 +1,19 @@
+creating key directory: /root/.sawtooth/keys
+writing file: /root/.sawtooth/keys/root.priv
+writing file: /root/.sawtooth/keys/root.pub
+writing file: /etc/sawtooth/keys/validator.priv
+writing file: /etc/sawtooth/keys/validator.pub
+[32m[2019-04-17 11:53:27.112 INFO     path][0m [37mSkipping path loading from non-existent config file: /etc/sawtooth/path.toml[0m
+[32m[2019-04-17 11:53:27.113 INFO     validator][0m [37mSkipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml[0m
+[32m[2019-04-17 11:53:27.114 INFO     keys][0m [37mLoading signing key: /etc/sawtooth/keys/validator.priv[0m
+[32m[2019-04-17 11:53:27.117 INFO     cli][0m [37msawtooth-validator (Hyperledger Sawtooth) version 1.0.5[0m
+[32m[2019-04-17 11:53:27.119 INFO     cli][0m [37mconfig [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"[0m
+[33m[2019-04-17 11:53:27.120 WARNING  cli][0m [37mNetwork key pair is not configured, Network communications between validators will not be authenticated or encrypted.[0m
+[32m[2019-04-17 11:53:27.164 INFO     interconnect][0m [37mListening on tcp://eth0:4004[0m
+[32m[2019-04-17 11:53:27.174 INFO     genesis][0m [37mNo chain head and not the genesis node: starting in peering mode[0m
+[32m[2019-04-17 11:53:27.201 INFO     interconnect][0m [37mListening on tcp://eth0:8800[0m
+[32m[2019-04-17 11:53:27.214 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-17 11:53:29.048 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=9b29fc1d598cdd61b73bc895da0a09b2d1a1d7ad9c673c1c1f61650bec752df72dba609697fef378b447fdbbadd5f069261ab02f992d9390974c9dcefe70f47e, family=sawtooth_settings, version=1.0, namespaces=['000000'][0m
+[32m[2019-04-17 11:53:30.663 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=40129ac2591e70d2e007799ad2c33c63f2f6d9b88e0d8a13bd049ede625083f2072fc6b732b661311f6ad8ac31d59ceee656603cd370e94d146800c43f40261a, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'][0m
+[32m[2019-04-17 11:53:35.171 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=e70ab06ebae58c99a48d92c202e38c5605990510c76b35a4f74dac01e2fef6d8aeed700222cade4260603d7dec9ec7306540a1bf901d19784e645ac6583018cf, family=intkey, version=1.0, namespaces=['1cf126'][0m
+[32m[2019-04-17 12:00:37.166 INFO     back_pressure_handlers][0m [37mApplying back pressure on client submitted batches: current depth: 60, limit: 60[0m
