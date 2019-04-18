@@ -57,7 +57,7 @@ for size in NET_SIZES:
                     splitheader[7] = splitheader[7] + " (s)"
                     splitheader[8] = splitheader[8] + " (tps)"
                     header = ",".join(splitheader)
-                    perf_out.write("Network Size,Run Index," + header + ",Stale Block Rate," + "Num Blocks," + "Num Txns," + "Round Duration," + "My Throughput," +  "Avg Interval," + "Min Interval," + "Max Interval," + "PercentDiff on TPS\n")
+                    perf_out.write("TargetInterval,Network Size,Run Index," + header + ",Stale Block Rate," + "Num Blocks," + "Num Txns," + "Round Duration," + "My Throughput," +  "Avg Interval," + "Min Interval," + "Max Interval," + "PercentDiff on TPS\n")
             pheader = True
         except Exception as e:
             print(e)
@@ -179,7 +179,7 @@ for size in NET_SIZES:
 
             percent_diff = round((caliperthroughput - throughput) / throughput, 2)
             #combine data with Caliper report data
-            outputline = ",".join([outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
+            outputline = ",".join([str(tps), outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
             perf_out.write(outputline + "\n")
 
             # process resource files for this round

@@ -12,7 +12,7 @@ NET_SIZES = [4]
 REPEATS = 3 
 #           (TPS, duration, unfinished)
 #WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200), (45, 1000, 200), (50, 1000, 200), (55, 1000, 200)]
-WORKLOADS = [(3, 10, 5), (5, 10, 5), (7, 10, 5), (10, 10, 5), (13, 10, 5), (16, 10, 5), (20, 10, 5), (25, 10, 5), (30, 10, 5), (35, 10, 5), (40, 10, 5), (50, 10, 5) ]
+WORKLOADS = [(3, 10, 5), (5, 10, 5), (7, 10, 5), (10, 10, 5), (13, 10, 5), (16, 10, 5), (20, 10, 5), (25, 10, 5), (30, 10, 5), (35, 10, 5), (40, 10, 5), (50, 10, 5), (60, 10, 5) ]
 TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
@@ -55,7 +55,7 @@ for n in NET_SIZES:
 
         # generate benchconfig file
         # NOTE: hard-coding workload and "load" in workload will be interpreted as BLOCK INTERVAL not tps
-        command = "python ./generators/benchconfig_file_gen.py --exp_dir {} --template {} --tps {} --duration {} --unfinished {} --txnsperbatch {} --label {}".format(EXP_DIR, BENCHCONFIG_TEMPLATE, 5, 1000, 5, 20, "5TPS")
+        command = "python ./generators/benchconfig_file_gen.py --exp_dir {} --template {} --tps {} --duration {} --unfinished {} --txnsperbatch {} --label {}".format(EXP_DIR, BENCHCONFIG_TEMPLATE, 30, 1000, 5, 20, "30TPS")
         subprocess.call(command, shell=True)
 
         for repeat in range(REPEATS):
