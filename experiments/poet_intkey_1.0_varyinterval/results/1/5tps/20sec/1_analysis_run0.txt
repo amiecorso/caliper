@@ -1,0 +1,38 @@
+Datetime	 Elapsed	 Num Blocks	 Num Txns
+2019-04-19 08:02:46.223132	 0.0	 1	 12
+2019-04-19 08:02:51.231921	 5.01	 2	 32
+2019-04-19 08:02:56.231442	 10.01	 2	 32
+2019-04-19 08:03:01.223779	 15.0	 2	 32
+2019-04-19 08:03:06.231948	 20.01	 3	 72
+2019-04-19 08:03:11.231280	 25.01	 3	 72
+2019-04-19 08:03:16.231866	 30.01	 3	 72
+2019-04-19 08:03:21.223649	 35.0	 3	 72
+2019-04-19 08:03:26.231439	 40.01	 3	 72
+2019-04-19 08:03:31.231151	 45.01	 3	 72
+
+DATETIME	 ELAPSED	 NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+2019-04-19 08:02:46.223132 0.0 0 f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a 4 12
+2019-04-19 08:02:51.231921 5.01 1 8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce 1 20
+2019-04-19 08:03:06.231948 20.01 2 8de4eef5c26b09b721ac8ef62f3701c350a4e9d4c868d974771d4aa627f163276de31c8a22db9384863ef9b262475bcead5934821271d74158bde230b7b1b359 2 40
+
+
+NUM  BLOCK_ID                                                                                                                          BATS  TXNS  SIGNER                                                            
+2    8de4eef5c26b09b721ac8ef62f3701c350a4e9d4c868d974771d4aa627f163276de31c8a22db9384863ef9b262475bcead5934821271d74158bde230b7b1b359  2     40    03911ed9cc99ff2905b14551350f663005f51ac06ad1266003506f88473481a71d
+1    8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce  1     20    03911ed9cc99ff2905b14551350f663005f51ac06ad1266003506f88473481a71d
+0    f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a  4     12    03911ed9cc99ff2905b14551350f663005f51ac06ad1266003506f88473481a71d
+
+
+On-chain Settings:
+sawtooth.consensus.algorithm: poet
+sawtooth.poet.block_claim_delay: 1
+sawtooth.poet.initial_wait_time: 20
+sawtooth.poet.key_block_claim_limit: 100000
+sawtooth.poet.report_public_key_pem: -----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArMvzZi8GT+lI9KeZiInn
+4CvFTiuyid+IN4dP1+mhTnfxX+I/...
+sawtooth.poet.target_wait_time: 20
+sawtooth.poet.valid_enclave_basenames: b785c58b77152cbe7fd55ee3851c499000000000000000000000000000000000
+sawtooth.poet.valid_enclave_measurements: c99f21955e38dbb03d2ca838d3af6e43ef438926ed02db4cc729380c8c7a174e
+sawtooth.poet.ztest_minimum_win_count: 999999999
+sawtooth.publisher.max_batches_per_block: 100
+sawtooth.settings.vote.authorized_keys: 03911ed9cc99ff2905b14551350f663005f51ac06ad1266003506f88473481a71d

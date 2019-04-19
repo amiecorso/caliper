@@ -1,0 +1,41 @@
+creating key directory: /root/.sawtooth/keys
+writing file: /root/.sawtooth/keys/root.priv
+writing file: /root/.sawtooth/keys/root.pub
+writing file: /etc/sawtooth/keys/validator.priv
+writing file: /etc/sawtooth/keys/validator.pub
+Generated config-genesis.batch
+Writing key state for PoET public key: 03d10bf4...c9b40b2b
+Generating poet.batch
+Processing config-genesis.batch...
+Processing config.batch...
+Processing poet.batch...
+Processing poet-settings.batch...
+Generating /var/lib/sawtooth/genesis.batch
+[32m[2019-04-19 15:02:31.982 INFO     path][0m [37mSkipping path loading from non-existent config file: /etc/sawtooth/path.toml[0m
+[32m[2019-04-19 15:02:31.982 INFO     validator][0m [37mSkipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml[0m
+[32m[2019-04-19 15:02:31.982 INFO     keys][0m [37mLoading signing key: /etc/sawtooth/keys/validator.priv[0m
+[32m[2019-04-19 15:02:31.983 INFO     cli][0m [37msawtooth-validator (Hyperledger Sawtooth) version 1.0.5[0m
+[32m[2019-04-19 15:02:31.983 INFO     cli][0m [37mconfig [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"[0m
+[33m[2019-04-19 15:02:31.983 WARNING  cli][0m [37mNetwork key pair is not configured, Network communications between validators will not be authenticated or encrypted.[0m
+[32m[2019-04-19 15:02:32.030 INFO     interconnect][0m [37mListening on tcp://eth0:4004[0m
+[32m[2019-04-19 15:02:32.031 INFO     genesis][0m [37mProducing genesis block from /var/lib/sawtooth/genesis.batch[0m
+[32m[2019-04-19 15:02:32.033 INFO     executor][0m [37mWaiting for transaction processor (sawtooth_settings, 1.0)[0m
+[32m[2019-04-19 15:02:32.038 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=1f493351b028f186563e6f296eb17bb13141dfad296ab4f065fba2890df69415bd0bfe9ae2fc2790c4d184e543882cf20c6bff6414151208d971128ca23737e8, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'][0m
+[32m[2019-04-19 15:02:32.454 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=21e856bcd449f57f41aeb3c05bdc8e30818ff822f4606859d240e68ab43fd84288aaa49da3b9572181b014d48f7b41ce9aa5eef6c329656adc758b0b95c2d7b2, family=sawtooth_settings, version=1.0, namespaces=['000000'][0m
+[32m[2019-04-19 15:02:32.788 INFO     genesis][0m [37mGenesis block created: f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a (block_num:0, state:fa09ba723b67d74b2b55c6ccaf550774fb952f2952beb28b880fc77a513011b2, previous_block_id:0000000000000000)[0m
+[32m[2019-04-19 15:02:32.790 INFO     interconnect][0m [37mListening on tcp://eth0:8800[0m
+[32m[2019-04-19 15:02:32.791 INFO     chain][0m [37mChain controller initialized with chain head: f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a (block_num:0, state:fa09ba723b67d74b2b55c6ccaf550774fb952f2952beb28b880fc77a513011b2, previous_block_id:0000000000000000)[0m
+[32m[2019-04-19 15:02:32.791 INFO     publisher][0m [37mNow building on top of block: f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a (block_num:0, state:fa09ba723b67d74b2b55c6ccaf550774fb952f2952beb28b880fc77a513011b2, previous_block_id:0000000000000000)[0m
+[32m[2019-04-19 15:02:32.837 INFO     poet_enclave_factory][0m [37mLoad PoET enclave module: sawtooth_poet_simulator.poet_enclave_simulator.poet_enclave_simulator; Target wait time: 20.000000; Initial wait time: 20.000000; Population estimate sample size: 50; [0m
+[32m[2019-04-19 15:02:33.592 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=90d7095cef2f49d5cf22af9cbcc817b8e94daf98b4351beb650b5f2096fcc9f258417b8e32ecddd4bded18d8899cb914cef2369e24c82a9e88c898a5bc41c214, family=intkey, version=1.0, namespaces=['1cf126'][0m
+[32m[2019-04-19 15:02:49.025 INFO     publisher][0m [37mClaimed Block: 8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce (block_num:1, state:31a81b356020a156bfb15600d9efc722f50b558562349d473203bb98fb7b96a0, previous_block_id:f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a)[0m
+[32m[2019-04-19 15:02:49.025 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-19 15:02:49.026 INFO     block_validator][0m [37mStarting block validation of : 8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce (block_num:1, state:31a81b356020a156bfb15600d9efc722f50b558562349d473203bb98fb7b96a0, previous_block_id:f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a)[0m
+[32m[2019-04-19 15:02:49.089 INFO     dispatch][0m [37mreceived a message of type CLIENT_EVENTS_SUBSCRIBE_REQUEST from 0203ff8b4e4b210e52da83049292c73a7961505bf8a10a5dcce70fd79d50131bd943948a6667083f9219b121229b2138f88af1a6531c35f2ad738ed9a15150a0 but have no handler for that type[0m
+[32m[2019-04-19 15:02:49.170 INFO     block_validator][0m [37mComparing current chain head 'f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a (block_num:0, state:fa09ba723b67d74b2b55c6ccaf550774fb952f2952beb28b880fc77a513011b2, previous_block_id:0000000000000000)' against new block 'f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a (block_num:0, state:fa09ba723b67d74b2b55c6ccaf550774fb952f2952beb28b880fc77a513011b2, previous_block_id:0000000000000000)'[0m
+[32m[2019-04-19 15:02:49.170 INFO     block_validator][0m [37mFork comparison at height 1 is between - and 8cf677ae[0m
+[32m[2019-04-19 15:02:49.170 INFO     poet_fork_resolver][0m [37mChoose new fork 8cf677ae over current fork f1fb1fc8: New fork head switches consensus to PoET[0m
+[32m[2019-04-19 15:02:49.171 INFO     chain][0m [37mChain head updated to: 8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce (block_num:1, state:31a81b356020a156bfb15600d9efc722f50b558562349d473203bb98fb7b96a0, previous_block_id:f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a)[0m
+[32m[2019-04-19 15:02:49.172 INFO     publisher][0m [37mNow building on top of block: 8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce (block_num:1, state:31a81b356020a156bfb15600d9efc722f50b558562349d473203bb98fb7b96a0, previous_block_id:f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a)[0m
+[32m[2019-04-19 15:02:49.182 INFO     block_validator][0m [37mFinished block validation of: 8cf677aecd674986746bba6aeaba4758d68599c62f118538cc3d2b7b09687bd52af1c8e274a7ce0a12ca2d1ec2110168200c09d00bfb91e1de1f2ecf77bfa4ce (block_num:1, state:31a81b356020a156bfb15600d9efc722f50b558562349d473203bb98fb7b96a0, previous_block_id:f1fb1fc8281fd5b2b20220df94cc15068f67c8bdfb99eb685c98487a1d3923e44d5778b2bc1f6063cc85b36db4d316c8314b93d15fdda9d923805ea1557d465a)[0m
+[32m[2019-04-19 15:03:00.838 INFO     dispatch][0m [37mreceived a message of type CLIENT_EVENTS_UNSUBSCRIBE_REQUEST from 0203ff8b4e4b210e52da83049292c73a7961505bf8a10a5dcce70fd79d50131bd943948a6667083f9219b121229b2138f88af1a6531c35f2ad738ed9a15150a0 but have no handler for that type[0m

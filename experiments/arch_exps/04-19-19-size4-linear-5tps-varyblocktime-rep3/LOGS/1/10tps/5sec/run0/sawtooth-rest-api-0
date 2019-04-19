@@ -1,0 +1,50 @@
+[32m[2019-04-19 15:01:10.840 INFO     messaging][0m [37mConnecting to tcp://validator-0:4004[0m
+[32m[2019-04-19 15:01:10.841 INFO     rest_api][0m [37mCreating handlers for validator at tcp://validator-0:4004[0m
+[32m[2019-04-19 15:01:10.844 INFO     rest_api][0m [37mStarting REST API on rest-api-0:8008[0m
+[36m[2019-04-19 15:01:26.880 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:26.883 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[36m[2019-04-19 15:01:26.884 DEBUG    route_handlers][0m [37mSending CLIENT_STATE_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:26.903 DEBUG    route_handlers][0m [37mReceived CLIENT_STATE_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:26.904 INFO     helpers][0m [37mGET /state?address=000000 HTTP/1.1: 200 status, 3505 size, in 0.024656 s[0m
+[36m[2019-04-19 15:01:27.242 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:27.244 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:27.247 INFO     helpers][0m [37mGET /blocks HTTP/1.1: 200 status, 26962 size, in 0.005220 s[0m
+[36m[2019-04-19 15:01:27.623 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:27.626 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:27.628 INFO     helpers][0m [37mGET /blocks HTTP/1.1: 200 status, 26962 size, in 0.005116 s[0m
+[36m[2019-04-19 15:01:28.034 DEBUG    route_handlers][0m [37mSending CLIENT_TRANSACTION_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:28.036 DEBUG    route_handlers][0m [37mReceived CLIENT_TRANSACTION_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:28.038 INFO     helpers][0m [37mGET /transactions HTTP/1.1: 200 status, 20252 size, in 0.004572 s[0m
+[36m[2019-04-19 15:01:29.947 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:29.950 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:29.952 INFO     helpers][0m [37mGET /blocks?limit=1 HTTP/1.1: 200 status, 26966 size, in 0.004486 s[0m
+[36m[2019-04-19 15:01:29.959 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:29.966 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:29.966 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.007597 s[0m
+[36m[2019-04-19 15:01:31.917 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:31.923 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:31.924 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.007708 s[0m
+[36m[2019-04-19 15:01:32.653 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:32.656 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:32.661 INFO     helpers][0m [37mGET /blocks HTTP/1.1: 200 status, 81222 size, in 0.008703 s[0m
+[36m[2019-04-19 15:01:33.015 DEBUG    route_handlers][0m [37mSending CLIENT_TRANSACTION_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:33.018 DEBUG    route_handlers][0m [37mReceived CLIENT_TRANSACTION_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:33.023 INFO     helpers][0m [37mGET /transactions HTTP/1.1: 200 status, 58572 size, in 0.008031 s[0m
+[36m[2019-04-19 15:01:33.912 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:33.919 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:33.920 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.007733 s[0m
+[36m[2019-04-19 15:01:35.913 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:35.919 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:35.920 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.007545 s[0m
+[36m[2019-04-19 15:01:37.598 DEBUG    route_handlers][0m [37mSending CLIENT_BLOCK_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:37.601 DEBUG    route_handlers][0m [37mReceived CLIENT_BLOCK_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:37.607 INFO     helpers][0m [37mGET /blocks HTTP/1.1: 200 status, 81222 size, in 0.009141 s[0m
+[36m[2019-04-19 15:01:37.911 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:37.918 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:37.919 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.007696 s[0m
+[36m[2019-04-19 15:01:37.932 DEBUG    route_handlers][0m [37mSending CLIENT_BATCH_SUBMIT_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:37.943 DEBUG    route_handlers][0m [37mReceived CLIENT_BATCH_SUBMIT_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:37.944 INFO     helpers][0m [37mPOST /batches HTTP/1.1: 202 status, 367 size, in 0.012130 s[0m
+[36m[2019-04-19 15:01:37.955 DEBUG    route_handlers][0m [37mSending CLIENT_TRANSACTION_LIST_REQUEST request to validator[0m
+[36m[2019-04-19 15:01:37.960 DEBUG    route_handlers][0m [37mReceived CLIENT_TRANSACTION_LIST_RESPONSE response from validator with status OK[0m
+[32m[2019-04-19 15:01:37.967 INFO     helpers][0m [37mGET /transactions HTTP/1.1: 200 status, 58572 size, in 0.012552 s[0m
