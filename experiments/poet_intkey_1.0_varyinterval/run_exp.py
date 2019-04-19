@@ -7,19 +7,19 @@ import time
 
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
-SAVE_AS = time.strftime("%m-%d-%y") + "-size4-linear-5tps-varyblocktime-rep3"
-NET_SIZES = [1]
-REPEATS = 1
-INTERVALS = [5, 20]
+SAVE_AS = time.strftime("%m-%d-%y") + "fullrun_varyblocktime.csv"
+NET_SIZES = [1, 2, 4, 8]
+REPEATS = 2
+INTERVALS = [3, 5, 10, 20, 30, 40, 50, 60, 80, 100]
 #           (TPS, duration, unfinished)
-#WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200), (45, 1000, 200), (50, 1000, 200), (55, 1000, 200)]
-WORKLOADS = [(5, 10, 5), (10, 10, 5)]
+WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
+#WORKLOADS = [(5, 10, 5), (10, 10, 5)]
 TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
     NET_SIZES = [1]
     REPEATS = 1
-TARGET_WAIT = 20
+#TARGET_WAIT = 20
 EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
 COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template_SMALLNETWORK.yaml"
 #COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template.yaml"

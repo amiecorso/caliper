@@ -21,8 +21,8 @@ parser.add_argument('--tps')
 parser.add_argument('--interval')
 args = parser.parse_args()
 
-INTERVAL = 5.0 # number of seconds between updates
-WAIT = 20
+INTERVAL = 3.0 # number of seconds between updates
+WAIT = 22
 MAXTIME = int(args.time) + WAIT
 START = time.time()
 PRINT = True
