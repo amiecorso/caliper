@@ -1,0 +1,385 @@
+creating key directory: /root/.sawtooth/keys
+writing file: /root/.sawtooth/keys/root.priv
+writing file: /root/.sawtooth/keys/root.pub
+writing file: /etc/sawtooth/keys/validator.priv
+writing file: /etc/sawtooth/keys/validator.pub
+Generated config-genesis.batch
+Writing key state for PoET public key: 03188897...2cf855b4
+Generating poet.batch
+Processing config-genesis.batch...
+Processing config.batch...
+Processing poet.batch...
+Processing poet-settings.batch...
+Generating /var/lib/sawtooth/genesis.batch
+[32m[2019-04-21 03:46:15.859 INFO     path][0m [37mSkipping path loading from non-existent config file: /etc/sawtooth/path.toml[0m
+[32m[2019-04-21 03:46:15.859 INFO     validator][0m [37mSkipping validator config loading from non-existent config file: /etc/sawtooth/validator.toml[0m
+[32m[2019-04-21 03:46:15.859 INFO     keys][0m [37mLoading signing key: /etc/sawtooth/keys/validator.priv[0m
+[32m[2019-04-21 03:46:15.860 INFO     cli][0m [37msawtooth-validator (Hyperledger Sawtooth) version 1.0.5[0m
+[32m[2019-04-21 03:46:15.860 INFO     cli][0m [37mconfig [path]: config_dir = "/etc/sawtooth"; config [path]: key_dir = "/etc/sawtooth/keys"; config [path]: data_dir = "/var/lib/sawtooth"; config [path]: log_dir = "/var/log/sawtooth"; config [path]: policy_dir = "/etc/sawtooth/policy"[0m
+[33m[2019-04-21 03:46:15.861 WARNING  cli][0m [37mNetwork key pair is not configured, Network communications between validators will not be authenticated or encrypted.[0m
+[32m[2019-04-21 03:46:15.865 INFO     interconnect][0m [37mListening on tcp://eth0:4004[0m
+[32m[2019-04-21 03:46:15.867 INFO     genesis][0m [37mProducing genesis block from /var/lib/sawtooth/genesis.batch[0m
+[32m[2019-04-21 03:46:15.869 INFO     executor][0m [37mWaiting for transaction processor (sawtooth_settings, 1.0)[0m
+[32m[2019-04-21 03:46:15.899 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=ba4b4ab901f5d571c870aebfd8a27bc24e5da62171f5ac5f6b005eb36acd4346466dc28168f13df327581cb55973ff54115507e1f5a21a4281fd4903e3f2c111, family=sawtooth_settings, version=1.0, namespaces=['000000'][0m
+[32m[2019-04-21 03:46:15.907 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=fdca643f2e884d9910336a30e298b7276423e2132f95d0a286ad6c82646697825a485577d9dfc2573de22f172928f10328ea41a9d429d17db8edb46d599e742a, family=sawtooth_validator_registry, version=1.0, namespaces=['6a4372'][0m
+[32m[2019-04-21 03:46:16.248 INFO     genesis][0m [37mGenesis block created: ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7 (block_num:0, state:da21b15584fe55d9d132752d580d306ede2d86093647dcbdfcffd673e14697eb, previous_block_id:0000000000000000)[0m
+[32m[2019-04-21 03:46:16.249 INFO     interconnect][0m [37mListening on tcp://eth0:8800[0m
+[32m[2019-04-21 03:46:16.250 INFO     chain][0m [37mChain controller initialized with chain head: ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7 (block_num:0, state:da21b15584fe55d9d132752d580d306ede2d86093647dcbdfcffd673e14697eb, previous_block_id:0000000000000000)[0m
+[32m[2019-04-21 03:46:16.251 INFO     publisher][0m [37mNow building on top of block: ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7 (block_num:0, state:da21b15584fe55d9d132752d580d306ede2d86093647dcbdfcffd673e14697eb, previous_block_id:0000000000000000)[0m
+[32m[2019-04-21 03:46:16.290 INFO     poet_enclave_factory][0m [37mLoad PoET enclave module: sawtooth_poet_simulator.poet_enclave_simulator.poet_enclave_simulator; Target wait time: 80.000000; Initial wait time: 80.000000; Population estimate sample size: 50; [0m
+[32m[2019-04-21 03:46:18.641 INFO     processor_handlers][0m [37mregistered transaction processor: connection_id=24f954f25ea62b437a162256f652fa9f8b7b3ebaeab91f376c2b1aeb3c436e3a2bd8ae71166f00d9a5a2dc5eaafa0d6542da0cf048e86bb3a8e05f40070b4059, family=intkey, version=1.0, namespaces=['1cf126'][0m
+[32m[2019-04-21 03:46:34.191 INFO     dispatch][0m [37mreceived a message of type CLIENT_EVENTS_SUBSCRIBE_REQUEST from e7c57e6ff62863419c0383edcbc1bd4663ce29eed0d68acfcfd605657b620db8e8f7062863a2b87c7317ce85c828b01ea36df561ef4270efc4a9ee14775de823 but have no handler for that type[0m
+[32m[2019-04-21 03:47:36.406 INFO     publisher][0m [37mClaimed Block: 71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)[0m
+[32m[2019-04-21 03:47:36.409 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:47:36.410 INFO     block_validator][0m [37mStarting block validation of : 71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)[0m
+[31m[2019-04-21 03:47:42.783 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:42.785 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:42.786 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:42.787 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:42.788 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:42.789 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:42.789 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:42.790 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:42.791 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:42.792 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:42.793 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.028 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.028 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.029 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.029 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.031 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.031 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.032 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.274 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.275 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.276 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.277 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.278 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.280 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.281 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.282 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.283 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.284 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.515 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.516 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.517 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.518 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[32m[2019-04-21 03:47:43.518 INFO     dispatch][0m [37mreceived a message of type DEFAULT from 13b44787ac6ba8f4b226214679c9599e44a90cd381a019a1df35d468fe402d214c4a4f7c6f2d1d1c814d095cfe3da76be94b08728a935c5169125e85ce276223 but have no handler for that type[0m
+[31m[2019-04-21 03:47:43.562 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[32m[2019-04-21 03:47:43.566 INFO     dispatch][0m [37mreceived a message of type DEFAULT from 13b44787ac6ba8f4b226214679c9599e44a90cd381a019a1df35d468fe402d214c4a4f7c6f2d1d1c814d095cfe3da76be94b08728a935c5169125e85ce276223 but have no handler for that type[0m
+[31m[2019-04-21 03:47:43.566 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.566 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.755 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.756 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.756 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:43.758 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.758 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:43.759 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.007 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.008 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.009 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.009 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.010 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.011 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[31m[2019-04-21 03:47:44.012 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[32m[2019-04-21 03:47:44.013 INFO     dispatch][0m [37mreceived a message of type DEFAULT from 449e0c6b952bb41c28a91f1604d47878c5f973c752d3be751583e7f303a19d533db838067741761bc82859a1c7790496a1a22ba4d6d85f83842cfea09f30f2cd but have no handler for that type[0m
+[31m[2019-04-21 03:47:44.046 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[32m[2019-04-21 03:47:44.047 INFO     dispatch][0m [37mreceived a message of type DEFAULT from 449e0c6b952bb41c28a91f1604d47878c5f973c752d3be751583e7f303a19d533db838067741761bc82859a1c7790496a1a22ba4d6d85f83842cfea09f30f2cd but have no handler for that type[0m
+[31m[2019-04-21 03:47:44.048 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.048 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.243 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 344, in _receive_message
+    yield from self._socket.recv_multipart()
+ValueError: too many values to unpack (expected 2)[0m
+[31m[2019-04-21 03:47:44.244 ERROR    interconnect][0m [37mReceived a message on address tcp://eth0:8800 that caused an error: Error parsing message
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/sawtooth_validator/networking/interconnect.py", line 298, in _dispatch_message
+    message.ParseFromString(msg_bytes)
+google.protobuf.message.DecodeError: Error parsing message[0m
+[32m[2019-04-21 03:47:49.184 INFO     block_validator][0m [37mComparing current chain head 'ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7 (block_num:0, state:da21b15584fe55d9d132752d580d306ede2d86093647dcbdfcffd673e14697eb, previous_block_id:0000000000000000)' against new block 'ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7 (block_num:0, state:da21b15584fe55d9d132752d580d306ede2d86093647dcbdfcffd673e14697eb, previous_block_id:0000000000000000)'[0m
+[32m[2019-04-21 03:47:49.185 INFO     block_validator][0m [37mFork comparison at height 1 is between - and 71c048ab[0m
+[32m[2019-04-21 03:47:49.185 INFO     poet_fork_resolver][0m [37mChoose new fork 71c048ab over current fork ddc4644e: New fork head switches consensus to PoET[0m
+[32m[2019-04-21 03:47:49.189 INFO     chain][0m [37mChain head updated to: 71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)[0m
+[32m[2019-04-21 03:47:49.190 INFO     publisher][0m [37mNow building on top of block: 71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)[0m
+[32m[2019-04-21 03:47:49.271 INFO     block_validator][0m [37mFinished block validation of: 71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)[0m
+[32m[2019-04-21 03:48:36.376 INFO     interconnect][0m [37mNo response from e7c57e6ff62863419c0383edcbc1bd4663ce29eed0d68acfcfd605657b620db8e8f7062863a2b87c7317ce85c828b01ea36df561ef4270efc4a9ee14775de823 in 122.1830894947052 seconds - removing connection.[0m
+[32m[2019-04-21 03:48:50.700 INFO     publisher][0m [37mClaimed Block: 937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)[0m
+[32m[2019-04-21 03:48:50.704 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:48:50.704 INFO     block_validator][0m [37mStarting block validation of : 937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)[0m
+[32m[2019-04-21 03:49:08.175 INFO     block_validator][0m [37mComparing current chain head '71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)' against new block '71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4 (block_num:1, state:ae202c58c1e29bacce9ab0311ffbd922da9aeaf9ad7ace4a59fa1a0faa9a5171, previous_block_id:ddc4644ec2e57f8d9ac82c4d6e53d646d9ef2b6b229702338baf50dc58024c032df05abea48fa84c356c91d0313c3a120fb148bfe351b9e4d7257137498f0fe7)'[0m
+[32m[2019-04-21 03:49:08.176 INFO     block_validator][0m [37mFork comparison at height 2 is between - and 937c9b6b[0m
+[32m[2019-04-21 03:49:08.176 INFO     poet_fork_resolver][0m [37mChoose new fork 937c9b6b over current fork 71c048ab: New fork aggregate local mean (160.000000) greater than current fork aggregate local mean (80.000000)[0m
+[32m[2019-04-21 03:49:08.182 INFO     chain][0m [37mChain head updated to: 937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)[0m
+[32m[2019-04-21 03:49:08.182 INFO     publisher][0m [37mNow building on top of block: 937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)[0m
+[32m[2019-04-21 03:49:08.245 INFO     block_validator][0m [37mFinished block validation of: 937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)[0m
+[32m[2019-04-21 03:49:20.675 INFO     publisher][0m [37mClaimed Block: 0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)[0m
+[32m[2019-04-21 03:49:20.677 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:49:20.678 INFO     block_validator][0m [37mStarting block validation of : 0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)[0m
+[32m[2019-04-21 03:49:25.517 INFO     block_validator][0m [37mComparing current chain head '937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)' against new block '937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de (block_num:2, state:932ed687ed19680e60b76e559003c1acf2dbde0bcb05d91b45c4b5c20510e194, previous_block_id:71c048ab95a47df2292bdee2fac3c27f307c856c9a223d8aa9eafbb73812efcc5640c63dd81cab4cad537db73f395a7d6bf878f2ca6a89a46aee55a066e997d4)'[0m
+[32m[2019-04-21 03:49:25.517 INFO     block_validator][0m [37mFork comparison at height 3 is between - and 0f174267[0m
+[32m[2019-04-21 03:49:25.518 INFO     poet_fork_resolver][0m [37mChoose new fork 0f174267 over current fork 937c9b6b: New fork aggregate local mean (240.000000) greater than current fork aggregate local mean (160.000000)[0m
+[32m[2019-04-21 03:49:25.521 INFO     chain][0m [37mChain head updated to: 0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)[0m
+[32m[2019-04-21 03:49:25.521 INFO     publisher][0m [37mNow building on top of block: 0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)[0m
+[32m[2019-04-21 03:49:25.554 INFO     block_validator][0m [37mFinished block validation of: 0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)[0m
+[32m[2019-04-21 03:49:46.439 INFO     interconnect][0m [37mNo response from cc25449d87892d7537a48d905f3f24df75675639c5dfe6d021693a83a6173893dd1c058c79ae6d83e3b055df65e913e97ead32406feb1bc14ade4876f4990b1b in 123.40676784515381 seconds - removing connection.[0m
+[32m[2019-04-21 03:49:46.439 INFO     interconnect][0m [37mNo response from c41602aefe3b4ff0ed1ec6e1f02639748813505091d141d58e2d1e86ede5e1bf523350ec908df4ad2fbc678c217c178679346b5babefce7abb73e2b4bc844cf8 in 122.19457626342773 seconds - removing connection.[0m
+[32m[2019-04-21 03:49:46.439 INFO     interconnect][0m [37mNo response from 13b44787ac6ba8f4b226214679c9599e44a90cd381a019a1df35d468fe402d214c4a4f7c6f2d1d1c814d095cfe3da76be94b08728a935c5169125e85ce276223 in 122.8732762336731 seconds - removing connection.[0m
+[32m[2019-04-21 03:49:46.439 INFO     interconnect][0m [37mNo response from 449e0c6b952bb41c28a91f1604d47878c5f973c752d3be751583e7f303a19d533db838067741761bc82859a1c7790496a1a22ba4d6d85f83842cfea09f30f2cd in 122.39145994186401 seconds - removing connection.[0m
+[32m[2019-04-21 03:51:19.281 INFO     back_pressure_handlers][0m [37mApplying back pressure on client submitted batches: current depth: 88, limit: 88.0[0m
+[32m[2019-04-21 03:51:27.096 INFO     publisher][0m [37mClaimed Block: b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)[0m
+[32m[2019-04-21 03:51:27.099 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:51:27.100 INFO     block_validator][0m [37mStarting block validation of : b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)[0m
+[32m[2019-04-21 03:51:28.619 INFO     back_pressure_handlers][0m [37mEnding back pressure on client submitted batches: current depth: 0, limit: 88.0[0m
+[32m[2019-04-21 03:52:14.178 INFO     block_validator][0m [37mComparing current chain head '0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)' against new block '0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494 (block_num:3, state:86cd5c58ed2be4b167645f3a081add23ff749b2597bb01b993821c6d99053e58, previous_block_id:937c9b6b70a09f7e7abb28f604e515bbe2448285c11b7d0ad538d31bf804ef3e6c8bb8fe143d4ede98ef0b01427b27f107ed57adf5e2b87cc61e1133eb9b10de)'[0m
+[32m[2019-04-21 03:52:14.178 INFO     block_validator][0m [37mFork comparison at height 4 is between - and b14827ff[0m
+[32m[2019-04-21 03:52:14.179 INFO     poet_fork_resolver][0m [37mChoose new fork b14827ff over current fork 0f174267: New fork aggregate local mean (320.000000) greater than current fork aggregate local mean (240.000000)[0m
+[32m[2019-04-21 03:52:14.201 INFO     chain][0m [37mChain head updated to: b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)[0m
+[32m[2019-04-21 03:52:14.201 INFO     publisher][0m [37mNow building on top of block: b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)[0m
+[32m[2019-04-21 03:52:14.382 INFO     block_validator][0m [37mFinished block validation of: b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)[0m
+[32m[2019-04-21 03:53:19.264 INFO     publisher][0m [37mClaimed Block: 5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)[0m
+[32m[2019-04-21 03:53:19.269 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:53:19.270 INFO     block_validator][0m [37mStarting block validation of : 5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)[0m
+[32m[2019-04-21 03:54:02.775 INFO     block_validator][0m [37mComparing current chain head 'b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)' against new block 'b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896 (block_num:4, state:999747e1a072186b213fabf155cdbfb5562fbade33efdd205b2357744fd181cc, previous_block_id:0f1742676a0c6c41ae29686c48778581db806c9157b7ecaf8e5482bb12a23ca17ebdef359c00e16a3e9bb30b557387524511b9f0da3c4912b00489990ab52494)'[0m
+[32m[2019-04-21 03:54:02.776 INFO     block_validator][0m [37mFork comparison at height 5 is between - and 5920f6e7[0m
+[32m[2019-04-21 03:54:02.776 INFO     poet_fork_resolver][0m [37mChoose new fork 5920f6e7 over current fork b14827ff: New fork aggregate local mean (400.000000) greater than current fork aggregate local mean (320.000000)[0m
+[32m[2019-04-21 03:54:02.785 INFO     chain][0m [37mChain head updated to: 5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)[0m
+[32m[2019-04-21 03:54:02.785 INFO     publisher][0m [37mNow building on top of block: 5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)[0m
+[32m[2019-04-21 03:54:02.895 INFO     block_validator][0m [37mFinished block validation of: 5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)[0m
+[32m[2019-04-21 03:54:06.627 INFO     publisher][0m [37mClaimed Block: e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)[0m
+[32m[2019-04-21 03:54:06.631 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:54:06.632 INFO     block_validator][0m [37mStarting block validation of : e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)[0m
+[32m[2019-04-21 03:54:10.286 INFO     block_validator][0m [37mComparing current chain head '5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)' against new block '5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe (block_num:5, state:97106b051d0de9c17ae6734ab08e39ef173849b5a502df4c8553a557619f3e3b, previous_block_id:b14827ff651b4a91196da310a16482345409981aa6d93945c7a78a1b185e63b97faed01c3ea9e45a4504ee7fd9db8db3eeb1a6f81b7f38ac1c74314b77a1d896)'[0m
+[32m[2019-04-21 03:54:10.286 INFO     block_validator][0m [37mFork comparison at height 6 is between - and e79386ac[0m
+[32m[2019-04-21 03:54:10.286 INFO     poet_fork_resolver][0m [37mChoose new fork e79386ac over current fork 5920f6e7: New fork aggregate local mean (480.000000) greater than current fork aggregate local mean (400.000000)[0m
+[32m[2019-04-21 03:54:10.289 INFO     chain][0m [37mChain head updated to: e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)[0m
+[32m[2019-04-21 03:54:10.289 INFO     publisher][0m [37mNow building on top of block: e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)[0m
+[32m[2019-04-21 03:54:10.338 INFO     block_validator][0m [37mFinished block validation of: e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)[0m
+[32m[2019-04-21 03:55:11.473 INFO     publisher][0m [37mClaimed Block: 7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)[0m
+[32m[2019-04-21 03:55:11.475 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:55:11.477 INFO     block_validator][0m [37mStarting block validation of : 7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)[0m
+[32m[2019-04-21 03:55:41.902 INFO     block_validator][0m [37mComparing current chain head 'e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)' against new block 'e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c (block_num:6, state:209c26e92c3c59d3bacc9055da8093adc0b5e278cea0b2c45d1d335383e53292, previous_block_id:5920f6e77c8dd7854e2d5704a1dcc076c8eab312871164f6619a7b32c3d99e396526eff85130c69f863281966d9a797b99c0dc12e4da5b0521ed98f4d3436fbe)'[0m
+[32m[2019-04-21 03:55:41.902 INFO     block_validator][0m [37mFork comparison at height 7 is between - and 7d51a2a4[0m
+[32m[2019-04-21 03:55:41.903 INFO     poet_fork_resolver][0m [37mChoose new fork 7d51a2a4 over current fork e79386ac: New fork aggregate local mean (560.000000) greater than current fork aggregate local mean (480.000000)[0m
+[32m[2019-04-21 03:55:41.927 INFO     chain][0m [37mChain head updated to: 7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)[0m
+[32m[2019-04-21 03:55:41.927 INFO     publisher][0m [37mNow building on top of block: 7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)[0m
+[32m[2019-04-21 03:55:42.123 INFO     block_validator][0m [37mFinished block validation of: 7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)[0m
+[32m[2019-04-21 03:55:54.354 INFO     publisher][0m [37mClaimed Block: 5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c (block_num:8, state:539d2d908642bd7de5b2c004aeac30c4775ab91bf09b38a0c6f68dc987983504, previous_block_id:7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c)[0m
+[32m[2019-04-21 03:55:54.358 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:55:54.379 INFO     block_validator][0m [37mStarting block validation of : 5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c (block_num:8, state:539d2d908642bd7de5b2c004aeac30c4775ab91bf09b38a0c6f68dc987983504, previous_block_id:7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c)[0m
+[32m[2019-04-21 03:56:04.612 INFO     block_validator][0m [37mComparing current chain head '7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)' against new block '7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c (block_num:7, state:7bc1c7ba39fac020a332f2bb2a1c73f69701944371f7df10dae080b089d855fb, previous_block_id:e79386ac75ba895db60b832ed782e0d09cd32ecd1a10790dde39727c26951edb74ef6bff25d6c4730c73a3ffb0e6d17aead5412fbabbba118143d62e9562946c)'[0m
+[32m[2019-04-21 03:56:04.612 INFO     block_validator][0m [37mFork comparison at height 8 is between - and 5aa7edf0[0m
+[32m[2019-04-21 03:56:04.613 INFO     poet_fork_resolver][0m [37mChoose new fork 5aa7edf0 over current fork 7d51a2a4: New fork aggregate local mean (640.000000) greater than current fork aggregate local mean (560.000000)[0m
+[32m[2019-04-21 03:56:04.617 INFO     chain][0m [37mChain head updated to: 5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c (block_num:8, state:539d2d908642bd7de5b2c004aeac30c4775ab91bf09b38a0c6f68dc987983504, previous_block_id:7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c)[0m
+[32m[2019-04-21 03:56:04.618 INFO     publisher][0m [37mNow building on top of block: 5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c (block_num:8, state:539d2d908642bd7de5b2c004aeac30c4775ab91bf09b38a0c6f68dc987983504, previous_block_id:7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c)[0m
+[32m[2019-04-21 03:56:04.664 INFO     block_validator][0m [37mFinished block validation of: 5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c (block_num:8, state:539d2d908642bd7de5b2c004aeac30c4775ab91bf09b38a0c6f68dc987983504, previous_block_id:7d51a2a463aed843c78963a1203ca5ffad6b20fa6ce1da6df8a90e362c47df8078756675ca8f70699197c3b8b390ce21ee0e4dea43c77ddbf951f9b7eba8c41c)[0m
+[32m[2019-04-21 03:58:56.616 INFO     back_pressure_handlers][0m [37mApplying back pressure on client submitted batches: current depth: 136, limit: 135.6[0m
+[32m[2019-04-21 03:59:02.905 INFO     publisher][0m [37mClaimed Block: 07b38ea4b4251fd8aa2f7fad29ee185a698fa0f05077cb95591a4b786487799a3f7d63de5bf191c379e6aa78794c741812d0253ab3098df6e26139cbda790cea (block_num:9, state:fe3f778ce8406f5d062d5cf62339c54c32c8d2954dbab6ea5236cbc2d1fff232, previous_block_id:5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c)[0m
+[32m[2019-04-21 03:59:02.909 INFO     publisher][0m [37mBlock publishing is suspended until new chain head arrives.[0m
+[32m[2019-04-21 03:59:02.911 INFO     block_validator][0m [37mStarting block validation of : 07b38ea4b4251fd8aa2f7fad29ee185a698fa0f05077cb95591a4b786487799a3f7d63de5bf191c379e6aa78794c741812d0253ab3098df6e26139cbda790cea (block_num:9, state:fe3f778ce8406f5d062d5cf62339c54c32c8d2954dbab6ea5236cbc2d1fff232, previous_block_id:5aa7edf01c5009790b5efcfccd94254b65aff5e1a4221ccfc11c90cd391db7ba63ff7eb459b3c0a9db92840c3cce5ceefe585ebc0964cdcc1d0e61bbc14dae7c)[0m
+[32m[2019-04-21 03:59:03.287 INFO     back_pressure_handlers][0m [37mEnding back pressure on client submitted batches: current depth: 36, limit: 135.6[0m
+[32m[2019-04-21 03:59:55.281 INFO     dispatch][0m [37mreceived a message of type CLIENT_EVENTS_UNSUBSCRIBE_REQUEST from e7c57e6ff62863419c0383edcbc1bd4663ce29eed0d68acfcfd605657b620db8e8f7062863a2b87c7317ce85c828b01ea36df561ef4270efc4a9ee14775de823 but have no handler for that type[0m
