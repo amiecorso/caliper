@@ -43,6 +43,7 @@ for size in NET_SIZES:
         tpsdir = sizedir + "/"  + tps + "tps/"
         intervals = os.listdir(tpsdir)
         intervals = [interval.rstrip("sec") for interval in intervals]
+        intervals.sort(key=int)
         for interval in intervals:
             intdir = tpsdir + interval + "sec/"
             performance_files = [intdir + f for f in os.listdir(intdir) if "performance" in f]
@@ -95,6 +96,7 @@ for size in NET_SIZES:
             print(analysis_files)
             '''
             for run in range(REPEATS):
+                print(size, tps, interval, run)
                 # process PERFORMANCE file + STALE BLOCK file
                 try:
                     pfile = [f for f in performance_files if f.endswith(str(run) + ".csv")][0]
@@ -132,7 +134,7 @@ for size in NET_SIZES:
                 with open(afile, 'r') as f:
                     f.readline() # read header (Datetime, Elapsed, Num Blocks, Num Txns)
                     line = f.readline()
-                    while line != "\n":
+                    while (line != "\n") and (line != ''):
                         data.append(line)
                         line = f.readline()
 
@@ -185,7 +187,6 @@ for size in NET_SIZES:
                 #combine data with Caliper report data
                 outputline = ",".join([interval, outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
                 perf_out.write(outputline + "\n")
-
                 # process resource files for this round
                 try:
                     rfile = [f for f in resource_files if f.endswith(str(run) + ".csv")][0]
@@ -204,6 +205,5 @@ for size in NET_SIZES:
                         splitline[i] = "".join([c for c in splitline[i] if (c.isdigit() or c == ".")])
                     line = ",".join([size, str(tps), str(run)]) + "," + name + "," + ",".join(splitline) + "\n"
                     resource_out.write(line)
-
 perf_out.close()
 resource_out.close()

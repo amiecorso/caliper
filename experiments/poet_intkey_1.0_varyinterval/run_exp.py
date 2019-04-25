@@ -30,7 +30,7 @@ TPFAMILY = "intkey"
 BBFILE = "IntKeyBatchBuilder.js"
 #BENCHCONFIG = EXP_DIR + [f for f in os.listdir(EXP_DIR) if f.endswith(".yaml")][0] # auto-detect benchmark config file in exp_dir
 BENCHCONFIG = EXP_DIR + "config-saw-intkey.yaml"
-'''
+
 print("run_exp.py: cleaning directories...")
 # clear directories:
 if os.path.exists(EXP_DIR + "compose_files"):
@@ -79,7 +79,7 @@ for n in NET_SIZES:
                 command = "node ~/caliper/benchmark/{}/main.js -c {} -n {}".format(TPFAMILY, BENCHCONFIG, netconfig)
                 print("run_exp.py: Calling \"" + command + "\"")
                 subprocess.call(command, shell=True)
-'''
+
 # Move Caliper Logs to this directory
 log_dir = EXP_DIR + "/LOGS"
 if not os.path.exists(log_dir):
