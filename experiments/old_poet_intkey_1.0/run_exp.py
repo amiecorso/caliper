@@ -8,11 +8,11 @@ import time
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
 SAVE_AS = time.strftime("%m-%d-%y") + "-sizes681012-linear-gradient5-55-rep3"
-NET_SIZES = [6, 8, 10, 12]
-REPEATS = 3
+NET_SIZES = [1]
+REPEATS = 1
 #           (TPS, duration, unfinished)
-WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200), (45, 1000, 200), (50, 1000, 200), (55, 1000, 200)]
-#WORKLOADS = [(5, 10, 5)]
+#WORKLOADS = [(5, 1000, 200), (10, 1000, 200), (15, 1000, 200), (20, 1000, 200), (25, 1000, 200), (30, 1000, 200), (35, 1000, 200), (40, 1000, 200), (45, 1000, 200), (50, 1000, 200), (55, 1000, 200)]
+WORKLOADS = [(5, 10, 5)]
 TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
@@ -94,7 +94,7 @@ for fname in os.listdir(original_logs):
 # final data processing
 command = "python ./data_scripts/process_exp.py --exp_dir {}".format(EXP_DIR)
 subprocess.call(command, shell=True)
-
+'''
 # copy experimental directory into archival directory
 index = 1
 while os.path.exists("/home/amie/caliper/experiments/arch_exps/{}".format(SAVE_AS)):
@@ -109,3 +109,4 @@ print("run_exp.py: Pushing to GitHub...")
 os.chdir("/home/amie/caliper/")
 command = "git add . && git commit -m \"saving exp {}\" && git push".format(SAVE_AS)
 subprocess.call(command, shell=True)
+'''

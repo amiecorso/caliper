@@ -1,0 +1,24 @@
+{
+  "caliper":{
+    "blockchain": "sawtooth",
+    "command" : {
+      "start": "python3 ~/caliper/test/stub_start.py", 
+      "end" : "python3 ~/caliper/test/stub_end.py"
+    }
+  },
+  "sawtooth": {
+    "batchBuilders": {
+      "intkey": {
+        "1.0": "src/adapters/sawtooth/Application/IntKeyBatchBuilder.js"
+      }
+    },
+    "network": {
+      "restapi": {
+        "urls": ["http://192.168.0.105:8008"] 
+      },
+      "validator": {
+        "url": "tcp://192.168.0.105:8800"
+      }
+    }
+  }
+}
