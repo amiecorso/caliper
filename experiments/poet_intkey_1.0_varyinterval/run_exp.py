@@ -7,20 +7,24 @@ import time
 
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
-SAVE_AS = time.strftime("%m-%d-%y") + "fullrun_varyblocktime.csv"
-NET_SIZES = [1, 2, 4, 8]
-REPEATS = 2
-INTERVALS = [3, 5, 10, 20, 30, 40, 50, 60, 80, 100]
+REMOTEIP = "192.168.0.105"
+SAVE_AS = time.strftime("%m-%d-%y") + "sshtesting.csv"
+NET_SIZES = [1]
+REPEATS = 1
+#INTERVALS = [3, 5, 10, 20, 30, 40, 50, 60, 80, 100]
+INTERVALS = [5]
 #           (TPS, duration, unfinished)
-WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
-#WORKLOADS = [(5, 10, 5), (10, 10, 5)]
+#WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
+WORKLOADS = [(5, 10, 5)]
 TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
     NET_SIZES = [1]
     REPEATS = 1
 #TARGET_WAIT = 20
-EXP_DIR = os.getcwd() + "/" # THIS should be the experimental directory
+# ON remote machine
+EXP_DIR = "~/caliper/experiments/poet_intkey_1.0_varyinterval/"
+THIS_DIR = os.getcwd() + "/"
 COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template_SMALLNETWORK.yaml"
 #COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template.yaml"
 NETCONFIG_TEMPLATE = "./templates/netconfig_template.json"
@@ -29,58 +33,55 @@ BENCHCONFIG_TEMPLATE = "./templates/config-saw-intkey-TEMPLATE-LINEAR.yaml"
 TPFAMILY = "intkey"
 BBFILE = "IntKeyBatchBuilder.js"
 #BENCHCONFIG = EXP_DIR + [f for f in os.listdir(EXP_DIR) if f.endswith(".yaml")][0] # auto-detect benchmark config file in exp_dir
-BENCHCONFIG = EXP_DIR + "config-saw-intkey.yaml"
+BENCHCONFIG = THIS_DIR + "config-saw-intkey.yaml"
 
-print("run_exp.py: cleaning directories...")
-# clear directories:
-if os.path.exists(EXP_DIR + "compose_files"):
-    shutil.rmtree(EXP_DIR + "compose_files")
-if os.path.exists(EXP_DIR + "net_config_files"):
-    shutil.rmtree(EXP_DIR + "net_config_files")
-if os.path.exists(EXP_DIR + "arch_reports"):
-    shutil.rmtree(EXP_DIR + "arch_reports")
-if os.path.exists(EXP_DIR + "results"):
-    shutil.rmtree(EXP_DIR + "results")
-if os.path.exists(EXP_DIR + "LOGS"):
-    shutil.rmtree(EXP_DIR + "LOGS")
-
+# Clean directories, both local and remote
+subprocess.call("python3 ./cleandirs.py --exp_dir {}".format(THIS_DIR), shell=True)
+subprocess.call("ssh amie@{} \"python3 {}cleandirs.py\"".format(REMOTEIP, EXP_DIR), shell=True)
 
 # deliver workload to each network
 for n in NET_SIZES:
     for interval in INTERVALS:
         # generate compose files
         initial_wait_time = interval * n # initial_wait = target_wait * pop_size
-        command = "python ./generators/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}".format(n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files", interval, initial_wait_time)
-        subprocess.call(command, shell=True)
+        command = "\"python ./generators/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}\"".format(n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files", interval, initial_wait_time)
+        subprocess.call("ssh " + "amie@" + REMOTEIP + " " + command, shell=True)
         for load in WORKLOADS:
             tps, duration, unfinished = load
             # generate benchconfig file
-            # NOTE: hard-coding workload and "load" in workload will be interpreted as BLOCK INTERVAL not tps
-            command = "python ./generators/benchconfig_file_gen.py --exp_dir {} --template {} --tps {} --duration {} --unfinished {} --txnsperbatch {} --label {}".format(EXP_DIR, BENCHCONFIG_TEMPLATE, tps, duration, unfinished, 20, str(tps) + "TPS" + str(interval) + "sec")
+            command = "python ./generators/benchconfig_file_gen.py --exp_dir {} --template {} --tps {} --duration {} --unfinished {} --txnsperbatch {} --label {}".format(THIS_DIR, BENCHCONFIG_TEMPLATE, tps, duration, unfinished, 20, str(tps) + "TPS" + str(interval) + "sec")
             subprocess.call(command, shell=True)
 
             for repeat in range(REPEATS):
                 # generate netconfig file
-                command = "python ./generators/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {} --leave_up {} --tps {} --interval {}".format(n, NETCONFIG_TEMPLATE, EXP_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat, LEAVE_UP, tps, interval)
+                # TODO: scp netconig file to place on corresponding machine?? (what uses this?)
+                command = "python ./generators/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {} --leave_up {} --tps {} --interval {} --remoteip {}".format(n, NETCONFIG_TEMPLATE, THIS_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat, LEAVE_UP, tps, interval, REMOTEIP)
                 subprocess.call(command, shell=True)
                 # this could use some cleaning up?
-
+                '''
+                # TODO: this needs to be scp... will Popen be needed?
                 # external monitor:
                 analysis_dest = EXP_DIR + "results" + "/"
-                if not os.path.exists(analysis_dest):
-                    os.mkdir(analysis_dest)
                 analysis = "python3 ./data_scripts/analyze_network.py --n {} --dest {} --run_num {} --time {} --tps {} --interval {} &".format(n, analysis_dest, repeat, TIME, tps, interval)
                 print("Starting external analysis...")
                 print("executing command: ", analysis)
                 subprocess.Popen(analysis, shell=True)
-                
+                '''             
                 base_filename = NETCONFIG_TEMPLATE.split('/')[-1].replace("_template", "") # get rid of 'template' tag
-                netconfig = EXP_DIR + "net_config_files/" + str(n) + "_" + base_filename
+                netconfig = THIS_DIR + "net_config_files/" + str(n) + "_" + base_filename
                 command = "node ~/caliper/benchmark/{}/main.js -c {} -n {}".format(TPFAMILY, BENCHCONFIG, netconfig)
                 print("run_exp.py: Calling \"" + command + "\"")
                 subprocess.call(command, shell=True)
 
+                # parse reports and copy to remote machine
+                print("run_exp.py: Calling report_parser.py")
+                parse_reports = "python3 {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {} --interval {} --remote_dir {} --remote_ip {}".format(THIS_DIR, THIS_DIR, THIS_DIR, n, repeat, tps, interval, EXP_DIR, REMOTEIP)
+                subprocess.call(parse_reports, shell=True)
+
+
+#TODO: the rest of this needs to be scp/ssh
 # Move Caliper Logs to this directory
+'''
 log_dir = EXP_DIR + "/LOGS"
 if not os.path.exists(log_dir):
     os.mkdir(log_dir)
@@ -111,3 +112,4 @@ print("run_exp.py: Pushing to GitHub...")
 os.chdir("/home/amie/caliper/")
 command = "git add . && git commit -m \"saving exp {}\" && git push".format(SAVE_AS)
 subprocess.call(command, shell=True)
+'''

@@ -7,13 +7,13 @@ test:
     number: 1
   rounds:
 
-  - label: 20TPS3sec
+  - label: 5TPS5sec
     txDuration:
-    - 800
+    - 10
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 20 
+        tps: 5 
     arguments:
       txnPerBatch: 20
     callback: benchmark/intkey/intkey_set.js

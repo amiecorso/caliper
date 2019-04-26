@@ -39,15 +39,6 @@ subprocess.call(save_logs, shell=True)
 #Make sure we save logs before tearing down containers
 time.sleep(5)
 
-
-# NEED TO RETHINK STALE BLOCK CALCULATIONS
-# currently, this would calculate stale blocks for the WHOLE experimental run (including all sub-rounds...)
-# need to EITHER:
-#   - change the way workloads are delivered so that it is one rate per benchmark (thus a meaningful SBR calculation)
-#   - change the log parsing to grab from a specific window of time (this would be very complicated because sawtooth block list lists ALL blocks not just from a specific window, though it seems we could ask for blocks published in the same window from which the logs are being probed...)
-#   - run separate experiments to determine SBR once throughput window has been established for network size?
-# would the stale block rate be meaningful if tested at a rate that was strictly higher than maximum determinable throughput... I think it would?
-
 print("end_tasks.py: Calling parse_logs.py...")
 print("     val container name: ", val_name)
 print("     rest url: ", rest_url)
@@ -62,8 +53,8 @@ else:
     subprocess.call(take_down, shell=True)
 
 subprocess.call("docker volume prune -f", shell=True)
-
+'''
 print("end_tasks.py: Calling report_parser.py")
 parse_reports = "python3 {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {} --interval {}".format(args.exp_dir, args.exp_dir, args.exp_dir, str(args.n), str(args.run_num), str(args.tps), args.interval)
 subprocess.call(parse_reports, shell=True)
-
+'''

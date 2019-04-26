@@ -2,8 +2,8 @@
   "caliper":{
     "blockchain": "sawtooth",
     "command" : {
-      "start": "python3 /home/amie/caliper/experiments/poet_intkey_1.0_varyinterval/start_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/poet_intkey_1.0_varyinterval/ --run_num 1", 
-      "end" : "python3 /home/amie/caliper/experiments/poet_intkey_1.0_varyinterval/end_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/poet_intkey_1.0_varyinterval/ --run_num 1 --leave_up False --tps 60 --interval 100"
+      "start": "ssh amie@192.168.0.105 \"python3 /Users/amiecorso/caliper/experiments/poet_intkey_1.0_varyinterval/start_tasks.py --n 1 --exp_dir /Users/amiecorso/caliper/experiments/poet_intkey_1.0_varyinterval/ --run_num 0\"", 
+      "end" : "ssh amie@192.168.0.105 \"python3 /Users/amiecorso/caliper/experiments/poet_intkey_1.0_varyinterval/end_tasks.py --n 1 --exp_dir /Users/amiecorso/caliper/experiments/poet_intkey_1.0_varyinterval/ --run_num 0 --leave_up False --tps 5 --interval 5\""
     }
   },
   "sawtooth": {
@@ -14,10 +14,10 @@
     },
     "network": {
       "restapi": {
-        "urls": ["http://127.0.0.1:8008"] 
+        "urls": ["http://192.168.0.105:8008"] 
       },
       "validator": {
-        "url": "tcp://127.0.0.1:8800"
+        "url": "tcp://192.168.0.105:8800" 
       }
     }
   }

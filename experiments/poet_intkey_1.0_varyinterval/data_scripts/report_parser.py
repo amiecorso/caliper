@@ -6,6 +6,7 @@ import os
 import csv
 import time
 import shutil
+import subprocess
 
 parser = argparse.ArgumentParser(description="Parse HTML reports")
 parser.add_argument('--reportpath', default='/home/amie/caliper/experiments/prototest/')
@@ -14,6 +15,8 @@ parser.add_argument('--n', default=1)
 parser.add_argument('--run_num', default='only')
 parser.add_argument('--tps')
 parser.add_argument('--interval')
+parser.add_argument('--remote_dir')
+parser.add_argument('--remote_ip')
 args = parser.parse_args()
 
 if not os.path.exists(args.results):
@@ -23,14 +26,17 @@ if not args.results.endswith("/"):
 
 # the actual directory for holding multiple experimental results
 dest_dir = args.results + str(args.n) + "/"
+remote_dir = args.remote_dir + "results/" + str(args.n) + "/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
 dest_dir = dest_dir + str(args.tps) + "tps/"
+remote_dir = remote_dir + str(args.tps) + "tps/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
 dest_dir = dest_dir + str(args.interval) + "sec/"
+remote_dir = remote_dir + str(args.interval) + "sec/"
 if not os.path.exists(dest_dir):
     os.mkdir(dest_dir)
 
@@ -102,6 +108,6 @@ try:
 except:
     print("Error while parsing html report...  Data dictionary: ", data)
 
-# Finally, copy the benchconfig file into the experimental results
-configpath = args.results + "../config-saw-intkey.yaml"
-shutil.copyfile(configpath, dest_dir + "config-saw-intkey.yaml")
+# copy files to remote machine:
+subprocess.call("scp {} amie@{}:{}".format(performance_output, args.remote_ip, remote_dir), shell=True)
+subprocess.call("scp {} amie@{}:{}".format(resource_output, args.remote_ip, remote_dir), shell=True)

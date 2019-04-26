@@ -14,6 +14,7 @@ parser.add_argument('--run_num', help="The repeat we're on, for performing ident
 parser.add_argument('--leave_up',default="False", help="Leave the Docker network running after workload delivery?")
 parser.add_argument('--tps')
 parser.add_argument('--interval')
+parser.add_argument('--remoteip')
 args = parser.parse_args()
 
 if not args.dest.endswith("/"):
@@ -33,9 +34,10 @@ with open(args.template, 'r') as template:
 restapi_array = "["
 for i in range(args.n):
     next_port = str(8008 + i)
-    next_url = "http://127.0.0.1:" + next_port
+    next_url = "http://" + args.remoteip + ":" + next_port
     restapi_array += "\"" + next_url + "\", "
 restapi_array = restapi_array.rstrip(", ") + "]"
+validator_url = "\"tcp://" + args.remoteip + ":8800\""
 
 format_body = format_body.replace("{n}", str(args.n))
 format_body = format_body.replace("{exp_dir}", args.exp_dir)
@@ -44,8 +46,11 @@ format_body = format_body.replace("{leave_up}", str(args.leave_up))
 format_body = format_body.replace("{TPfamily}", args.TPfamily)
 format_body = format_body.replace("{batchbuilder_file}", args.bb_file)
 format_body = format_body.replace("{restapi_urls}", restapi_array)
+format_body = format_body.replace("{validator_url}", validator_url)
 format_body = format_body.replace("{tps}", str(args.tps))
 format_body = format_body.replace("{interval}", str(args.interval))
+format_body = format_body.replace("{remoteip}", str(args.remoteip))
+
 
 with open(args.dest + output_file, 'w') as output:
     output.write(format_body)
