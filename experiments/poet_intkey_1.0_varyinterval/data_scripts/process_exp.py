@@ -12,6 +12,7 @@ results_dir = args.exp_dir.rstrip("/") + "/results/"
 run_exp_path = args.exp_dir.rstrip("/") + "/run_exp.py"
 PERFORMANCE_SUMMARY = results_dir + "performance_summary.csv"
 RESOURCE_SUMMARY = results_dir + "resource_summary.csv"
+SKIP_RESOUCE = False
 
 with open(run_exp_path, 'r') as run_exp:
     contents = run_exp.readlines()
@@ -87,7 +88,8 @@ for size in NET_SIZES:
             except Exception as e:
                 print(e)
                 print("Error: missing Resource results?")
-                sys.exit()
+                #sys.exit()
+                SKIP_RESOURCE = True
 
             '''
             print(performance_files)
@@ -187,23 +189,24 @@ for size in NET_SIZES:
                 #combine data with Caliper report data
                 outputline = ",".join([interval, outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
                 perf_out.write(outputline + "\n")
-                # process resource files for this round
-                try:
-                    rfile = [f for f in resource_files if f.endswith(str(run) + ".csv")][0]
-                except:
-                    print("No resource file for {}, {}tps, run{}".format(size, tps, run))
-                    break
+                if not SKIP_RESOURCE:
+                    # process resource files for this round
+                    try:
+                        rfile = [f for f in resource_files if f.endswith(str(run) + ".csv")][0]
+                    except:
+                        print("No resource file for {}, {}tps, run{}".format(size, tps, run))
+                        break
 
-                with open(rfile, 'r') as f:
-                    f.readline() # move past header
-                    res_lines = f.readlines()
-                for line in res_lines:
-                    splitline = line.split(",")[2:]
-                    name = splitline[0]
-                    splitline = splitline[1:]
-                    for i in range(len(splitline)):
-                        splitline[i] = "".join([c for c in splitline[i] if (c.isdigit() or c == ".")])
-                    line = ",".join([size, str(tps), str(run)]) + "," + name + "," + ",".join(splitline) + "\n"
-                    resource_out.write(line)
+                    with open(rfile, 'r') as f:
+                        f.readline() # move past header
+                        res_lines = f.readlines()
+                    for line in res_lines:
+                        splitline = line.split(",")[2:]
+                        name = splitline[0]
+                        splitline = splitline[1:]
+                        for i in range(len(splitline)):
+                            splitline[i] = "".join([c for c in splitline[i] if (c.isdigit() or c == ".")])
+                        line = ",".join([size, str(tps), str(run)]) + "," + name + "," + ",".join(splitline) + "\n"
+                        resource_out.write(line)
 perf_out.close()
 resource_out.close()
