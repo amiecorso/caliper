@@ -62,7 +62,7 @@ for n in NET_SIZES:
                 # external monitor:
                 analysis_dest = EXP_DIR + "results" + "/"
                 analysis = "python3 ./data_scripts/analyze_network.py --n {} --dest {} --run_num {} --time {} --tps {} --interval {} &".format(n, analysis_dest, repeat, TIME, tps, interval)
-                analysis = "ssh amie@{} ".format(REMOTEIP) + "\"" + analysis "\""
+                analysis = "ssh amie@{} ".format(REMOTEIP) + "\"" + analysis + "\""
                 print("Starting external analysis...")
                 print("executing command: ", analysis)
                 subprocess.Popen(analysis, shell=True)
