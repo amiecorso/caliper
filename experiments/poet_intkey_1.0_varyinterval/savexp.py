@@ -7,7 +7,7 @@ parser.add_argument("--save_as")
 parser.add_argument("--exp_dir")
 args = parser.parse_args()
 
-SAVE_IN = "/home/amie/caliper/results_caliper"
+SAVE_IN = "/home/amie/results_caliper"
 SAVE_AS = args.save_as
 EXP_DIR = args.exp_dir
 
