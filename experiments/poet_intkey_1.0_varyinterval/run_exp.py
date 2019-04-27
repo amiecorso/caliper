@@ -44,8 +44,10 @@ for n in NET_SIZES:
     for interval in INTERVALS:
         # generate compose files
         initial_wait_time = interval * n # initial_wait = target_wait * pop_size
-        command = "\"python ./generators/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}\"".format(n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files", interval, initial_wait_time)
-        subprocess.call("ssh " + "amie@" + REMOTEIP + " " + command, shell=True)
+        command = "\"python {}/generators/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}\"".format(EXP_DIR, n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files", interval, initial_wait_time)
+        command = "ssh " + "amie@" + REMOTEIP + " " + command
+        print("executing command: ", command)
+        subprocess.call(command, shell=True)
         for load in WORKLOADS:
             tps, duration, unfinished = load
             # generate benchconfig file
@@ -75,7 +77,7 @@ for n in NET_SIZES:
 
                 # parse reports and copy to remote machine
                 print("run_exp.py: Calling report_parser.py")
-                parse_reports = "python3 {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {} --interval {} --remote_dir {} --remote_ip {}".format(THIS_DIR, THIS_DIR, THIS_DIR, n, repeat, tps, interval, EXP_DIR, REMOTEIP)
+                parse_reports = "python {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {} --interval {} --remote_dir {} --remote_ip {}".format(THIS_DIR, THIS_DIR, THIS_DIR, n, repeat, tps, interval, EXP_DIR, REMOTEIP)
                 subprocess.call(parse_reports, shell=True)
 
 
