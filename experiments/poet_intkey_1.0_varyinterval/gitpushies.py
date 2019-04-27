@@ -11,7 +11,7 @@ MAC_PATH = "/Users/amiecorso/caliper"
 RESULTS_PATH = "/home/amie/results_caliper"
 
 print("gitpushies.py: pushing to github")
-command = "cd {} && git add . && git commit -m \"pushing results\" && git push".format(RESULTS_PATH)
+command = "cd {} && git add . && git commit -m \'pushing results\' && git push".format(RESULTS_PATH)
 command = "ssh amie@{} ".format(args.remote_ip) + "\"" + command + "\""
 subprocess.call(command, shell=True)
 
