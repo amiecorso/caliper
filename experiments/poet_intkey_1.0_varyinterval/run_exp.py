@@ -95,20 +95,16 @@ original_logs = "/home/amie/caliper/log/"
 for fname in os.listdir(original_logs):
     shutil.move(original_logs + fname, caliper_logs)
 
-
+'''
 # final data processing
-command = "python ./data_scripts/process_exp.py --exp_dir {}".format(EXP_DIR)
+command = "ssh amie@{} \"python {}/data_scripts/process_exp.py --exp_dir {}\"".format(REMOTEIP, EXP_DIR, EXP_DIR)
 subprocess.call(command, shell=True)
 
 # copy experimental directory into archival directory
-index = 1
-while os.path.exists("/home/amie/caliper/experiments/arch_exps/{}".format(SAVE_AS)):
-    SAVE_AS = SAVE_AS + str(index)
-    index += 1
-print("run_exp.py: Saving experiment as \"{}\"".format(SAVE_AS))
-command = "cp -r {} /home/amie/caliper/experiments/arch_exps/{}".format(EXP_DIR, SAVE_AS)
+command = "ssh amie@{} \"python {}savexp.py --save_as {} --exp_dir {}\"".format(REMOTEIP, EXP_DIR, SAVE_AS, EXP_DIR) 
 subprocess.call(command, shell=True)
 
+'''
 # git push the whole thing
 print("run_exp.py: Pushing to GitHub...")
 os.chdir("/home/amie/caliper/")
