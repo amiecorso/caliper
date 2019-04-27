@@ -56,19 +56,18 @@ for n in NET_SIZES:
 
             for repeat in range(REPEATS):
                 # generate netconfig file
-                # TODO: scp netconig file to place on corresponding machine?? (what uses this?)
                 command = "python ./generators/netconfig_file_gen.py --n {} --template {} --dest {} --exp_dir {} --TPfamily {} --bb_file {} --run_num {} --leave_up {} --tps {} --interval {} --remoteip {}".format(n, NETCONFIG_TEMPLATE, THIS_DIR + "/net_config_files", EXP_DIR, TPFAMILY, BBFILE, repeat, LEAVE_UP, tps, interval, REMOTEIP)
                 subprocess.call(command, shell=True)
-                # this could use some cleaning up?
-                '''
-                # TODO: this needs to be scp... will Popen be needed?
+
                 # external monitor:
                 analysis_dest = EXP_DIR + "results" + "/"
                 analysis = "python3 ./data_scripts/analyze_network.py --n {} --dest {} --run_num {} --time {} --tps {} --interval {} &".format(n, analysis_dest, repeat, TIME, tps, interval)
+                analysis = "ssh amie@{} ".format(REMOTEIP) + "\"" + analysis "\""
                 print("Starting external analysis...")
                 print("executing command: ", analysis)
                 subprocess.Popen(analysis, shell=True)
-                '''             
+
+                # start caliper
                 base_filename = NETCONFIG_TEMPLATE.split('/')[-1].replace("_template", "") # get rid of 'template' tag
                 netconfig = THIS_DIR + "net_config_files/" + str(n) + "_" + base_filename
                 command = "node ~/caliper/benchmark/{}/main.js -c {} -n {}".format(TPFAMILY, BENCHCONFIG, netconfig)
