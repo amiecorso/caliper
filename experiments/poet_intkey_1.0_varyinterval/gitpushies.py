@@ -15,7 +15,7 @@ command = "cd {} && git add . && git commit -m \'pushing results\' && git push".
 command = "ssh amie@{} ".format(args.remote_ip) + "\"" + command + "\""
 subprocess.call(command, shell=True)
 
-command = "cd {} && git add . && git commit -m \"pushing from Linux machine\" && git push".format(LINUX_PATH)
+command = "cd {} && git add . && git commit -m \'pushing from Linux machine\' && git push".format(LINUX_PATH)
 command = "ssh amie@{} ".format(args.remote_ip) + "\"" + command + "\""
 subprocess.call(command, shell=True)
 
