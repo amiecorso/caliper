@@ -21,7 +21,7 @@ parser.add_argument('--time', default=30, help="How long to run this script")
 parser.add_argument('--tps')
 parser.add_argument('--interval')
 args = parser.parse_args()
-
+print("analyze_network.py: parsed args")
 INTERVAL = 3.0 # number of seconds between updates
 WAIT = 22
 MAXTIME = int(args.time) + WAIT
@@ -29,7 +29,6 @@ START = time.time()
 PRINT = True
 #PRINT = False
 PRINTBLOCKLIST = False
-
 
 if not args.dest.endswith("/"):
     args.dest += "/"
@@ -44,6 +43,7 @@ if not os.path.exists(args.dest):
     os.mkdir(args.dest)
 
 output_file = args.dest + str(args.n) + "_analysis_run" + args.run_num + ".txt"
+print("analyze_network.py: output file = {}".format(output_file))
 
 def list_blocks():
     try:
