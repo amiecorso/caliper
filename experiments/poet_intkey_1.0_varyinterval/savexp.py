@@ -1,7 +1,7 @@
 import argparse
 import os
 
-parser = argparseArgumentParser()
+parser = argparse.ArgumentParser()
 parser.add_argument("--save_as")
 parser.add_argument("--exp_dir")
 args = parser.parse_args()
