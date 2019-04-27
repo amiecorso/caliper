@@ -23,7 +23,7 @@ if LEAVE_UP: # if leaving the network running, can only handle one instance at a
     REPEATS = 1
 #TARGET_WAIT = 20
 # ON remote machine
-EXP_DIR = "~/caliper/experiments/poet_intkey_1.0_varyinterval/"
+EXP_DIR = "/home/amie/caliper/experiments/poet_intkey_1.0_varyinterval/"
 THIS_DIR = os.getcwd() + "/"
 COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template_SMALLNETWORK.yaml"
 #COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template.yaml"
@@ -37,7 +37,7 @@ BENCHCONFIG = THIS_DIR + "config-saw-intkey.yaml"
 
 # Clean directories, both local and remote
 subprocess.call("python3 ./cleandirs.py --exp_dir {}".format(THIS_DIR), shell=True)
-subprocess.call("ssh amie@{} \"python3 {}cleandirs.py\"".format(REMOTEIP, EXP_DIR), shell=True)
+subprocess.call("ssh amie@{} \"python3 {}cleandirs.py --exp_dir {}\"".format(REMOTEIP, EXP_DIR, EXP_DIR), shell=True)
 
 # deliver workload to each network
 for n in NET_SIZES:
