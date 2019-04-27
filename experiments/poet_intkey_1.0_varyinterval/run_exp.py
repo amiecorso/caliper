@@ -108,10 +108,5 @@ subprocess.call(command, shell=True)
 subprocess.call("python3 ./cleandirs.py --exp_dir {}".format(THIS_DIR), shell=True)
 subprocess.call("ssh amie@{} \"python3 {}cleandirs.py --exp_dir {}\"".format(REMOTEIP, EXP_DIR, EXP_DIR), shell=True)
 
-'''
-# git push the whole thing
-print("run_exp.py: Pushing to GitHub...")
-os.chdir("/home/amie/caliper/")
-command = "git add . && git commit -m \"saving exp {}\" && git push".format(SAVE_AS)
+command = "python gitpushies.py --remote_ip {}".format(REMOTE_IP) 
 subprocess.call(command, shell=True)
-'''
