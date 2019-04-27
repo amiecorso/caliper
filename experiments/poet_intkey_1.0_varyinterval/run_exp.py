@@ -108,5 +108,5 @@ subprocess.call(command, shell=True)
 subprocess.call("python3 ./cleandirs.py --exp_dir {}".format(THIS_DIR), shell=True)
 subprocess.call("ssh amie@{} \"python3 {}cleandirs.py --exp_dir {}\"".format(REMOTEIP, EXP_DIR, EXP_DIR), shell=True)
 
-command = "python gitpushies.py --remote_ip {}".format(REMOTE_IP) 
+command = "python gitpushies.py --remote_ip {}".format(REMOTEIP) 
 subprocess.call(command, shell=True)
