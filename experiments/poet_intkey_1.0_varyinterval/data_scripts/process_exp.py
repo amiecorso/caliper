@@ -12,7 +12,7 @@ results_dir = args.exp_dir.rstrip("/") + "/results/"
 run_exp_path = args.exp_dir.rstrip("/") + "/run_exp.py"
 PERFORMANCE_SUMMARY = results_dir + "performance_summary.csv"
 RESOURCE_SUMMARY = results_dir + "resource_summary.csv"
-SKIP_RESOUCE = False
+SKIP_RESOURCE = False
 
 with open(run_exp_path, 'r') as run_exp:
     contents = run_exp.readlines()

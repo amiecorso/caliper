@@ -8,7 +8,7 @@ import time
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
 REMOTEIP = "192.168.0.105"
-SAVE_AS = time.strftime("%m-%d-%y") + "sshtesting.csv"
+SAVE_AS = time.strftime("%m-%d-%y") + "sshtesting"
 NET_SIZES = [1]
 REPEATS = 1
 #INTERVALS = [3, 5, 10, 20, 30, 40, 50, 60, 80, 100]
