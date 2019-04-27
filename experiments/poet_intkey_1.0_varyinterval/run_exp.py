@@ -104,6 +104,10 @@ subprocess.call(command, shell=True)
 command = "ssh amie@{} \"python {}savexp.py --save_as {} --exp_dir {}\"".format(REMOTEIP, EXP_DIR, SAVE_AS, EXP_DIR) 
 subprocess.call(command, shell=True)
 
+# Clean directories, both local and remote
+subprocess.call("python3 ./cleandirs.py --exp_dir {}".format(THIS_DIR), shell=True)
+subprocess.call("ssh amie@{} \"python3 {}cleandirs.py --exp_dir {}\"".format(REMOTEIP, EXP_DIR, EXP_DIR), shell=True)
+
 '''
 # git push the whole thing
 print("run_exp.py: Pushing to GitHub...")
