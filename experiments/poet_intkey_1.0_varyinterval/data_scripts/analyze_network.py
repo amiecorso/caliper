@@ -8,6 +8,7 @@ import argparse
 import os
 import sys
 
+print("inside analyze_network.py!!")
 parser = argparse.ArgumentParser(description="Parse validator logs for stale block rate")
 parser.add_argument('--n', default=1, type=int, help="Network size")
 parser.add_argument('--dest', default='/home/amie/caliper/experiments/data_scripts/', help="Where parsing results should be stored")
@@ -80,6 +81,8 @@ def count_txns():
 now = time.time()
 network_up = False
 while not network_up:
+
+    print("analyze_network.py: network still not up...")
     try:
         docker_client = docker.from_env()
         shell = docker_client.containers.get(args.shell_name)
