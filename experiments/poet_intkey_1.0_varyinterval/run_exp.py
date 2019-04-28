@@ -9,13 +9,14 @@ import time
 # auto-generate this?
 REMOTEIP = "192.168.0.105"
 SAVE_AS = time.strftime("%m-%d-%y") + "sshtesting"
-NET_SIZES = [1]
-REPEATS = 1
+NET_SIZES = [1, 2, 4, 8]
+REPEATS = 2
 #INTERVALS = [3, 5, 10, 20, 30, 40, 50, 60, 80, 100]
-INTERVALS = [5]
+INTERVALS = [20]
 #           (TPS, duration, unfinished)
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
-WORKLOADS = [(5, 40, 5)]
+WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (40, 800, 200)]
+#WORKLOADS = [(5, 40, 5)]
 TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
