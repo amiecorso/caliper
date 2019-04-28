@@ -32,6 +32,9 @@ PRINTBLOCKLIST = False
 
 if not args.dest.endswith("/"):
     args.dest += "/"
+args.dest = args.dest + "results" + "/"
+if not os.path.exists(args.dest):
+    os.mkdir(args.dest)
 args.dest = args.dest + str(args.n) + "/"
 if not os.path.exists(args.dest):
     os.mkdir(args.dest)
