@@ -98,7 +98,10 @@ for size in NET_SIZES:
             print(analysis_files)
             '''
             for run in range(REPEATS):
-                print(size, tps, interval, run)
+                print("{} nodes, {}tps, {}sec, run{}".format(size, tps, interval, run))
+                HAVE_PERF = True
+                HAVE_SB = True
+                HAVE_ANALYSIS = True
                 # process PERFORMANCE file + STALE BLOCK file
                 try:
                     pfile = [f for f in performance_files if f.endswith(str(run) + ".csv")][0]
@@ -109,12 +112,12 @@ for size in NET_SIZES:
                     sbfile = [f for f in staleb_files if f.endswith(str(run) + ".csv")][0]
                 except:
                     print("No stale block file for {}, {}tps, run{}".format(size, tps, run))
-                    break
+                    HAVE_SB = False
                 try:
                     afile = [f for f in analysis_files if f.endswith(str(run) + ".txt")][0]
                 except:
                     print("No analysis file for {}, {}tps, run{}".format(size, tps, run))
-                    break
+                    HAVE_ANALYSIS = False
                 with open(pfile, 'r') as f:
                     perf_line = f.readlines()
                 try:
@@ -128,66 +131,73 @@ for size in NET_SIZES:
                 split_perf_line = [entry.split()[0] for entry in split_perf_line]
                 caliperthroughput = float(split_perf_line[-1]) # gonna need this later for %diff calc
                 perf_line = ",".join(split_perf_line)
-                with open(sbfile, 'r') as f:
-                    sb_data = f.readlines()[0] # get just the block rate, ignore block list diagnostics
-                outputline = ",".join([size, str(run), perf_line, str(round(float(sb_data.strip()), 3))]) #<-- only handles a ONE-line perf (one round)
+                if HAVE_SB:
+                    with open(sbfile, 'r') as f:
+                        sb_data = f.readlines()[0] # get just the block rate, ignore block list diagnostics
+                    outputline = ",".join([size, str(run), perf_line, str(round(float(sb_data.strip()), 3))]) #<-- only handles a ONE-line perf (one round)
+                else: 
+                    outputline = ",".join([size, str(run), perf_line, "n/a"]) #<-- only handles a ONE-line perf (one round)
                 # process ANALYSIS file
-                data = []
-                with open(afile, 'r') as f:
-                    f.readline() # read header (Datetime, Elapsed, Num Blocks, Num Txns)
-                    line = f.readline()
-                    while (line != "\n") and (line != ''):
-                        data.append(line)
+                if HAVE_ANALYSIS:
+                    data = []
+                    with open(afile, 'r') as f:
+                        f.readline() # read header (Datetime, Elapsed, Num Blocks, Num Txns)
                         line = f.readline()
+                        while (line != "\n") and (line != ''):
+                            data.append(line)
+                            line = f.readline()
 
-                data = [entry.strip().split("\t ") for entry in data]
-                data = [[entry[0], round(float(entry[1]), 1), int(entry[2]), int(entry[3])] for entry in data]
-                data = data[1:-3] # cut off the GENESIS BLOCK and the end of the round that the monitor goes over
+                    data = [entry.strip().split("\t ") for entry in data]
+                    data = [[entry[0], round(float(entry[1]), 1), int(entry[2]), int(entry[3])] for entry in data]
+                    data = data[1:-3] # cut off the GENESIS BLOCK and the end of the round that the monitor goes over
 
-                numblocks = data[-1][2]
-                numtxns = data[-1][3]
-                duration = data[-1][1]
-                throughput = round(numtxns/duration, 1)
+                    numblocks = data[-1][2]
+                    numtxns = data[-1][3]
+                    duration = data[-1][1]
+                    throughput = round(numtxns/duration, 1)
 
-                blockdata = {}
-                prev_publish_time = 0
-                prev_total_txns = 0
-                current_block = data[0][2]
-                publish_time = data[0][1]
-                total_txns = data[0][3]
-                time_since_last = publish_time - prev_publish_time
-                txns_in_block = total_txns - prev_total_txns
-                blockdata[current_block] = (publish_time, txns_in_block, time_since_last)
-                prev_publish_time = publish_time
-                prev_total_txns = total_txns
-                for i in range(len(data)):
-                    this_block = data[i][2]
-                    if current_block != this_block:
-                        # process previous block's txns:
-                        total_txns = data[i - 1][3]
-                        txns_in_block = total_txns - prev_total_txns
-                        # write data for prev block
-                        blockdata[current_block] = (publish_time, txns_in_block, time_since_last)
-                        prev_total_txns = total_txns
+                    blockdata = {}
+                    prev_publish_time = 0
+                    prev_total_txns = 0
+                    current_block = data[0][2]
+                    publish_time = data[0][1]
+                    total_txns = data[0][3]
+                    time_since_last = publish_time - prev_publish_time
+                    txns_in_block = total_txns - prev_total_txns
+                    blockdata[current_block] = (publish_time, txns_in_block, time_since_last)
+                    prev_publish_time = publish_time
+                    prev_total_txns = total_txns
+                    for i in range(len(data)):
+                        this_block = data[i][2]
+                        if current_block != this_block:
+                            # process previous block's txns:
+                            total_txns = data[i - 1][3]
+                            txns_in_block = total_txns - prev_total_txns
+                            # write data for prev block
+                            blockdata[current_block] = (publish_time, txns_in_block, time_since_last)
+                            prev_total_txns = total_txns
 
-                        # move on and start processing for next block
-                        current_block = this_block
-                        publish_time = data[i][1]
-                        time_since_last = publish_time - prev_publish_time
-                        prev_publish_time = publish_time
-                        prev_total_txns = total_txns
+                            # move on and start processing for next block
+                            current_block = this_block
+                            publish_time = data[i][1]
+                            time_since_last = publish_time - prev_publish_time
+                            prev_publish_time = publish_time
+                            prev_total_txns = total_txns
 
-                # calculate avg block interval
-                intervals = []
-                for block in blockdata:
-                    intervals.append(blockdata[block][2])
-                avg_interval = round(sum(intervals) / len(intervals), 1)
-                min_interval = min(intervals)
-                max_interval = max(intervals)
+                    # calculate avg block interval
+                    intervals = []
+                    for block in blockdata:
+                        intervals.append(blockdata[block][2])
+                    avg_interval = round(sum(intervals) / len(intervals), 1)
+                    min_interval = min(intervals)
+                    max_interval = max(intervals)
 
-                percent_diff = round((caliperthroughput - throughput) / throughput, 2)
-                #combine data with Caliper report data
-                outputline = ",".join([interval, outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
+                    percent_diff = round((caliperthroughput - throughput) / throughput, 2)
+                    #combine data with Caliper report data
+                    outputline = ",".join([interval, outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
+
+                else: # DON'T have analysis file
+                    outputline = ",".join([interval, outputline, "n/a", "n/a", "n/a", "n/a", "n/a/", "n/a/", "n/a", "n/a"])
                 perf_out.write(outputline + "\n")
                 if not SKIP_RESOURCE:
                     # process resource files for this round
