@@ -197,7 +197,7 @@ for size in NET_SIZES:
                     outputline = ",".join([interval, outputline, str(numblocks), str(numtxns), str(duration), str(throughput), str(avg_interval), str(min_interval), str(max_interval), str(percent_diff)])
 
                 else: # DON'T have analysis file
-                    outputline = ",".join([interval, outputline, "n/a", "n/a", "n/a", "n/a", "n/a/", "n/a/", "n/a", "n/a"])
+                    outputline = ",".join([interval, outputline, "n/a", "n/a", "n/a", "n/a", "n/a", "n/a/", "n/a", "n/a"])
                 perf_out.write(outputline + "\n")
                 if not SKIP_RESOURCE:
                     # process resource files for this round
