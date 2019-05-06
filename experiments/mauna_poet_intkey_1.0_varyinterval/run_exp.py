@@ -80,7 +80,7 @@ for n in NET_SIZES:
 
                 # parse reports and copy to remote machine
                 print("run_exp.py: Calling report_parser.py")
-                parse_reports = "python {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {} --interval {} --remote_dir {} --remote_ip {}".format(THIS_DIR, THIS_DIR, THIS_DIR, n, repeat, tps, interval, EXP_DIR, REMOTEIP)
+                parse_reports = "python3 {}data_scripts/report_parser.py --reportpath {} --results {}results/ --n {} --run_num {} --tps {} --interval {} --remote_dir {} --remote_ip {}".format(THIS_DIR, THIS_DIR, THIS_DIR, n, repeat, tps, interval, EXP_DIR, REMOTEIP)
                 subprocess.call(parse_reports, shell=True)
 
 
