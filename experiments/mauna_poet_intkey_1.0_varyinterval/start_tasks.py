@@ -17,7 +17,7 @@ if not args.exp_dir.endswith("/"):
 
 compose_file = [f for f in os.listdir(args.exp_dir + "compose_files") if f.startswith(str(args.n))][0]
 
-start_network = "docker-compose -f {}compose_files/{} up -d && sleep 15".format(args.exp_dir, compose_file)
+start_network = "#!/bin/sh\n docker-compose -f {}compose_files/{} up -d && sleep 15".format(args.exp_dir, compose_file)
 print("Starting network... ")
 print("Executing command: ", start_network)
 subprocess.call(start_network, shell=True)
