@@ -16,11 +16,12 @@ SAVE_AS = time.strftime("%m-%d-%y") + "sshtesting"
 NET_SIZES = [1]
 REPEATS = 1
 INTERVALS = [20]
+TIME = 60
 #           (TPS, duration, unfinished)
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (40, 800, 200)]
 WORKLOADS = [(5, 40, 5)]
-TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
+#TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
     NET_SIZES = [1]
@@ -48,7 +49,7 @@ for n in NET_SIZES:
     for interval in INTERVALS:
         # generate compose files
         initial_wait_time = interval * n # initial_wait = target_wait * pop_size
-        command = "\"python {}generators/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}\"".format(EXP_DIR, n, COMPOSE_TEMPLATE, EXP_DIR + "/compose_files", interval, initial_wait_time)
+        command = "\"python {}generators/compose_file_gen.py --n {} --template {} --dest {} --target_wait_time {} --initial_wait_time {}\"".format(EXP_DIR, n, COMPOSE_TEMPLATE, EXP_DIR + "compose_files", interval, initial_wait_time)
         command = "ssh " + "amie@" + REMOTEIP + " " + command
         print("executing command: ", command)
         subprocess.call(command, shell=True)
