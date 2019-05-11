@@ -31,7 +31,7 @@ if LEAVE_UP: # if leaving the network running, can only handle one instance at a
     REPEATS = 1
 #TARGET_WAIT = 20
 # ON remote machine
-EXP_DIR = "/home/amie/caliper/experiments/poet_intkey_1.0_varyinterval/"
+EXP_DIR = "/home/amie/caliper/experiments/poet_intkey_1.0_varytxnperbatch/"
 THIS_DIR = os.getcwd() + "/"
 COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template_SMALLNETWORK.yaml"
 #COMPOSE_TEMPLATE = EXP_DIR + "templates/poet-intkey-1.0_template.yaml"
