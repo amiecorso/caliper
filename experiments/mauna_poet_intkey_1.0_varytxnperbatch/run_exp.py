@@ -13,13 +13,13 @@ args = parser.parse_args()
 # Naming scheme: date, workloads/durations, rate controller, network sizes, repeats, ..??? the thing we're testing??
 # auto-generate this?
 #REMOTEIP = "192.168.0.105"
+TPERB = args.tperb
 REMOTEIP = "128.223.6.92"
-SAVE_AS = time.strftime("%m-%d-%y") + "mauna_TESTTPB"
+SAVE_AS = time.strftime("%m-%d-%y") + "mauna_TPB={}TEST".format(TPERB)
 INTERVALS = [20]
 NET_SIZES = [1]
 REPEATS = 1
 TIME = 2000
-TPERB = args.tperb
 #           (TPS, duration, unfinished)
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (40, 800, 200)]
