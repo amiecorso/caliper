@@ -1,0 +1,27 @@
+---
+test:
+  name: intkey 
+  description: IntKey workload for Caliper-> Sawtooth 
+  clients:
+    type: local
+    number: 1
+  rounds:
+
+  - label: 5TPS20sec
+    txDuration:
+    - 40
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 5 
+    arguments:
+      txnPerBatch: 1
+    callback: benchmark/intkey/intkey_set.js
+
+
+monitor:
+  type: docker
+  docker:
+    name:
+    - http://128.223.6.92:2375/all
+  interval: 1
