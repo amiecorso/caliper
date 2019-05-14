@@ -15,15 +15,15 @@ args = parser.parse_args()
 #REMOTEIP = "192.168.0.105"
 TPERB = args.tperb
 REMOTEIP = "128.223.6.92"
-SAVE_AS = time.strftime("%m-%d-%y") + "mauna_TPB={}TEST".format(TPERB)
+SAVE_AS = time.strftime("%m-%d-%y") + "mauna_TPB{}".format(TPERB)
 INTERVALS = [20]
-NET_SIZES = [1]
+NET_SIZES = [1, 2, 4, 6, 8]
 REPEATS = 1
 TIME = 2000
 #           (TPS, duration, unfinished)
-#WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
+WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (30, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (40, 800, 200)]
-WORKLOADS = [(5, 40, 5)]
+#WORKLOADS = [(5, 40, 5)]
 #TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
 LEAVE_UP = False
 if LEAVE_UP: # if leaving the network running, can only handle one instance at a time
