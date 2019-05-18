@@ -10,10 +10,7 @@ import time
 #REMOTEIP = "192.168.0.105"
 REMOTEIP = "128.223.6.92"
 SAVE_AS = time.strftime("%m-%d-%y") + "sshtesting"
-#NET_SIZES = [1, 2, 4, 8]
-#REPEATS = 2
-#INTERVALS = [3, 5, 10, 20, 30, 40, 50, 60, 80, 100]
-NET_SIZES = [1]
+NET_SIZES = [6]
 REPEATS = 1
 INTERVALS = [20]
 #           (TPS, duration, unfinished)
