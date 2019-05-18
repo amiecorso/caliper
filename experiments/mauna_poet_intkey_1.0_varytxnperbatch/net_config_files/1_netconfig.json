@@ -3,7 +3,7 @@
     "blockchain": "sawtooth",
     "command" : {
       "start": "ssh amie@128.223.6.92 \"python3 /home/amie/caliper/experiments/mauna_poet_intkey_1.0_varytxnperbatch/start_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/mauna_poet_intkey_1.0_varytxnperbatch/ --run_num 0\"", 
-      "end" : "ssh amie@128.223.6.92 \"python3 /home/amie/caliper/experiments/mauna_poet_intkey_1.0_varytxnperbatch/end_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/mauna_poet_intkey_1.0_varytxnperbatch/ --run_num 0 --leave_up False --tps 15 --interval 20\""
+      "end" : "ssh amie@128.223.6.92 \"python3 /home/amie/caliper/experiments/mauna_poet_intkey_1.0_varytxnperbatch/end_tasks.py --n 1 --exp_dir /home/amie/caliper/experiments/mauna_poet_intkey_1.0_varytxnperbatch/ --run_num 0 --leave_up False --tps 50 --interval 20\""
     }
   },
   "sawtooth": {
