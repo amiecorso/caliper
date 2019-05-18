@@ -9,10 +9,10 @@ import time
 # auto-generate this?
 #REMOTEIP = "192.168.0.105"
 REMOTEIP = "128.223.6.92"
-SAVE_AS = time.strftime("%m-%d-%y") + "mauna_6_TESTER"
+SAVE_AS = time.strftime("%m-%d-%y") + "mauna_6_manyrepeats"
 INTERVALS = [20]
 NET_SIZES = [6]
-REPEATS = 2
+REPEATS = 100
 TIME = 2000
 #           (TPS, duration, unfinished)
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (35, 800, 200), (40, 800, 200), (45, 800, 200), (50, 800, 200)]
