@@ -9,13 +9,13 @@ import time
 # auto-generate this?
 #REMOTEIP = "192.168.0.105"
 REMOTEIP = "128.223.6.92"
-SAVE_AS = time.strftime("%m-%d-%y") + "mauna_6_manyrepeats"
+SAVE_AS = time.strftime("%m-%d-%y") + "mauna_12468remote2reps"
 INTERVALS = [20]
-NET_SIZES = [6]
-REPEATS = 15
+NET_SIZES = [1, 2, 4, 6, 8]
+REPEATS = 2
 TIME = 2000
 #           (TPS, duration, unfinished)
-WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (35, 800, 200), (40, 800, 200), (45, 800, 200), (50, 800, 200)]
+WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (35, 800, 200), (40, 800, 200), (50, 800, 200), (60, 800, 200)]
 #WORKLOADS = [(5, 800, 200), (10, 800, 200), (15, 800, 200), (20, 800, 200), (25, 800, 200), (30, 800, 200), (40, 800, 200)]
 #WORKLOADS = [(5, 40, 5)]
 #TIME = 2000 # maximum time to run external monitor... should at least be as long as the duration of experiment, otherwise monitor will come down early
